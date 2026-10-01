@@ -1,4 +1,4 @@
-APP THU CHI V10.2 PWA
+APP THU CHI V10.2.1 PWA
 
 Cách đưa lên GitHub Pages miễn phí:
 1. Tạo repository mới trên GitHub, ví dụ: tai-chinh.
