@@ -1,0 +1,10 @@
+BẢN CẬP NHẬT GIỮ NGUYÊN DỮ LIỆU PWA
+
+1. Upload TOÀN BỘ file trong ZIP này đè lên repo GitHub Pages cũ /aaa/.
+2. KHÔNG xóa PWA khỏi màn hình chính.
+3. KHÔNG xóa dữ liệu Safari/Website Data.
+4. Sau khi GitHub Pages deploy xong, đóng hẳn PWA cũ rồi mở lại.
+5. PWA sẽ kiểm tra service worker mới, kích hoạt và tự reload.
+6. Dữ liệu vẫn đọc từ localStorage key kmFinancePro1 trên chính PWA cũ.
+
+Bản này không chứa lệnh xóa kmFinancePro1 khi cập nhật mã nguồn.

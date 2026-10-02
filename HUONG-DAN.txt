@@ -1,20 +1,21 @@
-APP THU CHI V10.2.1 PWA
+APP THU CHI V10.2.4 PWA - UPDATE AN TOAN
 
-Cách đưa lên GitHub Pages miễn phí:
-1. Tạo repository mới trên GitHub, ví dụ: tai-chinh.
-2. Upload TOÀN BỘ 5 file trong thư mục này vào nhánh main:
+CAP NHAT TREN GITHUB MA KHONG MAT DU LIEU:
+1. Tren dien thoai, mo app cu -> Cai dat & sao luu -> Xuat ban sao luu JSON.
+2. KHONG xoa app PWA khoi man hinh chinh.
+3. KHONG xoa du lieu website/Safari/Chrome.
+4. Giu nguyen repository, GitHub Pages URL va domain dang dung.
+5. Upload/ghi de 5 file cua ban nay len dung repo/cu thu muc dang publish:
    index.html
    manifest.webmanifest
    sw.js
    icon-192.png
    icon-512.png
-3. Vào Settings > Pages.
-4. Source: Deploy from a branch.
-5. Branch: main, folder: / (root), rồi Save.
-6. Chờ GitHub tạo địa chỉ https://TENBAN.github.io/tai-chinh/
-7. Mở địa chỉ đó trên điện thoại.
-8. Android Chrome: menu ⋮ > Add to Home screen / Install app.
-   iPhone Safari: Share > Add to Home Screen.
+6. Cho GitHub Pages deploy xong, mo lai icon app cu tren man hinh chinh.
+7. App se doc lai du lieu cu tu localStorage key: kmFinancePro1.
+8. Vao Cai dat & sao luu -> Kiem tra du lieu da luu de xac nhan.
 
-Dữ liệu tài chính vẫn lưu cục bộ trên trình duyệt/điện thoại.
-Hãy dùng chức năng Backup JSON định kỳ.
+PHUC HOI NEU CAN:
+Cai dat & sao luu -> Khoi phuc tu file JSON -> chon file backup.
+
+LUU Y: Cache PWA va du lieu tai chinh la hai noi khac nhau. Ban V10.2.4 thay cache code nhung khong xoa localStorage.
