@@ -1,4 +1,4 @@
-const CACHE='tai-chinh-v10-2-6-code-refresh';
+const CACHE='tai-chinh-v10-2-9-approved-ui';
 const STATIC=['./manifest.webmanifest','./icon-192.png','./icon-512.png'];
 self.addEventListener('install',event=>{
   event.waitUntil(caches.open(CACHE).then(c=>c.addAll(STATIC.map(u=>new Request(u,{cache:'reload'})))).then(()=>self.skipWaiting()));

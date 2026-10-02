@@ -1,12 +1,1 @@
-V10.2.6 - CAP NHAT GIU DU LIEU CU
-
-1. Upload/ghi de 5 file nay vao DUNG repo GitHub Pages cu:
-   index.html, sw.js, manifest.webmanifest, icon-192.png, icon-512.png
-2. KHONG xoa icon PWA tren iPhone.
-3. KHONG xoa Website Data/Safari data.
-4. Cho GitHub Pages deploy xong.
-5. Dong han app PWA cu (vuot khoi app switcher), mo lai icon cu 2 lan neu can.
-
-Ban nay GIU NGUYEN localStorage key: kmFinancePro1.
-Neu PWA cu dang co du lieu, index moi doc truc tiep du lieu do.
-Service worker V10.2.6 khong cache-first HTML; navigation luon uu tien lay index.html moi tu GitHub.
+V10.2.9 - giao dien da duyet. Giu nguyen localStorage key kmFinancePro1. Upload de cac file vao repo GitHub Pages cu. KHONG xoa PWA tren dien thoai, KHONG xoa Website Data.
