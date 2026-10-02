@@ -1,10 +1,12 @@
-BẢN CẬP NHẬT GIỮ NGUYÊN DỮ LIỆU PWA
+V10.2.6 - CAP NHAT GIU DU LIEU CU
 
-1. Upload TOÀN BỘ file trong ZIP này đè lên repo GitHub Pages cũ /aaa/.
-2. KHÔNG xóa PWA khỏi màn hình chính.
-3. KHÔNG xóa dữ liệu Safari/Website Data.
-4. Sau khi GitHub Pages deploy xong, đóng hẳn PWA cũ rồi mở lại.
-5. PWA sẽ kiểm tra service worker mới, kích hoạt và tự reload.
-6. Dữ liệu vẫn đọc từ localStorage key kmFinancePro1 trên chính PWA cũ.
+1. Upload/ghi de 5 file nay vao DUNG repo GitHub Pages cu:
+   index.html, sw.js, manifest.webmanifest, icon-192.png, icon-512.png
+2. KHONG xoa icon PWA tren iPhone.
+3. KHONG xoa Website Data/Safari data.
+4. Cho GitHub Pages deploy xong.
+5. Dong han app PWA cu (vuot khoi app switcher), mo lai icon cu 2 lan neu can.
 
-Bản này không chứa lệnh xóa kmFinancePro1 khi cập nhật mã nguồn.
+Ban nay GIU NGUYEN localStorage key: kmFinancePro1.
+Neu PWA cu dang co du lieu, index moi doc truc tiep du lieu do.
+Service worker V10.2.6 khong cache-first HTML; navigation luon uu tien lay index.html moi tu GitHub.
