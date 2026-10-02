@@ -1,1 +1,2 @@
-V10.2.9 - giao dien da duyet. Giu nguyen localStorage key kmFinancePro1. Upload de cac file vao repo GitHub Pages cu. KHONG xoa PWA tren dien thoai, KHONG xoa Website Data.
+V10.4.0 CLEAN
+Upload đè 5 file lên GitHub Pages. KHÔNG xóa PWA cũ và KHÔNG xóa dữ liệu Safari. Dữ liệu tiếp tục dùng localStorage key kmFinancePro1.
