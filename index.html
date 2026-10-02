@@ -302,6 +302,7 @@ body{margin:0;background:#020912!important;color:var(--text);font-family:Inter,s
 .nativeEntry>summary::-webkit-details-marker{display:none}.nativeEntry[open]>summary{border-bottom:1px solid #173047}
 .nativeEntry>form{padding:4px 12px 13px}.nativeEntry>form .primary{width:100%;margin-top:12px}
 .debtNative{margin-top:9px}.debtNative>summary{text-align:center;color:#fff;background:#173653}
+.priceBar{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:2px 0 6px;font-size:11px}.priceBar button{min-height:32px;padding:0 12px;font-size:12px}.stockSym{font-size:15px;letter-spacing:.03em}.stockRow .muted b{color:#e8f1f9}#investSubline{margin-top:4px}
 </style></head><body><div class="app iphoneApp">
 <header class="iosHeader"><div class="iosTitle" id="pageTitle">Tổng quan</div><button class="iconBtn" onclick="openTools()">⚙</button></header>
 <main class="screenWrap">
@@ -335,18 +336,18 @@ body{margin:0;background:#020912!important;color:var(--text);font-family:Inter,s
 <section class="panel"><div class="panelHead"><b>Cơ cấu tài sản</b></div><div class="donutWrap" id="assetDonut"></div></section>
 </div>
 <div class="hide" id="debts"><div class="assetTabs"><button onclick="showPage('assets')">Tài khoản</button><button class="activeTab">Nợ phải trả</button><button onclick="showPage('investments')">Đầu tư</button></div><section class="panel"><div class="panelHead"><div><b>Nợ phải trả</b><div class="muted">Lịch trả và dư nợ hiện tại</div></div><button class="addText" onclick="openDebt()">＋ Thêm nợ</button></div><div id="debtList"></div></section></div>
-<div class="hide" id="investments"><div class="assetTabs"><button onclick="showPage('assets')">Tài khoản</button><button onclick="showPage('debts')">Nợ phải trả</button><button class="activeTab">Đầu tư</button></div><section class="heroCard assetHero"><div class="heroIcon">↗</div><div class="grow"><div class="muted">Tổng tiền đã bỏ vào đầu tư</div><div class="heroValue" id="investCapitalTotal">0 ₫</div></div></section><section class="panel"><div class="panelHead"><div><b>Danh mục đầu tư</b><div class="muted">Chỉ theo dõi tiền vốn, không tính lời/lỗ</div></div></div>
+<div class="hide" id="investments"><div class="assetTabs"><button onclick="showPage('assets')">Tài khoản</button><button onclick="showPage('debts')">Nợ phải trả</button><button class="activeTab">Đầu tư</button></div><section class="heroCard assetHero"><div class="heroIcon">↗</div><div class="grow"><div class="muted">Giá trị đầu tư hiện tại</div><div class="heroValue" id="investCapitalTotal">0 ₫</div><div class="heroDelta" id="investSubline"></div></div></section><section class="panel"><div class="panelHead"><div><b>Danh mục đầu tư</b><div class="muted">Cổ phiếu tính theo giá thị trường, loại khác theo tiền vốn</div></div></div>
 <button class="addText full" id="investmentAddBtn" type="button">＋ Thêm khoản đầu tư</button>
-<div class="investTypeStrip" id="investTypeSummary"></div><div id="investmentList"></div></section></div><div class="hide" id="reports"><section class="panel"><div class="panelHead"><b>Thu – Chi theo thời gian</b></div><div class="reportControls"><button id="modeDay" onclick="setChartMode('day')">Ngày</button><button id="modeMonth" onclick="setChartMode('month')">Tháng</button><button id="modeYear" onclick="setChartMode('year')">Năm</button><button onclick="shiftReportPeriod(-1)">‹</button><button id="reportPeriod" onclick="openPeriodPicker()">Kỳ</button><button onclick="shiftReportPeriod(1)">›</button></div><div class="spark" id="cashChart"></div></section><section class="panel"><b>Tổng hợp tài chính</b><div id="report"></div></section><section class="panel"><div class="panelHead"><b>Phân tích tài chính</b><div><b id="reportHealthScore">—</b><div class="muted" id="reportHealthLabel"></div></div></div><div id="reportHealthReasons"></div><div id="reportAnomalies"></div><div id="reportActionPlan"></div></section><section class="panel"><b>Xu hướng sức khỏe tài chính</b><div id="snapshotTrend"></div></section></div>
+<div class="investTypeStrip" id="investTypeSummary"></div><div id="priceBar"></div><div id="investmentList"></div></section></div><div class="hide" id="reports"><section class="panel"><div class="panelHead"><b>Thu – Chi theo thời gian</b></div><div class="reportControls"><button id="modeDay" onclick="setChartMode('day')">Ngày</button><button id="modeMonth" onclick="setChartMode('month')">Tháng</button><button id="modeYear" onclick="setChartMode('year')">Năm</button><button onclick="shiftReportPeriod(-1)">‹</button><button id="reportPeriod" onclick="openPeriodPicker()">Kỳ</button><button onclick="shiftReportPeriod(1)">›</button></div><div class="spark" id="cashChart"></div></section><section class="panel"><b>Tổng hợp tài chính</b><div id="report"></div></section><section class="panel"><div class="panelHead"><b>Phân tích tài chính</b><div><b id="reportHealthScore">—</b><div class="muted" id="reportHealthLabel"></div></div></div><div id="reportHealthReasons"></div><div id="reportAnomalies"></div><div id="reportActionPlan"></div></section><section class="panel"><b>Xu hướng sức khỏe tài chính</b><div id="snapshotTrend"></div></section></div>
 </main>
 <div class="savebar hiddenSave" id="saveBar"><span id="saveState"></span><span id="saveStats"></span></div>
 <nav class="bottomNav"><button class="active" data-page="home" onclick="showPage('home')"><i>⌂</i><span>Tổng quan</span></button><button data-page="transactions" onclick="showPage('transactions')"><i>☷</i><span>Thu chi</span></button><button class="centerAdd" onclick="openQuickAdd()">＋</button><button data-page="assets" onclick="showPage('assets')"><i>▣</i><span>Tài sản</span></button><button id="moreNavBtn" onclick="openMoreMenu()"><i>•••</i><span>Thêm</span></button></nav>
 </div><div class="modal" id="modal"><div class="sheet" id="sheet"></div></div>
 <script>
-const APP_VERSION='V10.6.4';
+const APP_VERSION='V10.7.0';
 const KEY='kmFinancePro1', $=x=>document.getElementById(x), money=n=>new Intl.NumberFormat('vi-VN',{style:'currency',currency:'VND',maximumFractionDigits:0}).format(Number(n)||0);let current=new Date();current.setDate(1);const expenseCats=['Ăn Uống','Giao Lưu / Giải Trí','Đi Lại','Vợ','Con','Nhà Cửa','Ba Mẹ','Quà','Điện Thoại','Y Tế','Thể Thao - Giáo Dục','Cho Mượn','Chi Khác'],incomeCats=['Lương','Web','Khác','Rút từ đầu tư về'],investTypes=['Chứng khoán','Chứng chỉ quỹ','Vàng','Tiết kiệm'];const META_KEY=KEY+'_meta';
 function defaultDB(){return {accounts:[{id:1,name:'Tiền Mặt',kind:'liquid',opening:0},{id:2,name:'Tài khoản ngân hàng',kind:'liquid',opening:0},{id:3,name:'Dự phòng & dự trù',kind:'reserve',opening:0}],tx:[],investments:[],debts:[],budgets:[],goals:{'Trả nợ':25,'Dự phòng':20,'Mua vàng':15,'Gửi tiết kiệm':15,'Chứng chỉ quỹ':10,'Chứng khoán':15},recurring:[],fundGoals:[]}}
-function normalizeDB(x){x=x&&typeof x==='object'?x:defaultDB();x.accounts=Array.isArray(x.accounts)?x.accounts:defaultDB().accounts;x.tx=Array.isArray(x.tx)?x.tx:[];x.investments=Array.isArray(x.investments)?x.investments:[];x.debts=Array.isArray(x.debts)?x.debts:[];x.budgets=Array.isArray(x.budgets)?x.budgets:[];x.recurring=Array.isArray(x.recurring)?x.recurring:[];x.fundGoals=Array.isArray(x.fundGoals)?x.fundGoals:[];x.goals=x.goals&&typeof x.goals==='object'?x.goals:defaultDB().goals;return x}
+function normalizeDB(x){x=x&&typeof x==='object'?x:defaultDB();x.accounts=Array.isArray(x.accounts)?x.accounts:defaultDB().accounts;x.tx=Array.isArray(x.tx)?x.tx:[];x.investments=Array.isArray(x.investments)?x.investments:[];x.debts=Array.isArray(x.debts)?x.debts:[];x.budgets=Array.isArray(x.budgets)?x.budgets:[];x.recurring=Array.isArray(x.recurring)?x.recurring:[];x.fundGoals=Array.isArray(x.fundGoals)?x.fundGoals:[];x.goals=x.goals&&typeof x.goals==='object'?x.goals:defaultDB().goals;x.prices=x.prices&&typeof x.prices==='object'&&!Array.isArray(x.prices)?x.prices:{};return x}
 function checksum(str){let h=2166136261;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619)}return (h>>>0).toString(16).padStart(8,'0')}
 function storageAvailable(){try{let k='__km_test__'+Date.now();localStorage.setItem(k,'1');let ok=localStorage.getItem(k)==='1';localStorage.removeItem(k);return ok}catch(e){return false}}
 let storageOK=storageAvailable(),loadError='',db;
@@ -494,7 +495,7 @@ function openMoreMenu(){openModal(`<h2>Thêm chức năng</h2><div class='moreGr
 <button onclick="closeModal();openInitialSetup()"><b>⚙</b><span>Tài chính ban đầu</span></button>
 <button onclick="closeModal();openTools()"><b>☁</b><span>Sao lưu & dữ liệu</span></button>
 </div><div class='divider'></div><div class='moreLinks'><button onclick="closeModal();showPage('debts')">Nợ phải trả</button><button onclick="closeModal();showPage('investments')">Đầu tư</button></div>`)}
-function showPage(p){['home','transactions','investments','debts','assets','reports'].forEach(x=>$(x).classList.toggle('hide',x!==p));document.querySelectorAll('.bottomNav button[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===p));let titles={home:'Tổng quan',transactions:'Thu chi',assets:'Tài sản',debts:'Nợ phải trả',investments:'Đầu tư',reports:'Phân tích'};if($('pageTitle'))$('pageTitle').textContent=titles[p]||'App Thu Chi';render();if(p==='reports')updateReportControls()}function openTools(){openModal(`<h2>Công cụ & dữ liệu</h2><div class='muted' style='margin-bottom:10px'>Phiên bản đang chạy: <b>V10.6.4</b></div><label>Chọn tháng đang xem</label><input id='mp' type='month' value='${ym()}'><button class='primary' style='width:100%;margin-top:10px' onclick='changeMonth()'>Đổi tháng</button><div class='divider'></div><button style='width:100%' class='primary' onclick='openInitialSetup()'>Thiết lập tài chính ban đầu</button><button style='width:100%;margin-top:8px' onclick='verifyStorage(true)'>Kiểm tra dữ liệu đã lưu</button><button style='width:100%;margin-top:8px' onclick='backup()'>Xuất bản sao lưu JSON</button><button style='width:100%;margin-top:8px' onclick='pickRestore()'>Khôi phục từ file JSON</button><input id='restoreFile' type='file' accept='.json,application/json' style='display:none' onchange='restoreBackup(event)'><button class='dangerBtn' style='width:100%;margin-top:8px' onclick="if(confirm('Xóa toàn bộ dữ liệu?')){localStorage.removeItem(KEY);localStorage.removeItem(META_KEY);location.reload()}">Xóa dữ liệu</button>`)}function changeMonth(){let v=$('mp').value;if(v){current=new Date(v+'-01T00:00');closeModal();render()}}function backup(){let raw=JSON.stringify(db),pack={app:'App Thu Chi',version:APP_VERSION+'-PWA',exportedAt:new Date().toISOString(),checksum:checksum(raw),counts:dataCounts(),data:db},text=JSON.stringify(pack,null,2),b=new Blob([text],{type:'application/json;charset=utf-8'}),url=URL.createObjectURL(b),a=document.createElement('a');a.href=url;a.download='app-thu-chi-backup-'+new Date().toISOString().slice(0,10)+'.json';a.style.display='none';document.body.appendChild(a);a.click();setTimeout(()=>{a.remove();URL.revokeObjectURL(url)},5000)}
+function showPage(p){['home','transactions','investments','debts','assets','reports'].forEach(x=>$(x).classList.toggle('hide',x!==p));document.querySelectorAll('.bottomNav button[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===p));let titles={home:'Tổng quan',transactions:'Thu chi',assets:'Tài sản',debts:'Nợ phải trả',investments:'Đầu tư',reports:'Phân tích'};if($('pageTitle'))$('pageTitle').textContent=titles[p]||'App Thu Chi';render();if(p==='reports')updateReportControls()}function openTools(){openModal(`<h2>Công cụ & dữ liệu</h2><div class='muted' style='margin-bottom:10px'>Phiên bản đang chạy: <b>V10.7.0</b></div><label>Chọn tháng đang xem</label><input id='mp' type='month' value='${ym()}'><button class='primary' style='width:100%;margin-top:10px' onclick='changeMonth()'>Đổi tháng</button><div class='divider'></div><button style='width:100%' class='primary' onclick='openInitialSetup()'>Thiết lập tài chính ban đầu</button><button style='width:100%;margin-top:8px' onclick='verifyStorage(true)'>Kiểm tra dữ liệu đã lưu</button><button style='width:100%;margin-top:8px' onclick='backup()'>Xuất bản sao lưu JSON</button><button style='width:100%;margin-top:8px' onclick='pickRestore()'>Khôi phục từ file JSON</button><input id='restoreFile' type='file' accept='.json,application/json' style='display:none' onchange='restoreBackup(event)'><button class='dangerBtn' style='width:100%;margin-top:8px' onclick="if(confirm('Xóa toàn bộ dữ liệu?')){localStorage.removeItem(KEY);localStorage.removeItem(META_KEY);location.reload()}">Xóa dữ liệu</button>`)}function changeMonth(){let v=$('mp').value;if(v){current=new Date(v+'-01T00:00');closeModal();render()}}function backup(){let raw=JSON.stringify(db),pack={app:'App Thu Chi',version:APP_VERSION+'-PWA',exportedAt:new Date().toISOString(),checksum:checksum(raw),counts:dataCounts(),data:db},text=JSON.stringify(pack,null,2),b=new Blob([text],{type:'application/json;charset=utf-8'}),url=URL.createObjectURL(b),a=document.createElement('a');a.href=url;a.download='app-thu-chi-backup-'+new Date().toISOString().slice(0,10)+'.json';a.style.display='none';document.body.appendChild(a);a.click();setTimeout(()=>{a.remove();URL.revokeObjectURL(url)},5000)}
 function pickRestore(){let f=$('restoreFile');if(f)f.click()}
 function restoreBackup(e){let file=e.target.files&&e.target.files[0];if(!file)return;let r=new FileReader();r.onload=()=>{try{let pack=JSON.parse(r.result),x=pack&&pack.data?pack.data:pack;if(pack&&pack.data&&pack.checksum&&checksum(JSON.stringify(pack.data))!==pack.checksum)throw new Error('Checksum file backup không khớp');if(!x||!Array.isArray(x.accounts)||!Array.isArray(x.tx))throw new Error('Sai cấu trúc');x=normalizeDB(x);if(!confirm('Khôi phục sẽ thay thế dữ liệu hiện tại. Tiếp tục?')){e.target.value='';return}db=x;if(!save())throw new Error('Không thể ghi dữ liệu khôi phục');closeModal();render();if(!verifyStorage(false))throw new Error('Dữ liệu sau khôi phục không vượt qua kiểm tra');alert('Đã khôi phục và kiểm tra dữ liệu thành công.')}catch(err){alert('Khôi phục thất bại: '+(err.message||err))}finally{e.target.value=''}};r.readAsText(file)}
 
@@ -546,7 +547,7 @@ function openTx(type){let cats=type==='income'?incomeCats:expenseCats;let isExp=
 
 render();bindFinanceActions();setTimeout(()=>{try{let pristine=!db.tx.length&&!db.investments.length&&!db.debts.length&&db.accounts.every(a=>(+a.opening||0)===0);if(pristine&&!localStorage.getItem(KEY+'_onboard_seen')){localStorage.setItem(KEY+'_onboard_seen','1');openInitialSetup()}}catch(e){}},120);setTimeout(()=>{try{if(loadError){updateSaveUI(false,'Lỗi đọc dữ liệu cũ: '+loadError)}else if(storageOK&&localStorage.getItem(KEY)){let meta=localStorage.getItem(META_KEY);if(meta)verifyStorage(false);else save()}else if(storageOK){save()}else{updateSaveUI(false,'Trình duyệt không cho phép lưu dữ liệu')}}catch(e){updateSaveUI(false,'Không xác minh được lưu dữ liệu')}},50);
 
-/* ===== V10.6.4: Nợ · Đầu tư · Che số dư (bản hợp nhất, thay toàn bộ legacy) ===== */
+/* ===== V10.7.0: Nợ · Đầu tư · Che số dư (bản hợp nhất, thay toàn bộ legacy) ===== */
 function escAttr(v){return String(v==null?'':v).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/'/g,'&#39;').replace(/</g,'&lt;')}
 function idArg(v){return escAttr(JSON.stringify(financeId(v)))}
 function accountOptions(withNone){let o=withNone?`<option value="">Không trừ tài khoản</option>`:'';return o+db.accounts.map(a=>`<option value="${escAttr(financeId(a.id))}">${a.name} · ${money(actual(a))}</option>`).join('')}
@@ -558,37 +559,14 @@ function normInvType(t){let v=String(t||'').toLowerCase();return v.includes('và
 function investItems(){return db.investments.filter(x=>!isReceivable(x))}
 function receivableItems(){return db.investments.filter(isReceivable)}
 function invCost(){return investItems().reduce((q,x)=>q+invCapital(x),0)}
-function invValue(){return invCost()}
+
 function receivablesTotal(){return receivableItems().reduce((q,x)=>q+invCapital(x),0)}
 function investmentById(id){return db.investments.find(x=>financeId(x.id)===financeId(id))}
-function renderInvest(){
- let total=invCost(),types=['Chứng khoán','Chứng chỉ quỹ','Vàng','Tiết kiệm'],sums={};types.forEach(t=>sums[t]=0);
- investItems().forEach(x=>sums[normInvType(x.type)]+=invCapital(x));
- if($('investCapitalTotal'))$('investCapitalTotal').textContent=money(total);
- if($('investTypeSummary'))$('investTypeSummary').innerHTML=types.map(t=>`<div><span>${t}</span><b>${money(sums[t])}</b></div>`).join('');
- if($('investmentList')){
-  let rows=investItems().map(x=>{let id=idArg(x.id);return `<div class="investmentCapitalRow"><div class="row"><div class="grow"><b>${x.name||x.type}</b><div class="muted">${normInvType(x.type)}${x.date?' · '+new Date(x.date+'T00:00').toLocaleDateString('vi-VN'):''}</div></div><b>${money(invCapital(x))}</b></div><div class="investActions"><button type="button" onclick='addInvCapital(${id})'>＋ Bỏ thêm</button><button type="button" onclick='withdrawInv(${id})'>Rút</button><button type="button" onclick='delInv(${id})'>Xóa</button></div></div>`}).join('')||`<div class="empty">Chưa có khoản đầu tư.</div>`;
-  let rec=receivableItems();
-  if(rec.length)rows+=`<div class="divider"></div><div class="row" style="margin:6px 0"><b>Khoản cho mượn (không tính vào đầu tư)</b><b>${money(receivablesTotal())}</b></div>`+rec.map(x=>{let id=idArg(x.id);return `<div class="investmentCapitalRow"><div class="row"><div class="grow"><b>${x.name||'Cho mượn'}</b><div class="muted">Còn phải thu</div></div><b>${money(invCapital(x))}</b></div><div class="investActions"><button type="button" onclick='withdrawInv(${id})'>Thu về</button><button type="button" onclick='delInv(${id})'>Xóa</button></div></div>`}).join('');
-  $('investmentList').innerHTML=rows;
- }
- bindFinanceActions();
-}
-function openInvestmentAdd(){
- openModal(`<h2>Thêm khoản đầu tư</h2><form id="investmentForm"><label>Loại đầu tư</label><select name="type">${investTypes.map(t=>`<option>${t}</option>`).join('')}</select><label>Tên khoản đầu tư</label><input name="name" required placeholder="VD: MBB, Vàng SJC"><label>Số tiền đầu tư</label><input name="amount" type="number" inputmode="numeric" min="1" required><label>Nguồn tiền</label><select name="account">${accountOptions(true)}</select><label>Ngày</label><input name="date" type="date" value="${today()}" required><button class="primary" type="submit">Lưu khoản đầu tư</button></form>`);
- $('investmentForm').onsubmit=saveInvestmentAdd;
-}
+
+
 function openInvestmentSafe(){openInvestmentAdd()}
 function openInvestment(){openInvestmentAdd()}
-function saveInvestmentAdd(e){
- e.preventDefault();let f=e.currentTarget,amount=Number(f.elements.amount.value),name=f.elements.name.value.trim(),raw=f.elements.account.value,acc=raw===''?null:accountById(raw),date=f.elements.date.value||today(),type=f.elements.type.value;
- if(!name||!Number.isFinite(amount)||amount<=0)return alert('Vui lòng nhập đúng tên và số tiền');
- if(raw!==''&&!acc)return alert('Không tìm thấy tài khoản nguồn');
- if(acc&&actual(acc)<amount&&!confirm('Tài khoản không đủ số dư. Vẫn ghi nhận?'))return;
- let id=Date.now();db.investments.push({id,type,name,cost:amount,date,account:acc?acc.id:null});
- if(acc)db.tx.unshift({id:id+1,type:'investBuy',amount,account:acc.id,date,category:'Đầu tư',note:name,investmentId:id});
- if(!save())return;closeModal();render();showPage('investments');
-}
+
 function addInvCapital(id){
  let x=investmentById(id);if(!x)return alert('Không tìm thấy khoản đầu tư');
  openModal(`<h2>Bỏ thêm tiền</h2><div class="muted">${x.name} · vốn hiện tại ${money(invCapital(x))}</div><form id="invAddForm"><label>Số tiền bỏ thêm</label><input name="amount" type="number" inputmode="numeric" min="1" required><label>Nguồn tiền</label><select name="account">${accountOptions(true)}</select><label>Ngày</label><input name="date" type="date" value="${today()}" required><button class="primary" type="submit">Xác nhận</button></form>`);
@@ -670,6 +648,135 @@ function applyAmountsHidden(){document.body.classList.toggle('amountsHidden',amo
 function toggleAmounts(){amountsHidden=!amountsHidden;try{localStorage.setItem(KEY+'_hide_amounts',amountsHidden?'1':'0')}catch(e){}applyAmountsHidden()}
 applyAmountsHidden();
 
+
+/* ===== V10.7.0: Cổ phiếu nắm giữ + giá thị trường cập nhật hằng ngày ===== */
+if(!db.prices||typeof db.prices!=='object')db.prices={};
+function fmtN(n){return Math.round(Number(n)||0).toLocaleString('vi-VN')}
+function isStock(x){return !isReceivable(x)&&!!x.symbol&&Number(x.qty)>0}
+function stockPrice(sym){let p=db.prices&&db.prices[String(sym||'').toUpperCase()];return p&&Number(p.price)>0?p:null}
+function invMarket(x){if(isStock(x)){let p=stockPrice(x.symbol);if(p)return Number(x.qty)*Number(p.price)}return invCapital(x)}
+function invValue(){return investItems().reduce((q,x)=>q+invMarket(x),0)}
+function stockItemBySymbol(sym){sym=String(sym||'').toUpperCase();return db.investments.find(x=>isStock(x)&&String(x.symbol).toUpperCase()===sym)}
+function pnlHtml(v,base){let cls=v>0?'pos':v<0?'neg':'muted',pct=base>0?` (${v>=0?'+':''}${(v/base*100).toFixed(2)}%)`:'';return `<span class="${cls}">${v>0?'+':v<0?'−':''}${money(Math.abs(v))}${pct}</span>`}
+
+function renderInvest(){
+ let types=['Chứng khoán','Chứng chỉ quỹ','Vàng','Tiết kiệm'],sums={};types.forEach(t=>sums[t]=0);
+ investItems().forEach(x=>sums[isStock(x)?'Chứng khoán':normInvType(x.type)]+=invMarket(x));
+ let cost=invCost(),val=invValue();
+ if($('investCapitalTotal'))$('investCapitalTotal').textContent=money(val);
+ if($('investSubline'))$('investSubline').innerHTML=`Vốn ${money(cost)} · Lãi/lỗ ${pnlHtml(val-cost,cost)}`;
+ if($('investTypeSummary'))$('investTypeSummary').innerHTML=types.map(t=>`<div><span>${t}</span><b>${money(sums[t])}</b></div>`).join('');
+ let stocks=investItems().filter(isStock),others=investItems().filter(x=>!isStock(x));
+ if($('priceBar')){
+  if(stocks.length){let ats=stocks.map(x=>stockPrice(x.symbol)).filter(Boolean).map(p=>p.at).filter(Boolean).sort(),last=ats[0];
+   $('priceBar').innerHTML=`<div class="priceBar"><span class="muted">${priceUpdating?'Đang cập nhật giá…':last?'Giá cập nhật lúc '+new Date(last).toLocaleString('vi-VN',{hour:'2-digit',minute:'2-digit',day:'2-digit',month:'2-digit'}):'Chưa có giá thị trường'}</span><button type="button" onclick="updateStockPrices(true)" ${priceUpdating?'disabled':''}>↻ Cập nhật giá</button></div>`}
+  else $('priceBar').innerHTML='';
+ }
+ if($('investmentList')){
+  let rows='';
+  if(stocks.length){
+   rows+=`<div class="row" style="margin:8px 0 2px"><b>Cổ phiếu đang nắm giữ</b><span class="muted">${stocks.length} mã</span></div>`;
+   rows+=stocks.map(x=>{let id=idArg(x.id),qty=Number(x.qty),avg=invCapital(x)/qty,p=stockPrice(x.symbol),mv=invMarket(x),pl=mv-invCapital(x);
+    return `<div class="investmentCapitalRow stockRow"><div class="row"><div class="grow"><b class="stockSym">${x.symbol}</b> <span class="muted">${fmtN(qty)} cp</span><div class="muted">Giá vốn ${fmtN(avg)} · Giá hiện tại ${p?`<b>${fmtN(p.price)}</b>${p.date?' ('+new Date(p.date+'T00:00').toLocaleDateString('vi-VN',{day:'2-digit',month:'2-digit'})+')':''}`:'<i>chưa có</i>'}</div></div><div style="text-align:right"><b>${money(mv)}</b><div style="font-size:11px">${p?pnlHtml(pl,invCapital(x)):'<span class="muted">tính theo vốn</span>'}</div></div></div><div class="investActions"><button type="button" onclick='openStockAdd(${JSON.stringify(x.symbol)})'>＋ Mua thêm</button><button type="button" onclick='openStockSell(${id})'>Bán</button><button type="button" onclick='editStockPrice(${JSON.stringify(x.symbol)})'>Sửa giá</button><button type="button" onclick='delInv(${id})'>Xóa</button></div></div>`}).join('');
+  }
+  if(others.length){
+   if(stocks.length)rows+=`<div class="divider"></div><div class="row" style="margin:6px 0 2px"><b>Khoản đầu tư khác</b><span class="muted">theo tiền vốn</span></div>`;
+   rows+=others.map(x=>{let id=idArg(x.id);return `<div class="investmentCapitalRow"><div class="row"><div class="grow"><b>${x.name||x.type}</b><div class="muted">${normInvType(x.type)}${x.date?' · '+new Date(x.date+'T00:00').toLocaleDateString('vi-VN'):''}</div></div><b>${money(invCapital(x))}</b></div><div class="investActions"><button type="button" onclick='addInvCapital(${id})'>＋ Bỏ thêm</button><button type="button" onclick='withdrawInv(${id})'>Rút</button><button type="button" onclick='delInv(${id})'>Xóa</button></div></div>`}).join('');
+  }
+  if(!stocks.length&&!others.length)rows=`<div class="empty">Chưa có khoản đầu tư.</div>`;
+  let rec=receivableItems();
+  if(rec.length)rows+=`<div class="divider"></div><div class="row" style="margin:6px 0"><b>Khoản cho mượn (không tính vào đầu tư)</b><b>${money(receivablesTotal())}</b></div>`+rec.map(x=>{let id=idArg(x.id);return `<div class="investmentCapitalRow"><div class="row"><div class="grow"><b>${x.name||'Cho mượn'}</b><div class="muted">Còn phải thu</div></div><b>${money(invCapital(x))}</b></div><div class="investActions"><button type="button" onclick='withdrawInv(${id})'>Thu về</button><button type="button" onclick='delInv(${id})'>Xóa</button></div></div>`}).join('');
+  $('investmentList').innerHTML=rows;
+ }
+ bindFinanceActions();
+}
+
+/* --- Thêm khoản đầu tư: Chứng khoán nhập theo mã --- */
+function openInvestmentAdd(){
+ openModal(`<h2>Thêm khoản đầu tư</h2><form id="investmentForm"><label>Loại đầu tư</label><select name="type" id="invTypeSel">${investTypes.map(t=>`<option>${t}</option>`).join('')}</select>
+ <div id="stockFields"><label>Mã cổ phiếu</label><input name="symbol" placeholder="VD: MBB, FPT, HPG" autocapitalize="characters" style="text-transform:uppercase"><label>Số lượng (cổ phiếu)</label><input name="qty" type="number" inputmode="numeric" min="1"><label>Giá mua (đồng / 1 cp)</label><input name="price" type="number" inputmode="numeric" min="1" placeholder="VD: 25300"><label>Phí giao dịch (nếu có)</label><input name="fee" type="number" inputmode="numeric" min="0" value="0"><div class="muted" id="stockTotalHint" style="margin-top:6px"></div></div>
+ <div id="plainFields"><label>Tên khoản đầu tư</label><input name="name" placeholder="VD: Vàng SJC, Sổ tiết kiệm VCB"><label>Số tiền đầu tư</label><input name="amount" type="number" inputmode="numeric" min="1"></div>
+ <label>Nguồn tiền</label><select name="account">${accountOptions(true)}</select><label>Ngày</label><input name="date" type="date" value="${today()}" required><button class="primary" type="submit">Lưu khoản đầu tư</button></form>`);
+ let f=$('investmentForm'),sync=()=>{let st=f.elements.type.value==='Chứng khoán';$('stockFields').style.display=st?'':'none';$('plainFields').style.display=st?'none':''},hint=()=>{let t=(Number(f.elements.qty.value)||0)*(Number(f.elements.price.value)||0)+(Number(f.elements.fee.value)||0);$('stockTotalHint').textContent=t>0?'Tổng tiền: '+money(t):''};
+ f.elements.type.onchange=sync;['qty','price','fee'].forEach(n=>f.elements[n].oninput=hint);sync();
+ f.onsubmit=saveInvestmentAdd;
+}
+function openStockAdd(sym){openInvestmentAdd();let f=$('investmentForm');f.elements.type.value='Chứng khoán';f.elements.type.onchange();if(sym){f.elements.symbol.value=sym;let p=stockPrice(sym);if(p)f.elements.price.value=Math.round(p.price)}}
+function saveInvestmentAdd(e){
+ e.preventDefault();let f=e.currentTarget,type=f.elements.type.value,raw=f.elements.account.value,acc=raw===''?null:accountById(raw),date=f.elements.date.value||today();
+ if(raw!==''&&!acc)return alert('Không tìm thấy tài khoản nguồn');
+ if(type==='Chứng khoán'){
+  let sym=f.elements.symbol.value.trim().toUpperCase().replace(/[^A-Z0-9]/g,''),qty=Number(f.elements.qty.value),price=Number(f.elements.price.value),fee=Number(f.elements.fee.value)||0;
+  if(!sym)return alert('Vui lòng nhập mã cổ phiếu');if(!(qty>0)||!(price>0))return alert('Vui lòng nhập số lượng và giá mua');
+  if(price<1000&&confirm('Giá mua '+fmtN(price)+' đồng có vẻ đang nhập theo nghìn đồng. Đổi thành '+fmtN(price*1000)+' đồng?'))price=price*1000;
+  let amount=qty*price+fee;
+  if(acc&&actual(acc)<amount&&!confirm('Tài khoản không đủ số dư. Vẫn ghi nhận?'))return;
+  let x=stockItemBySymbol(sym),id;
+  if(x){x.qty=Number(x.qty)+qty;x.cost=invCapital(x)+amount;delete x.value;id=x.id}
+  else{id=Date.now();db.investments.push({id,type:'Chứng khoán',name:sym,symbol:sym,qty,cost:amount,date,account:acc?acc.id:null})}
+  if(acc)db.tx.unshift({id:Date.now()+1,type:'investBuy',amount,account:acc.id,date,category:'Đầu tư',note:`Mua ${fmtN(qty)} ${sym} @${fmtN(price)}`,investmentId:id});
+  if(!save())return;closeModal();render();showPage('investments');if(!stockPrice(sym))updateStockPrices(false,[sym]);return;
+ }
+ let amount=Number(f.elements.amount.value),name=f.elements.name.value.trim();
+ if(!name||!Number.isFinite(amount)||amount<=0)return alert('Vui lòng nhập đúng tên và số tiền');
+ if(acc&&actual(acc)<amount&&!confirm('Tài khoản không đủ số dư. Vẫn ghi nhận?'))return;
+ let id=Date.now();db.investments.push({id,type,name,cost:amount,date,account:acc?acc.id:null});
+ if(acc)db.tx.unshift({id:id+1,type:'investBuy',amount,account:acc.id,date,category:'Đầu tư',note:name,investmentId:id});
+ if(!save())return;closeModal();render();showPage('investments');
+}
+
+/* --- Bán cổ phiếu --- */
+function openStockSell(id){
+ let x=investmentById(id);if(!x||!isStock(x))return withdrawInv(id);if(!db.accounts.length)return alert('Chưa có tài khoản nhận tiền');
+ let qty=Number(x.qty),p=stockPrice(x.symbol),avg=invCapital(x)/qty;
+ openModal(`<h2>Bán ${x.symbol}</h2><div class="muted">Đang có ${fmtN(qty)} cp · giá vốn ${fmtN(avg)}</div><form id="stockSellForm"><label>Số lượng bán</label><input name="qty" type="number" inputmode="numeric" min="1" max="${qty}" value="${qty}" required><label>Giá bán (đồng / 1 cp)</label><input name="price" type="number" inputmode="numeric" min="1" value="${p?Math.round(p.price):''}" required><label>Phí + thuế bán</label><input name="fee" type="number" inputmode="numeric" min="0" value="0"><div class="muted" id="sellHint" style="margin-top:6px"></div><label>Tiền về tài khoản</label><select name="account" required>${accountOptions(false)}</select><label>Ngày</label><input name="date" type="date" value="${today()}" required><button class="primary" type="submit">Xác nhận bán</button></form>`);
+ let f=$('stockSellForm'),hint=()=>{let q=Number(f.elements.qty.value)||0,pr=Number(f.elements.price.value)||0,fee=Number(f.elements.fee.value)||0,proceeds=q*pr-fee,cb=q>0?invCapital(x)*Math.min(q,qty)/qty:0;$('sellHint').innerHTML=q&&pr?`Thu về ${money(proceeds)} · Lãi/lỗ ${pnlHtml(proceeds-cb,cb)}`:''};
+ ['qty','price','fee'].forEach(n=>f.elements[n].oninput=hint);hint();
+ f.onsubmit=function(e){e.preventDefault();let inv=investmentById(id);if(!inv)return alert('Khoản này không còn tồn tại');
+  let have=Number(inv.qty),q=Number(f.elements.qty.value),pr=Number(f.elements.price.value),fee=Number(f.elements.fee.value)||0,acc=accountById(f.elements.account.value),date=f.elements.date.value||today();
+  if(!(q>0)||q>have)return alert('Số lượng bán không hợp lệ (tối đa '+fmtN(have)+')');if(!(pr>0))return alert('Giá bán không hợp lệ');if(!acc)return alert('Không tìm thấy tài khoản nhận tiền');
+  let proceeds=Math.max(0,q*pr-fee),costBasis=invCapital(inv)*q/have,pl=proceeds-costBasis;
+  inv.qty=have-q;inv.cost=Math.max(0,invCapital(inv)-costBasis);delete inv.value;
+  db.tx.unshift({id:Date.now(),type:'investSell',amount:proceeds,account:acc.id,date,category:'Rút đầu tư',note:`Bán ${fmtN(q)} ${inv.symbol} @${fmtN(pr)} · ${pl>=0?'lãi':'lỗ'} ${fmtN(Math.abs(pl))}`,investmentId:inv.id,realizedPL:Math.round(pl)});
+  if(inv.qty<=0)db.investments=db.investments.filter(i=>i!==inv);
+  if(!save())return;closeModal();render();showPage('investments')};
+}
+const _withdrawInvBase=withdrawInv;
+withdrawInv=function(id){let x=investmentById(id);if(x&&isStock(x))return openStockSell(id);return _withdrawInvBase(id)};
+
+/* --- Giá thị trường --- */
+var priceUpdating=false;
+function editStockPrice(sym){let p=stockPrice(sym),v=prompt('Nhập giá hiện tại của '+sym+' (đồng / 1 cp):',p?Math.round(p.price):'');if(v==null)return;let n=Number(String(v).replace(/[^\d.]/g,''));if(!(n>0))return alert('Giá không hợp lệ');if(n<1000&&confirm('Giá '+n+' có vẻ là nghìn đồng. Đổi thành '+fmtN(n*1000)+' đồng?'))n=n*1000;db.prices[sym]={price:n,date:today(),at:new Date().toISOString(),src:'Nhập tay'};save();render()}
+function fetchJSON(url,ms=9000){let c=typeof AbortController!=='undefined'?new AbortController():null,t=setTimeout(()=>c&&c.abort(),ms);return fetch(url,{cache:'no-store',signal:c?c.signal:undefined}).then(r=>{clearTimeout(t);if(!r.ok)throw new Error('HTTP '+r.status);return r.json()}).catch(e=>{clearTimeout(t);throw e})}
+function localDate(ms){let d=new Date(ms);return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+async function fetchStockPrice(sym){
+ let to=Math.floor(Date.now()/1000),from=to-30*86400;
+ let vnd=`https://dchart-api.vndirect.com.vn/dchart/history?resolution=D&symbol=${encodeURIComponent(sym)}&from=${from}&to=${to}`;
+ let tcbs=`https://apipubaws.tcbs.com.vn/stock-insight/v2/stock/bars-long-term?ticker=${encodeURIComponent(sym)}&type=stock&resolution=D&to=${to}&countBack=5`;
+ let parseVnd=j=>{if(!j||!Array.isArray(j.c)||!j.c.length)throw new Error('trống');let i=j.c.length-1;return {price:Number(j.c[i])*1000,date:localDate(Number(j.t[i])*1000),src:'VNDirect'}};
+ let parseTcbs=j=>{let a=j&&Array.isArray(j.data)?j.data:[];if(!a.length)throw new Error('trống');let r=a[a.length-1],p=Number(r.close);if(p<1000)p*=1000;return {price:p,date:String(r.tradingDate||'').slice(0,10)||today(),src:'TCBS'}};
+ let tries=[()=>fetchJSON(vnd).then(parseVnd),()=>fetchJSON(tcbs).then(parseTcbs),()=>fetchJSON('https://corsproxy.io/?url='+encodeURIComponent(vnd)).then(parseVnd),()=>fetchJSON('https://api.allorigins.win/raw?url='+encodeURIComponent(vnd)).then(parseVnd)];
+ for(let f of tries){try{let r=await f();if(r.price>0)return r}catch(e){}}
+ throw new Error('Không lấy được giá '+sym);
+}
+async function updateStockPrices(manual,only){
+ if(priceUpdating)return;let syms=only||[...new Set(investItems().filter(isStock).map(x=>String(x.symbol).toUpperCase()))];if(!syms.length)return;
+ priceUpdating=true;renderInvest();let fail=[];
+ for(let s of syms){try{let r=await fetchStockPrice(s);db.prices[s]={price:r.price,date:r.date,at:new Date().toISOString(),src:r.src}}catch(e){fail.push(s)}}
+ priceUpdating=false;try{localStorage.setItem(KEY+'_price_check',new Date().toISOString())}catch(e){}
+ save();render();
+ if(manual&&fail.length)alert('Chưa lấy được giá: '+fail.join(', ')+'.\nCó thể do mạng hoặc nguồn dữ liệu chặn truy cập. Bạn có thể bấm "Sửa giá" để nhập tay.');
+}
+function autoUpdatePrices(){
+ if(!investItems().some(isStock))return;
+ let last=null;try{last=localStorage.getItem(KEY+'_price_check')}catch(e){}
+ let now=new Date(),lastD=last?new Date(last):null,closeToday=new Date(now);closeToday.setHours(15,5,0,0);
+ let stale=!lastD||localDate(lastD)!==localDate(now)||(now>=closeToday&&lastD<closeToday);
+ if(stale)updateStockPrices(false);
+}
+setTimeout(autoUpdatePrices,1500);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')autoUpdatePrices()});
+
 </script>
 <script>
 if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
@@ -696,10 +803,10 @@ if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
 
 if('serviceWorker' in navigator){
  window.addEventListener('load',()=>{
-   navigator.serviceWorker.register('./sw.js?v=1064',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
+   navigator.serviceWorker.register('./sw.js?v=1070',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
  });
  navigator.serviceWorker.addEventListener('controllerchange',()=>{
-   if(!sessionStorage.getItem('v1064Reloaded')){sessionStorage.setItem('v1064Reloaded','1');location.reload()}
+   if(!sessionStorage.getItem('v1070Reloaded')){sessionStorage.setItem('v1070Reloaded','1');location.reload()}
  });
 }
 </script>
