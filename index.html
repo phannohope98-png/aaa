@@ -324,6 +324,7 @@ body{margin:0;background:#020912!important;color:var(--text);font-family:Inter,s
 .debtStatus.ok{background:#123a2c;color:#7be0b0}
 .mgrTimeline{position:relative;margin:4px 0 6px 6px;padding-left:16px;border-left:2px solid #1c3a55}.mgrTl{position:relative;padding:6px 0;font-size:12.5px;line-height:1.4}.mgrTl i{position:absolute;left:-23px;top:9px;width:12px;height:12px;border-radius:50%;background:#2d91ff;border:2px solid #06111d}.mgrTl.reserve i{background:#7be0b0}.mgrTl.debtExtra i{background:#ffd17a}.mgrTl.invest i{background:#a9b8ff}.mgrTl.keep i{background:#6f8497}.mgrTl span{display:flex;flex-direction:column}.mgrTl b{font-size:11px;color:#9fb2c4}
 .homeDebtPanel{display:none!important}.mgrStats{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:2px 0 8px}.mgrStats div{background:#0d1f30;border-radius:12px;padding:9px 10px;display:flex;flex-direction:column;gap:2px;min-width:0}.mgrStats span{font-size:10.5px;color:#9fb2c4}.mgrStats b{font-size:14px;white-space:nowrap}.mgrStats small{font-size:10px;color:#9fb2c4}.mgrIns{font-size:12.5px;line-height:1.45;margin-bottom:7px}.alert.blue{background:#10233a;color:#cfe3f7;border-color:#1c3a55}.fcChart{display:flex;align-items:flex-end;gap:2px;height:70px;margin:6px 0 10px;padding:4px;border-radius:10px;background:#0b1b2b}.fcChart i{flex:1;background:#2d91ff;border-radius:2px 2px 0 0;min-width:2px}.fcChart i.neg{background:#ff6b7a}.fcChart i.inc{background:#7be0b0}.budgetTop{padding:2px 0 4px}.budgetTop .row{font-size:13px;margin-bottom:6px}.txDay{display:flex;justify-content:space-between;gap:8px;padding:10px 4px 4px;font-size:12px;color:#9fb2c4;font-weight:700;border-bottom:1px solid #172838}.txDay b{font-size:12px}.txChips{display:flex;flex-wrap:wrap;gap:6px;margin:7px 0 2px}.txChips button{display:flex;gap:5px;align-items:center;min-height:30px;padding:0 10px;border:1px solid #1c3a55;border-radius:999px;background:#0d1f30;color:#dce9f5;font-size:12px}.txChips small{color:#8fa6ba;font-size:10.5px}
+.flowRule{display:grid;grid-template-columns:1fr 1fr;gap:4px 12px;margin:8px 0 2px}.flowRule div{display:grid;grid-template-columns:10px 1fr auto;column-gap:6px;align-items:center;font-size:12px}.flowRule i{width:10px;height:10px;border-radius:3px}.flowRule span{color:#b8c8d8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.flowRule small{grid-column:2/4;color:#8fa6ba;font-size:10.5px;margin-top:-2px}.stratRow{padding:10px;border-radius:13px;background:#0b1b2b;border:1px solid #172838;margin-bottom:8px}.stratRow.on{border-color:#2187ff;background:#0d2238}.stratGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:6px}.stratGrid div{display:flex;flex-direction:column;gap:1px;min-width:0}.stratGrid span{font-size:10.5px;color:#9fb2c4}.stratGrid b{font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.homeRule .muted{font-size:11px;line-height:1.5}
 </style></head><body><div class="app iphoneApp">
 <header class="iosHeader"><div class="iosTitle" id="pageTitle">Tổng quan</div><button class="iconBtn" onclick="openTools()">⚙</button></header>
 <main class="screenWrap">
@@ -366,7 +367,7 @@ body{margin:0;background:#020912!important;color:var(--text);font-family:Inter,s
 <nav class="bottomNav"><button class="active" data-page="home" onclick="showPage('home')"><i>⌂</i><span>Tổng quan</span></button><button data-page="transactions" onclick="showPage('transactions')"><i>☷</i><span>Thu chi</span></button><button class="centerAdd" onclick="openQuickAdd()">＋</button><button data-page="assets" onclick="showPage('assets')"><i>▣</i><span>Tài sản</span></button><button id="moreNavBtn" onclick="openMoreMenu()"><i>•••</i><span>Thêm</span></button></nav>
 </div><div class="modal" id="modal"><div class="sheet" id="sheet"></div></div>
 <script>
-const APP_VERSION='V11.1.0';
+const APP_VERSION='V12.0.0';
 const KEY='kmFinancePro1', $=x=>document.getElementById(x), money=(f=>n=>f.format(Number(n)||0))(new Intl.NumberFormat('vi-VN',{style:'currency',currency:'VND',maximumFractionDigits:0}));let current=new Date();current.setDate(1);const expenseCats=['Ăn Uống','Giao Lưu / Giải Trí','Đi Lại','Vợ','Con','Nhà Cửa','Ba Mẹ','Quà','Điện Thoại','Y Tế','Thể Thao - Giáo Dục','Cho Mượn','Chi Khác'],incomeCats=['Lương','Web','Khác','Rút từ đầu tư về'],investTypes=['Chứng khoán','Chứng chỉ quỹ','Vàng','Tiết kiệm'];const META_KEY=KEY+'_meta';
 function defaultDB(){return {accounts:[{id:1,name:'Tiền Mặt',kind:'liquid',opening:0},{id:2,name:'Tài khoản ngân hàng',kind:'liquid',opening:0},{id:3,name:'Dự phòng & dự trù',kind:'reserve',opening:0}],tx:[],investments:[],debts:[],budgets:[],goals:{'Trả nợ':25,'Dự phòng':20,'Mua vàng':15,'Gửi tiết kiệm':15,'Chứng chỉ quỹ':10,'Chứng khoán':15},recurring:[],fundGoals:[]}}
 function normalizeDB(x){x=x&&typeof x==='object'?x:defaultDB();x.accounts=Array.isArray(x.accounts)?x.accounts:defaultDB().accounts;x.tx=Array.isArray(x.tx)?x.tx:[];x.investments=Array.isArray(x.investments)?x.investments:[];x.debts=Array.isArray(x.debts)?x.debts:[];x.budgets=Array.isArray(x.budgets)?x.budgets:[];x.recurring=Array.isArray(x.recurring)?x.recurring:[];x.fundGoals=Array.isArray(x.fundGoals)?x.fundGoals:[];x.goals=x.goals&&typeof x.goals==='object'?x.goals:defaultDB().goals;x.prices=x.prices&&typeof x.prices==='object'&&!Array.isArray(x.prices)?x.prices:{};return x}
@@ -518,7 +519,7 @@ function openMoreMenu(){openModal(`<h2>Thêm chức năng</h2><div class='moreGr
 <button onclick="closeModal();openInitialSetup()"><b>⚙</b><span>Tài chính ban đầu</span></button>
 <button onclick="closeModal();openTools()"><b>☁</b><span>Sao lưu & dữ liệu</span></button>
 </div><div class='divider'></div><div class='moreLinks'><button onclick="closeModal();showPage('debts')">Nợ phải trả</button><button onclick="closeModal();showPage('investments')">Đầu tư</button></div>`)}
-function showPage(p){['home','transactions','investments','debts','assets','reports','plan'].forEach(x=>$(x).classList.toggle('hide',x!==p));document.querySelectorAll('.bottomNav button[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===p));let titles={home:'Tổng quan',transactions:'Thu chi',assets:'Tài sản',debts:'Nợ phải trả',investments:'Đầu tư',reports:'Phân tích',plan:'Kế hoạch phân bổ'};if($('pageTitle'))$('pageTitle').textContent=titles[p]||'App Thu Chi';render();if(p==='reports')updateReportControls()}function openTools(){openModal(`<h2>Công cụ & dữ liệu</h2><div class='muted' style='margin-bottom:10px'>Phiên bản đang chạy: <b>V11.1.0</b></div><label>Chọn tháng đang xem</label><input id='mp' type='month' value='${ym()}'><button class='primary' style='width:100%;margin-top:10px' onclick='changeMonth()'>Đổi tháng</button><div class='divider'></div><button style='width:100%' class='primary' onclick='openInitialSetup()'>Thiết lập tài chính ban đầu</button><button style='width:100%;margin-top:8px' onclick='verifyStorage(true)'>Kiểm tra dữ liệu đã lưu</button><button style='width:100%;margin-top:8px' onclick='backup()'>Xuất bản sao lưu JSON</button><button style='width:100%;margin-top:8px' onclick='pickRestore()'>Khôi phục từ file JSON</button><input id='restoreFile' type='file' accept='.json,application/json' style='display:none' onchange='restoreBackup(event)'><button class='dangerBtn' style='width:100%;margin-top:8px' onclick="if(confirm('Xóa toàn bộ dữ liệu?')){localStorage.removeItem(KEY);localStorage.removeItem(META_KEY);location.reload()}">Xóa dữ liệu</button>`)}function changeMonth(){let v=$('mp').value;if(v){current=new Date(v+'-01T00:00');closeModal();render()}}function backup(){let raw=JSON.stringify(db),pack={app:'App Thu Chi',version:APP_VERSION+'-PWA',exportedAt:new Date().toISOString(),checksum:checksum(raw),counts:dataCounts(),data:db},text=JSON.stringify(pack,null,2),b=new Blob([text],{type:'application/json;charset=utf-8'}),url=URL.createObjectURL(b),a=document.createElement('a');a.href=url;a.download='app-thu-chi-backup-'+new Date().toISOString().slice(0,10)+'.json';a.style.display='none';document.body.appendChild(a);a.click();setTimeout(()=>{a.remove();URL.revokeObjectURL(url)},5000)}
+function showPage(p){['home','transactions','investments','debts','assets','reports','plan'].forEach(x=>$(x).classList.toggle('hide',x!==p));document.querySelectorAll('.bottomNav button[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===p));let titles={home:'Tổng quan',transactions:'Thu chi',assets:'Tài sản',debts:'Nợ phải trả',investments:'Đầu tư',reports:'Phân tích',plan:'Kế hoạch phân bổ'};if($('pageTitle'))$('pageTitle').textContent=titles[p]||'App Thu Chi';render();if(p==='reports')updateReportControls()}function openTools(){openModal(`<h2>Công cụ & dữ liệu</h2><div class='muted' style='margin-bottom:10px'>Phiên bản đang chạy: <b>V12.0.0</b></div><label>Chọn tháng đang xem</label><input id='mp' type='month' value='${ym()}'><button class='primary' style='width:100%;margin-top:10px' onclick='changeMonth()'>Đổi tháng</button><div class='divider'></div><button style='width:100%' class='primary' onclick='openInitialSetup()'>Thiết lập tài chính ban đầu</button><button style='width:100%;margin-top:8px' onclick='verifyStorage(true)'>Kiểm tra dữ liệu đã lưu</button><button style='width:100%;margin-top:8px' onclick='backup()'>Xuất bản sao lưu JSON</button><button style='width:100%;margin-top:8px' onclick='pickRestore()'>Khôi phục từ file JSON</button><input id='restoreFile' type='file' accept='.json,application/json' style='display:none' onchange='restoreBackup(event)'><button class='dangerBtn' style='width:100%;margin-top:8px' onclick="if(confirm('Xóa toàn bộ dữ liệu?')){localStorage.removeItem(KEY);localStorage.removeItem(META_KEY);location.reload()}">Xóa dữ liệu</button>`)}function changeMonth(){let v=$('mp').value;if(v){current=new Date(v+'-01T00:00');closeModal();render()}}function backup(){let raw=JSON.stringify(db),pack={app:'App Thu Chi',version:APP_VERSION+'-PWA',exportedAt:new Date().toISOString(),checksum:checksum(raw),counts:dataCounts(),data:db},text=JSON.stringify(pack,null,2),b=new Blob([text],{type:'application/json;charset=utf-8'}),url=URL.createObjectURL(b),a=document.createElement('a');a.href=url;a.download='app-thu-chi-backup-'+new Date().toISOString().slice(0,10)+'.json';a.style.display='none';document.body.appendChild(a);a.click();setTimeout(()=>{a.remove();URL.revokeObjectURL(url)},5000)}
 function pickRestore(){let f=$('restoreFile');if(f)f.click()}
 function restoreBackup(e){let file=e.target.files&&e.target.files[0];if(!file)return;let r=new FileReader();r.onload=()=>{try{let pack=JSON.parse(r.result),x=pack&&pack.data?pack.data:pack;if(pack&&pack.data&&pack.checksum&&checksum(JSON.stringify(pack.data))!==pack.checksum)throw new Error('Checksum file backup không khớp');if(!x||!Array.isArray(x.accounts)||!Array.isArray(x.tx))throw new Error('Sai cấu trúc');x=normalizeDB(x);if(!confirm('Khôi phục sẽ thay thế dữ liệu hiện tại. Tiếp tục?')){e.target.value='';return}db=x;if(!save())throw new Error('Không thể ghi dữ liệu khôi phục');closeModal();render();if(!verifyStorage(false))throw new Error('Dữ liệu sau khôi phục không vượt qua kiểm tra');alert('Đã khôi phục và kiểm tra dữ liệu thành công.')}catch(err){alert('Khôi phục thất bại: '+(err.message||err))}finally{e.target.value=''}};r.readAsText(file)}
 
@@ -1985,15 +1986,15 @@ function mgrMoveModal(o){
   if(to&&financeId(to.id)===financeId(from.id))return alert('Hai tài khoản phải khác nhau');
   if(actual(from)<amt&&!confirm('Tài khoản nguồn không đủ số dư. Vẫn ghi nhận?'))return;
   if(isNew){to={id:Date.now(),name:o.toName,kind:o.toKind,opening:0};db.accounts.push(to)}
-  db.tx.unshift({id:Date.now()+1,type:'transfer',amount:amt,from:from.id,to:to.id,date,category:'Chuyển tiền',note:'Kế hoạch: '+o.title});
+  db.tx.unshift({id:Date.now()+1,type:'transfer',amount:amt,from:from.id,to:to.id,date,category:'Chuyển tiền',note:'Kế hoạch: '+o.title});flowTag(db.tx[0],o,amt);
   if(o.goalId!=null){let g=goalById(o.goalId);if(g){g.current=Math.min(+g.target||0,(+g.current||0)+amt);goalNoteMonth(g.id,amt)}}
   mgrLog(o.k,amt);if(!save())return;closeModal();render()};
 }
 function mgrPay(o){planPayDebt(o.debtId,o.amount);let f=$('debtForm');if(!f)return;
  let fa=o.from==='fund'?debtFundAccts().sort((a,b)=>actual(b)-actual(a))[0]:mainLiquid();if(fa)f.elements.account.value=financeId(fa.id);
- let base=f.onsubmit;f.onsubmit=function(e){let n=db.tx.length,amt=+f.elements.amount.value||0;base.call(this,e);if(db.tx.length>n){mgrLog(o.k,amt);save();render()}}}
+ let base=f.onsubmit;f.onsubmit=function(e){let n=db.tx.length,amt=+f.elements.amount.value||0;base.call(this,e);if(db.tx.length>n){flowTag(db.tx[0],o,amt);mgrLog(o.k,amt);save();render()}}}
 function mgrStock(o){planDeposit(o.amount);let f=$('scForm');if(!f)return;
- let base=f.onsubmit;f.onsubmit=function(e){let n=db.tx.length,amt=+f.elements.amount.value||0;base.call(this,e);if(db.tx.length>n){mgrLog(o.k,amt);save();render()}}}
+ let base=f.onsubmit;f.onsubmit=function(e){let n=db.tx.length,amt=+f.elements.amount.value||0;base.call(this,e);if(db.tx.length>n){flowTag(db.tx[0],o,amt);mgrLog(o.k,amt);save();render()}}}
 function mgrGoalAdd(id){let g=goalById(id);if(!g)return;let n=goalNeed(g);mgrMoveModal({k:'goal|'+financeId(id),toKind:'saving',toName:'Tiết kiệm mục tiêu',goalId:g.id,title:'Góp quỹ mục tiêu: '+g.name,amount:n.still||''})}
 function mgrReserveAdd(){let b=_planBase109(),s=planSettings(),gap=Math.max(0,b.essential*s.reserveMonths-reserveNowAmt());mgrMoveModal({k:'reserve',toKind:'reserve',toName:'Quỹ phòng hờ',title:'Chuyển vào quỹ phòng hờ',amount:r1k(Math.min(gap,Math.max(0,moneyPicture().free)))||''})}
 /* Góp tay vào mục tiêu (nút cũ) cũng được tính là đã góp tháng này */
@@ -2166,7 +2167,7 @@ const _render111=render;render=function(){memoReset();_render111()};
 
 /* ---------- Dòng tiền 30 ngày tới ---------- */
 function mgrForecast(){return memo('fc',()=>{
- let m=moneyPicture(),o=mgrOrders(),move=o.pending.filter(x=>/^(reserve|goal|stock|debtx)/.test(x.k)).reduce((q,x)=>q+x.amount,0);
+ let m=moneyPicture(),o=mgrOrders(),move=o.pending.filter(x=>/^(reserve|goal|stock|debtx|pot\||idle\|)/.test(x.k)).reduce((q,x)=>q+x.amount,0);
  let bal=m.liquid+m.debtFund-move,start=bal,ev={},add=(k,v,t)=>{(ev[k]=ev[k]||[]).push({v,t})};
  let n=new Date();n.setHours(0,0,0,0);let end=new Date(n);end.setDate(end.getDate()+29);
  db.debts.forEach(d=>{let remain=debtRemain(d);if(remain<=0||!d.nextDue)return;let x=new Date(d.nextDue+'T00:00'),first=true,g=0;if(isNaN(x))return;
@@ -2197,7 +2198,7 @@ function mgrInsights(){return memo('ins',()=>{
  let bp=budgetPlan(rk),pace=[];
  bp.cats.forEach(c=>{let L=c.limit+c.carry,sp=catSpent(c.cat,rk);if(L<=0)return;
   if(sp>L)pace.push({l:'red',s:70+Math.min(15,(sp-L)/L*15),t:`${c.cat} đã vượt ngân sách ${money(sp-L)}`,d:`Đã tiêu ${money(sp)}/${money(L)}. Ngừng chi nhóm này tới cuối tháng${c.tier==='need'?'; nếu là chi thiết yếu, bù bằng cách cắt nhóm Mong muốn':''}.`});
-  else if(day>=3&&sp>L*0.3){let proj=sp/day*dim;if(proj>L*1.1)pace.push({l:'amber',s:60+Math.min(10,(proj-L)/L*10),t:`${c.cat} đang tiêu nhanh`,d:`Đã ${money(sp)}/${money(L)} mới ngày ${day}/${dim}. Giữ tốc độ này cuối tháng ~${money(r1k(proj))}. Từ nay nhóm này mỗi ngày ≤ <b>${money(r1k((L-sp)/daysLeft))}</b>.`})}});
+  else if(day>=3&&sp>L*0.3&&!catLumpy(c.cat)){let proj=sp/day*dim;if(proj>L*1.1)pace.push({l:'amber',s:60+Math.min(10,(proj-L)/L*10),t:`${c.cat} đang tiêu nhanh`,d:`Đã ${money(sp)}/${money(L)} mới ngày ${day}/${dim}. Giữ tốc độ này cuối tháng ~${money(r1k(proj))}. Từ nay nhóm này mỗi ngày ≤ <b>${money(r1k((L-sp)/daysLeft))}</b>.`})}});
  out.push(...pace.sort((a,b)=>b.s-a.s).slice(0,2));
  let unk=db.debts.filter(d=>debtRemain(d)>0&&debtRateClass(d)==='unknown');
  if(unk.length)out.push({l:'amber',s:50,t:`${unk.length} khoản nợ chưa có lãi suất`,d:`${unk.map(d=>d.name).join(', ')} – nhập lãi suất để app biết khoản nào nên trả trước, khoản nào giữ đúng kỳ.`,act:['Nhập lãi suất',`setDebtRate(${idArg(unk[0].id)})`]});
@@ -2279,11 +2280,11 @@ let budgetAll=false;
 renderHomeBudget=function(){
  let el=$('homeBudgets');if(!el)return;
  let bp=budgetPlan(),k=ym(),isNow=k===realMonth(),now=new Date(),dim=new Date(current.getFullYear(),current.getMonth()+1,0).getDate(),frac=isNow?now.getDate()/dim:1;
- let rows=bp.cats.map(c=>{let L=c.limit+c.carry,sp=catSpent(c.cat,k),p=L?sp/L:0;return {c,L,sp,p,risk:p-frac}}).sort((a,b)=>b.risk-a.risk);
+ let rows=bp.cats.map(c=>{let L=c.limit+c.carry,sp=catSpent(c.cat,k),p=L?sp/L:0;return {c,L,sp,p,risk:catLumpy(c.cat)?p-1:p-frac}}).sort((a,b)=>b.risk-a.risk);
  let tot=rows.reduce((q,x)=>q+x.sp,0),lim=bp.total,shown=budgetAll?rows:rows.filter(x=>x.sp>0||x.risk>-0.5).slice(0,5);
  let head=bp.income>0?`<div class="budgetTop"><div class="row"><span>Đã tiêu <b>${money(tot)}</b> / ${money(lim)}</span><b class="${tot>lim?'neg':'pos'}">${tot>lim?'vượt '+money(tot-lim):'còn '+money(lim-tot)}</b></div><div class="planBar"><i style="width:${Math.min(100,lim?tot/lim*100:0)}%"></i>${isNow?`<u style="left:${frac*100}%"></u>`:''}</div>${isNow?`<div class="muted" style="font-size:11px;margin-top:4px">Vạch vàng = hôm nay (${Math.round(frac*100)}% tháng). Thanh xanh vượt vạch là đang tiêu nhanh.</div>`:''}</div>
  <details class="mgrHelp" style="margin:6px 0 8px"><summary>Ngân sách được tính thế nào?</summary><div><div class="row line"><span>Thu nhập</span><b>${money(bp.income)}</b></div><div class="row line"><span>− Trả nợ trong tháng</span><b>${money(bp.debt)}</b></div><div class="row line"><span>− Để dành tối thiểu ${bp.saveRate}%</span><b>${money(bp.saveT)}</b></div><div class="row line"><span>= Trần ngân sách</span><b>${money(bp.pool)}</b></div>${bp.cut?'<p>Chi trung bình vượt trần nên app đã cắt bớt nhóm Mong muốn/Linh hoạt.</p>':''}${bp.over>0?`<p class="neg">Riêng chi thiết yếu đã vượt trần ${money(bp.over)}.</p>`:''}</div></details>`:`<div class="muted" style="margin-bottom:8px">Nhập thu nhập/tháng trong Kế hoạch ⚙ để app tính trần ngân sách.</div>`;
- el.innerHTML=head+shown.map(x=>{let P=x.p*100,ahead=isNow&&x.p>frac+0.1&&x.p<1;
+ el.innerHTML=head+shown.map(x=>{let P=x.p*100,ahead=isNow&&x.p>frac+0.1&&x.p<1&&!catLumpy(x.c.cat);
   return `<div class='assetrow'><div class='row'><b>${x.c.cat} <span class='badge tier-${x.c.tier}'>${TIER_LABEL[x.c.tier]}</span></b><span class='budgetAmt'>${money(x.sp)} / ${money(x.L)}</span></div><div class='progress ${P>=100?'danger':ahead||P>=80?'warn':'ok'}'><i style='width:${Math.min(100,P)}%'></i></div><div class='muted right'>${Math.round(P)}%${P>100?' · vượt '+money(x.sp-x.L):ahead?' · tiêu nhanh hơn thời gian':''}${x.c.carry?` · +${money(x.c.carry)} từ tháng trước`:''}${x.c.manual?' · bạn tự đặt':''}</div></div>`}).join('')+(rows.length>shown.length||budgetAll?`<button type="button" class="addText full" onclick="budgetAll=!budgetAll;renderHomeBudget()">${budgetAll?'Thu gọn':'Xem tất cả '+rows.length+' nhóm'}</button>`:'')||`<div class='empty'>Chưa có dữ liệu chi tiêu để đề xuất ngân sách.</div>`;
 };
 
@@ -2319,6 +2320,250 @@ const _openMoreMenu111=openMoreMenu;openMoreMenu=function(){_openMoreMenu111();l
  g.insertAdjacentHTML('beforeend',`<button onclick="closeModal();showPage('plan');openPlanSettings()"><b>⚙</b><span>Thiết lập kế hoạch</span></button>`)};
 try{render()}catch(e){console.error('v111',e)}
 
+/* ===== V12.0.0: Bộ máy dòng tiền song song =================================================
+   Dành cho người tiền ra vào liên tục mỗi ngày:
+   - Mỗi đồng tiền vào chia NGAY theo %: Tiêu · Nợ · Phòng hờ · Tăng trưởng · Trả nhanh nợ lãi cao · Mục tiêu
+   - % tự tính từ dữ liệu thật (tiền vào TB/ngày, độ dao động, lãi suất nợ, quỹ phòng hờ) – tăng trưởng
+     luôn có phần tối thiểu ngay từ đầu, không đợi hết nợ.
+   - Sổ hũ: mỗi khoản thu ghi nhận phần của từng hũ; gom đủ ngưỡng mới ra lệnh chuyển (không chuyển lẻ tẻ).
+   - So sánh chiến lược bằng con số: ngày hết nợ, tiền lãi, tài sản ròng sau 1/3/5 năm.
+=========================================================================================== */
+const FLOW_STRAT={
+ balanced:{label:'Song song cân bằng',short:'Song song',gFloor:.30,fW:1,desc:'Vừa trả nhanh nợ lãi cao, vừa đầu tư ít nhất 30% phần dư ngay từ hôm nay. Tài sản tăng đều, nợ vẫn giảm nhanh.'},
+ growth:{label:'Ưu tiên tăng trưởng',short:'Tăng trưởng',gFloor:.55,fW:.5,desc:'Đầu tư ít nhất 55% phần dư; nợ chủ yếu trả đúng kỳ. Hợp khi nợ lãi không quá cao và bạn muốn tích tài sản nhanh.'},
+ debtfree:{label:'Ưu tiên hết nợ',short:'Hết nợ',gFloor:.10,fW:1.8,desc:'Dồn mạnh trả nợ lãi cao, vẫn giữ 10% đầu tư để không gián đoạn thói quen tích lũy.'},
+ sequential:{label:'Trả hết nợ rồi mới đầu tư',short:'Tuần tự',gFloor:0,fW:3,seq:true,desc:'Cách truyền thống: phòng hờ 1 tháng → hết nợ lãi cao → mới đầu tư. Ít tiền lãi nhất nhưng tài sản đầu tư bắt đầu muộn.'}
+};
+function flowTag(x,o,amt){if(!x||!o||!o.pot)return;x.pot=o.pot;if(o.potAmt!=null)x.potAmt=Math.min(+amt||+x.amount||0,o.potAmt)}
+function catLumpy(cat){return memo('lump|'+cat,()=>{let ks=historyMonths(3),cnt=ks.map(k=>db.tx.filter(x=>x.type==='expense'&&x.category===cat&&x.date?.slice(0,7)===k).length).filter(n=>n>0);return cnt.length>0&&cnt.reduce((a,b)=>a+b,0)/cnt.length<=2})}
+/* Điểm thấp nhất của số dư trong 30 ngày tới (chưa tính các lệnh chuyển) – chỉ phần trên mức này mới là tiền nhàn rỗi thật */
+function flowLowPoint(){return memo('flp',()=>{let m=moneyPicture(),st=flowStats(),bal=m.liquid+m.debtFund,ev={},add=(k,v)=>ev[k]=(ev[k]||0)+v,n=new Date();n.setHours(0,0,0,0);let end=new Date(n);end.setDate(end.getDate()+29);
+ db.debts.forEach(d=>{let remain=debtRemain(d);if(remain<=0||!d.nextDue)return;let x=new Date(d.nextDue+'T00:00'),first=true,g=0;if(isNaN(x))return;while(x<=end&&remain>0&&g++<60){let inst=Math.min(+d.installment||remain,remain),al=first?Math.max(0,+d.periodPaid||0):0,pay=Math.max(0,Math.min(inst-al,remain));add(localDate((x<n?n:x).getTime()),-pay);remain-=pay;first=false;if(d.freq==='weekly')x.setDate(x.getDate()+7);else if(d.freq==='monthly')x.setMonth(x.getMonth()+1);else break}});
+ if(st.mode!=='daily')inferredIncomeEvents(30).events.forEach(e=>add(localDate(e.date.getTime()),e.amount));
+ let min=bal;for(let i=0;i<30;i++){let d=new Date(n);d.setDate(d.getDate()+i);bal-=i===0?Math.max(0,m.daily-m.spentToday):m.daily;if(i>0&&st.mode==='daily')bal+=st.cons;bal+=ev[localDate(d.getTime())]||0;if(bal<min)min=bal}
+ return min})}
+const GROW_DEST={stock:['TK chứng khoán','Cổ phiếu'],fund:['Chứng chỉ quỹ','Chứng chỉ quỹ'],gold:['Vàng','Vàng'],saving:['Tiết kiệm có kỳ hạn','Tiết kiệm']};
+function flowCfg(){let f=db.flow&&typeof db.flow==='object'?db.flow:(db.flow={});if(!f.start)f.start=today();if(!FLOW_STRAT[f.strategy])f.strategy='balanced';if(!(f.minMove>=0))f.minMove=200000;if(!GROW_DEST[f.growDest])f.growDest='stock';if(!['auto','daily','monthly'].includes(f.mode))f.mode='auto';if(!f.alloc||typeof f.alloc!=='object')f.alloc={};if(!f.adj||typeof f.adj!=='object')f.adj={};return f}
+const pctS=v=>Math.round(v*100)+'%';
+function daysTo(ds){let d=new Date((ds||'')+'T00:00');if(isNaN(d))return 30;return Math.max(1,Math.ceil((d-new Date(today()+'T00:00'))/864e5))}
+
+/* ---------- Nhịp dòng tiền: đo từ 90 ngày gần nhất ---------- */
+function flowStats(){return memo('fs',()=>{
+ let c=flowCfg(),s=planSettings(),N=90,t=today(),since=dayShift(-N+1);
+ let first=db.tx.reduce((m,x)=>x.date&&x.date<m?x.date:m,t),from=first>since?first:since;
+ let span=Math.max(1,Math.round((new Date(t+'T00:00')-new Date(from+'T00:00'))/864e5)+1);
+ let inc=db.tx.filter(x=>x.type==='income'&&!isInvestmentWithdrawal(x)&&x.date>=from&&x.date<=t),byDay={};
+ inc.forEach(x=>byDay[x.date]=(byDay[x.date]||0)+(+x.amount||0));
+ let totIn=Object.values(byDay).reduce((a,v)=>a+v,0),inDays=Object.keys(byDay).length;
+ let totOut=db.tx.filter(x=>x.type==='expense'&&x.date>=from&&x.date<=t).reduce((a,x)=>a+(+x.amount||0),0);
+ let weeks=[];for(let w=0;w+7<=span;w+=7){let sum=0;for(let i=0;i<7;i++)sum+=byDay[dayShift(-w-i)]||0;weeks.push(sum)}
+ let mean=weeks.length?weeks.reduce((a,v)=>a+v,0)/weeks.length:0,sd=weeks.length>1?Math.sqrt(weeks.reduce((a,v)=>a+(v-mean)**2,0)/(weeks.length-1)):0,cv=mean>0?sd/mean:0;
+ let sorted=weeks.slice().sort((a,b)=>a-b),p25=sorted.length?sorted[Math.floor(sorted.length*0.25)]:0;
+ let enough=span>=14&&totIn>0,avgIn=s.income>0?s.income/30.4:enough?totIn/span:planIncome()/30.4;
+ let cons=enough&&weeks.length>=3?Math.min(avgIn,p25/7):avgIn*0.8;
+ let perMonthDays=inDays/span*30.4,mode=c.mode!=='auto'?c.mode:(enough&&perMonthDays>=6?'daily':'monthly');
+ let last7=0;for(let i=0;i<7;i++)last7+=byDay[dayShift(-i)]||0;
+ return {span,avgIn,cons,avgOut:totOut/span,cv,perMonthDays,mode,enough,last7,weeks:weeks.length,regular:cv<0.35?'Đều':cv<0.7?'Dao động':'Rất thất thường'};
+})}
+
+/* ---------- Trọng số chia phần dư (dùng chung cho chia thật và mô phỏng) ---------- */
+function flowWeights(resMonths,belowTarget,topRate,ret,S){
+ if(S.seq){if(resMonths<1)return {r:1,f:0,g:0};if(topRate>=12)return {r:0,f:1,g:0};if(belowTarget)return {r:.5,f:0,g:.5};return {r:0,f:0,g:1}}
+ let wR=resMonths<1?0.45:belowTarget?0.25:0,wF=(topRate>=20?0.45:topRate>=12?0.3:topRate>ret?0.15:0)*S.fW;
+ if(wR+wF>1-S.gFloor){let k=(1-S.gFloor)/(wR+wF);wR*=k;wF*=k}
+ return {r:wR,f:wF,g:Math.max(0,1-wR-wF)};
+}
+function flowReserveTarget(){let s=planSettings(),b=_planBase109(),ess=Math.max(1,b.essential),st=flowStats(),k=st.cv>0.7?1.5:st.cv>0.35?1.25:1;return {ess,months:Math.round(s.reserveMonths*k*10)/10,target:ess*s.reserveMonths*k,k}}
+
+/* ---------- Tỷ lệ chia mỗi đồng tiền vào ---------- */
+function flowSplit(){return memo('fsp',()=>{
+ let st=flowStats(),c=flowCfg(),S=FLOW_STRAT[c.strategy],s=planSettings(),ret=MGR_RET[s.risk]||7,avgIn=Math.max(1,st.avgIn);
+ let debtDay=db.debts.filter(d=>debtRemain(d)>0).reduce((q,d)=>q+(d.freq==='weekly'?Math.min(+d.installment||0,debtRemain(d))/7:d.freq==='once'?debtRemain(d)/daysTo(d.nextDue):debtMonthlyInstall(d)/30.4),0);
+ let bp=budgetPlan(realMonth()),liveDay=bp.total>0?bp.total/30.4:Math.max(st.avgOut,_planBase109().living/30.4);
+ let pD=Math.min(.7,debtDay/avgIn),pL=Math.min(1-pD,liveDay/avgIn),sur=Math.max(0,1-pD-pL);
+ let RT=flowReserveTarget(),res=reserveNowAmt(),resMonths=res/RT.ess;
+ let hi=db.debts.filter(d=>debtRemain(d)>0&&['high','mid'].includes(debtRateClass(d))).sort((a,b)=>(+b.rate||0)-(+a.rate||0)),topRate=hi.length?+hi[0].rate||0:0;
+ let goals=(db.fundGoals||[]).filter(g=>(+g.target||0)>(+g.current||0)).map(g=>{let n=goalNeed(g);return {id:g.id,name:g.name,p:n.per/30.4/avgIn}});
+ let gSum=goals.reduce((q,g)=>q+g.p,0),gCap=sur*0.35;if(gSum>gCap&&gSum>0)goals.forEach(g=>g.p*=gCap/gSum);
+ let pGoal=Math.min(gSum,gCap),rest=sur-pGoal,w=flowWeights(resMonths,res<RT.target,topRate,ret,S);
+ if(!hi.length){w.g+=w.f;w.f=0}
+ let pR=rest*w.r,pF=rest*w.f,pG=rest*w.g;
+ let why=[];
+ why.push(`<b>Tiêu ${pctS(pL)}</b>: ngân sách ~${money(r1k(liveDay))}/ngày so với tiền vào TB ~${money(r1k(avgIn))}/ngày.`);
+ if(pD>0)why.push(`<b>Nợ ${pctS(pD)}</b>: các kỳ trả cần ~${money(r1k(debtDay))}/ngày – để riêng dần vào Quỹ trả nợ, tới hạn đủ tiền.`);
+ if(pR>0)why.push(`<b>Phòng hờ ${pctS(pR)}</b>: đang có ${resMonths.toFixed(1)}/${RT.months} tháng chi thiết yếu${RT.k>1?` (mục tiêu nâng ×${RT.k} vì thu nhập ${st.regular.toLowerCase()})`:''}.`);
+ if(pF>0)why.push(`<b>Trả nhanh ${pctS(pF)}</b>: ${hi[0].name} lãi ${topRate}%/năm – mỗi đồng trả trước "lời chắc" ${topRate}%.`);
+ if(pG>0)why.push(`<b>Tăng trưởng ${pctS(pG)}</b>: ${S.seq?'đã qua giai đoạn trả nợ.':`luôn có ít nhất ${pctS(S.gFloor)} phần dư – đầu tư ngay từ đầu, lãi kép cần thời gian.`}`);
+ if(pGoal>0)why.push(`<b>Mục tiêu ${pctS(pGoal)}</b>: ${goals.map(g=>g.name).join(', ')} – đủ tiền đúng hạn.`);
+ return {pD,pL,pR,pF,pG,pGoal,goals,sur,deficit:Math.max(0,pD+pL-1),avgIn,debtDay,liveDay,topRate,hiDebt:hi[0]||null,resMonths,RT,ret,S,why};
+})}
+
+/* ---------- Sổ hũ: phần mỗi khoản thu đã giao cho từng hũ, trừ đi phần đã chuyển ---------- */
+function flowAllocate(){let c=flowCfg(),sp=null,ch=false,ids=new Set();
+ db.tx.forEach(x=>{if(x.type!=='income'||isInvestmentWithdrawal(x)||!(x.date>=c.start))return;let k=String(x.id);ids.add(k);if(c.alloc[k])return;sp=sp||flowSplit();let a=+x.amount||0,o={b:a,r:Math.round(a*sp.pR),g:Math.round(a*sp.pG),f:Math.round(a*sp.pF)};sp.goals.forEach(g=>o['goal|'+financeId(g.id)]=Math.round(a*g.p));c.alloc[k]=o;ch=true});
+ Object.keys(c.alloc).forEach(k=>{if(!ids.has(k)){delete c.alloc[k];ch=true}});if(ch)mgrSaveSoon()}
+function flowPotOf(x){if(x.pot)return x.pot;let c=flowCfg();if(!(x.date>=c.start))return null;if(x.type==='transfer'){let to=accountById(x.to);if(to&&to.kind==='reserve')return 'r'}if(x.type==='investBuy'&&!/cho mượn/i.test(x.category||''))return 'g';return null}
+function flowOwed(){return memo('fo',()=>{flowAllocate();let c=flowCfg(),o={},byId={};db.tx.forEach(x=>byId[String(x.id)]=x);
+ Object.entries(c.alloc).forEach(([k,a])=>{let x=byId[k];if(!x)return;let sc=a.b?(+x.amount||0)/a.b:1;Object.entries(a).forEach(([p,v])=>{if(p!=='b')o[p]=(o[p]||0)+v*sc})});
+ db.tx.forEach(x=>{if(!(x.date>=c.start))return;let p=flowPotOf(x);if(p&&p!=='idle')o[p]=(o[p]||0)-(x.potAmt!=null?+x.potAmt:(+x.amount||0))});
+ Object.entries(c.adj).forEach(([p,v])=>o[p]=(o[p]||0)-v);
+ if(!flowSplit().hiDebt&&o.f>0){o.g=(o.g||0)+o.f;o.f=0}
+ Object.keys(o).forEach(p=>{if(p.startsWith('goal|')&&!goalById(p.slice(5))){o.g=(o.g||0)+Math.max(0,o[p]);delete o[p]}});
+ return o})}
+function flowForgive(){let r=mgrOrders();if(!r.short)return;let c=flowCfg();Object.entries(r.owed).forEach(([p,v])=>{if(v>0){let keep=Math.round(v*r.scale);c.adj[p]=(c.adj[p]||0)+(v-keep)}});save();render()}
+
+/* ---------- Lệnh chuyển: nợ (theo hạn) + hũ (theo sổ) + tiền nhàn rỗi ---------- */
+const POT_LBL={r:'Phòng hờ',g:'Tăng trưởng',f:'Trả nhanh nợ lãi cao'};
+function flowPotOrder(p,amt,why,idle){let sp=flowSplit(),c=flowCfg(),pre=idle?'Tiền nhàn rỗi → ':'',pot=idle?'idle':p;
+ if(p==='r')return {k:(idle?'idle|':'pot|')+p,pot,type:'move',toKind:'reserve',toName:'Quỹ phòng hờ',icon:'⛨',title:pre+'Chuyển vào Quỹ phòng hờ',amount:amt,why};
+ if(p==='f'&&sp.hiDebt)return {k:(idle?'idle|':'pot|')+p,pot,type:'pay',debtId:sp.hiDebt.id,from:'liquid',icon:'⚡',title:pre+'Trả nhanh: '+sp.hiDebt.name,amount:Math.min(amt,debtRemain(sp.hiDebt)),why};
+ if(p.startsWith('goal|')){let g=goalById(p.slice(5));if(!g)return null;return {k:(idle?'idle|':'pot|')+p,pot,type:'move',toKind:'saving',toName:'Tiết kiệm mục tiêu',goalId:g.id,icon:'⚑',title:pre+'Góp quỹ: '+g.name,amount:amt,why}}
+ let d=GROW_DEST[c.growDest];return {k:(idle?'idle|':'pot|')+'g',pot,type:c.growDest==='stock'?'stock':'inv',cat:d[1],icon:'↗',title:pre+'Tăng trưởng: '+d[0],amount:amt,why}}
+function mgrOrdersV12(){
+ let m=moneyPicture(),rec=mgrDay(),orders=[],sp=flowSplit(),c=flowCfg(),liq=Math.max(0,m.liquid),fund=m.debtFund,t0=new Date(today()+'T00:00');
+ let soon=m.holds.filter(h=>h.days<=3),far=m.holds.filter(h=>h.days>3),soonSum=soon.reduce((q,h)=>q+h.amount,0),farHold=far.reduce((q,h)=>q+h.hold,0);
+ let payFromFund=soonSum>0&&fund>=soonSum,payLiquid=payFromFund?0:soonSum;
+ soon.forEach(h=>{let late=h.due<t0,td=+h.due===+t0;orders.push({k:'pay|'+financeId(h.d.id),type:'pay',must:true,icon:'◷',title:'Trả kỳ nợ: '+h.d.name,amount:h.amount,debtId:h.d.id,from:payFromFund?'fund':'liquid',why:`${late?'<b class="neg">Đã quá hạn '+ddmm(h.due)+'</b>':td?'<b>Tới hạn hôm nay</b>':'Hạn '+ddmm(h.due)+', còn '+h.days+' ngày'}. ${payFromFund?'Lấy từ Quỹ trả nợ.':'Trả từ tài khoản thanh toán.'} Trễ hạn bị phạt và ảnh hưởng điểm tín dụng.`})});
+ let toFund=r1k(payFromFund?Math.max(0,farHold+soonSum-fund):Math.max(0,farHold-fund)),fundAmt=Math.min(toFund,r1k(Math.max(0,liq-payLiquid)));
+ if(fundAmt>=Math.min(c.minMove,50000)||far.some(h=>h.days<=7&&fundAmt>0))orders.push({k:'fund',type:'move',toKind:'debtfund',toName:'Quỹ trả nợ',icon:'⛁',title:'Chuyển vào Quỹ trả nợ',amount:fundAmt,why:`Phần nợ trong tiền vào (${pctS(sp.pD)}) tích cho ${far.slice(0,2).map(h=>`${h.d.name} – kỳ ${money(h.amount)} hạn ${ddmm(h.due)}`).join(', ')}${far.length>2?` và ${far.length-2} kỳ khác`:''}.${fundAmt<toFund?` <b>Tiền hiện chỉ đủ ${money(fundAmt)}/${money(toFund)}.</b>`:''}`});
+ let owed=flowOwed(),avail=Math.max(0,liq-m.debtHold-payLiquid-r1k(sp.liveDay*2)),tot=Object.values(owed).reduce((q,v)=>q+Math.max(0,v),0),scale=tot>avail&&tot>0?avail/tot:1,gather=[];
+ let idle=r1k(Math.min(m.free-tot,flowLowPoint()-tot-sp.liveDay*3)),idleP={};
+ if(idle>=Math.max(500000,sp.liveDay*7)){let base=sp.pR+sp.pF+sp.pG,parts=base>0?[['r',sp.pR],['f',sp.pF],['g',sp.pG]]:[['g',1]];parts.forEach(([p,w])=>{let v=r1k(idle*w/(base||1));if(v>=100000)idleP[p]=v})}
+ let keys=[...new Set(Object.keys(owed).filter(p=>owed[p]>=1000).concat(Object.keys(idleP)))];
+ keys.map(p=>{let own=owed[p]>=1000?r1k(owed[p]*scale):0,id=idleP[p]||0;return {p,own,id,amt:own+id}}).sort((x,y)=>y.amt-x.amt).forEach(({p,own,id,amt})=>{
+  let why=(own?(p==='r'?`Phần phòng hờ ${pctS(sp.pR)} của tiền vào (${money(own)}). Quỹ đang ${sp.resMonths.toFixed(1)}/${sp.RT.months} tháng.`:p==='f'?`Phần trả nhanh ${pctS(sp.pF)} của tiền vào (${money(own)}) – lãi ${sp.topRate}%/năm, trả sớm ngày nào đỡ lãi ngày đó.`:p==='g'?`Phần tăng trưởng ${pctS(sp.pG)} của tiền vào (${money(own)}) – đầu tư đều, không đợi hết nợ.`:`Phần mục tiêu trong tiền vào (${money(own)}).`):'')+(id?` ${own?'Cộng ':''}${money(id)} tiền đang nằm im vượt nhu cầu tiêu và giữ nợ – chia cùng tỷ lệ để không bỏ phí.`:'');
+  if(amt>=c.minMove){let o=flowPotOrder(p,amt,why.trim(),!own);if(o){o.potAmt=own;if(own)o.pot=p;orders.push(o)}}else if(own)gather.push({p,v:owed[p],amt:own,lbl:p.startsWith('goal|')?'Mục tiêu: '+((goalById(p.slice(5))||{}).name||''):POT_LBL[p]||p})});
+ orders.forEach(o=>o.skipped=!!rec.skip[o.k]);
+ let pending=orders.filter(o=>!o.skipped),skipped=orders.filter(o=>o.skipped),outstanding=orders.reduce((q,o)=>q+o.amount,0);
+ let plan=Math.max(rec.plan||0,outstanding+rec.done);if(plan-(rec.plan||0)>=1000){rec.plan=plan;mgrSaveSoon()}
+ return {m,orders,pending,skipped,rec,sum:pending.reduce((q,o)=>q+o.amount,0),owed,gather,scale,short:scale<1?r1k(tot-avail):0,sp};
+}
+mgrOrders=function(){return memo('mo',mgrOrdersV12)};
+const _mgrDo12=mgrDo;mgrDo=function(k){let o=mgrFind(k);if(o&&o.type==='inv'){planInvest(o.cat,o.amount);let f=$('investmentForm');if(!f)return;let base=f.onsubmit;f.onsubmit=function(e){let n=db.tx.length,amt=+(f.elements.amount&&f.elements.amount.value)||o.amount;let r=base?base.call(this,e):saveInvestmentAdd.call(this,e);if(db.tx.length>n){flowTag(db.tx[0],o,amt);mgrLog(o.k,amt);save();render()}return r};return}return _mgrDo12(k)};
+
+/* ---------- Tiền tiêu được: trừ phần đã giao cho các hũ; thu nhập hằng ngày được tính cho những ngày tới ---------- */
+const _mp12=_mp111;
+moneyPicture=function(){return memo('mp',()=>{let m=_mp12();try{
+ let st=flowStats(),sp=flowSplit(),o=flowOwed(),owed=Object.values(o).reduce((q,v)=>q+Math.max(0,v),0),s=m.s;
+ m.owedPots=Math.min(owed,Math.max(0,m.liquid-m.debtHold));
+ let future=st.mode==='daily'?st.cons*sp.pL*Math.max(0,m.daysLeft-1):0;
+ let budgetPerDay=m.budgetLeft/m.daysLeft,cashPerDay=Math.max(0,m.afterDebt-m.owedPots+future)/(m.daysLeft+(st.mode==='daily'?Math.min(7,s.bufferDays):s.bufferDays)),perDay=Math.min(budgetPerDay,cashPerDay);
+ m.tight=cashPerDay<budgetPerDay*0.98;m.perDay=r1k(perDay);m.todayLeft=r1k(perDay-m.spentToday);m.flowMode=st.mode;
+ if(st.mode==='daily'){let fr=dayShift(-29),inM=db.tx.filter(x=>x.type==='income'&&!isInvestmentWithdrawal(x)&&x.date>=fr).reduce((q,x)=>q+(+x.amount||0),0),outM=db.tx.filter(x=>x.type==='expense'&&x.date>=fr).reduce((q,x)=>q+(+x.amount||0),0);m.livePot=r1k(inM*sp.pL-outM);m.liveIn=r1k(inM*sp.pL);m.liveOut=outM}
+}catch(e){console.error('mp12',e)}return m})};
+
+/* ---------- Mô phỏng chiến lược: tài sản ròng theo thời gian ---------- */
+function growthSim(key,months){months=months||120;
+ let S=FLOW_STRAT[key]||FLOW_STRAT.balanced,st=flowStats(),sp=flowSplit(),s=planSettings(),RT=flowReserveTarget(),ess=RT.ess,target=RT.target,m=moneyPicture();
+ let inc=st.avgIn*30.4,spend=sp.liveDay*30.4,ds=simDebts(),reserve=reserveNowAmt(),inv=invValue(),ret=MGR_RET[s.risk]||7,mr=ret/1200,interest=0,deficit=0,snaps={},ms=[],debtFree=null,firstInv=null,steady=0;
+ let goals=(db.fundGoals||[]).filter(g=>(+g.target||0)>(+g.current||0)).map(g=>({id:g.id,name:g.name,left:(+g.target||0)-(+g.current||0),dl:g.deadline?new Date(g.deadline+'T00:00'):null,doneM:null}));
+ let had={r1:reserve>=ess,r2:reserve>=target-1,hi:!ds.some(d=>d.cls==='high'),all:!ds.length},mark=(i,t,k,cls)=>{if(!ms.some(x=>x.k===k))ms.push({i,t,k,cls})},n0=new Date(),debt0=ds.reduce((q,d)=>q+d.bal,0);
+ for(let i=0;i<months;i++){
+  ds.forEach(d=>{if(d.bal>0){let it=d.bal*d.r;d.bal+=it;interest+=it}});
+  let minPay=0;ds.forEach(d=>{if(d.bal<=0)return;let p=d.once?(i>=d.dueM?d.bal:0):Math.min(d.bal,d.inst);d.bal-=p;minPay+=p});
+  let sur=inc-spend-minPay+(i===0?Math.max(0,m.free):0);
+  if(sur<0){reserve+=sur;if(reserve<0){deficit+=-reserve;reserve=0}sur=0}
+  let gNeed=0;goals.forEach(g=>{if(g.left<=0)return;let mo=g.dl?Math.max(1,(g.dl.getFullYear()-n0.getFullYear())*12+g.dl.getMonth()-n0.getMonth()-i+1):12;g.want=Math.min(g.left,g.left/mo);gNeed+=g.want});
+  let gTake=Math.min(gNeed,sur*0.35);goals.forEach(g=>{if(g.left>0&&gNeed>0)g.left-=g.want*gTake/gNeed});let rest=sur-gTake;
+  let hi=ds.filter(d=>d.bal>0.5&&(d.cls==='high'||d.cls==='mid')).sort((a,c)=>c.rate-a.rate),w=flowWeights(reserve/ess,reserve<target,hi.length?hi[0].rate:0,ret,S);
+  let toR=Math.min(rest*w.r,Math.max(0,target-reserve)),toF=hi.length?rest*w.f:0,toG=rest-toR-toF;
+  hi.forEach(d=>{let a=Math.min(toF,d.bal);d.bal-=a;toF-=a});toG+=toF;reserve+=toR;inv=inv*(1+mr)+toG;
+  if(toG>1000&&firstInv===null)firstInv=i;
+  ds.forEach(d=>{if(d.bal<=0.5&&!d.done){d.done=true;d.bal=0;mark(i,'Trả xong: '+d.name,'d'+d.id,'debtExtra')}});
+  if(!had.r1&&reserve>=ess)mark(i,'Đủ quỹ phòng hờ 1 tháng chi thiết yếu','r1','reserve');
+  if(!had.hi&&!ds.some(d=>d.cls==='high'&&d.bal>0.5))mark(i,'Hết nợ lãi cao','hi','debtExtra');
+  if(ds.length&&debtFree===null&&ds.every(d=>d.bal<=0.5)){debtFree=i;if(!had.all)mark(i,'Sạch nợ hoàn toàn','all','debtExtra')}
+  if(!had.r2&&reserve>=target-1)mark(i,`Đủ quỹ phòng hờ ${RT.months} tháng (${money(r10k(target))})`,'r2','reserve');
+  goals.forEach(g=>{if(g.left<=0.5&&g.doneM===null){g.doneM=i;let late=g.dl&&new Date(n0.getFullYear(),n0.getMonth()+i,1)>g.dl;mark(i,'Đạt mục tiêu: '+g.name+(late?' (trễ hạn)':''),'g'+g.id,late?'keep':'invest')}});
+  if(!steady&&i>=1&&!ds.some(d=>d.bal>0.5)&&reserve>=target-1)steady=toG;
+  if([11,35,59,119].includes(i))snaps[i+1]={inv,reserve,debt:ds.reduce((q,d)=>q+d.bal,0),nw:inv+reserve-ds.reduce((q,d)=>q+d.bal,0)};
+ }
+ return {key,S,ms:ms.sort((a,b)=>a.i-b.i),snaps,interest,deficit,debtFree,firstInv,steady,debt0,inc,spend,ret,target,ess,reserve0:reserveNowAmt(),inv0:invValue(),goals,invAt:Object.fromEntries(Object.entries(snaps).map(([k,v])=>[k,v.inv]))};
+}
+roadmapSim=function(){return memo('rs',()=>growthSim(flowCfg().strategy,120))};
+function flowSetStrategy(k){if(!FLOW_STRAT[k])return;flowCfg().strategy=k;save();render()}
+function flowCompareHtml(){
+ let cur=flowCfg().strategy,rows=Object.keys(FLOW_STRAT).map(k=>growthSim(k,60)),best=rows.reduce((a,b)=>(b.snaps[60]?.nw||0)>(a.snaps[60]?.nw||0)?b:a,rows[0]);
+ let base=(rows[0].snaps[60]?.nw)||0;
+ return `<section class="panel"><div class="panelHead"><div><b>So sánh chiến lược bằng con số</b><div class="muted">Cùng thu nhập, cùng chi tiêu – chỉ khác cách chia phần dư</div></div></div>
+ ${rows.map(r=>`<div class="stratRow ${r.key===cur?'on':''}"><div class="row"><b>${r.S.label}${r.key===best.key?' <span class="badge tier-need">Tài sản cao nhất</span>':''}</b>${r.key===cur?'<span class="badge">Đang dùng</span>':`<button type="button" class="mgrUndo" onclick="flowSetStrategy('${r.key}')">Dùng</button>`}</div>
+ <div class="stratGrid"><div><span>Hết nợ</span><b>${r.debt0<1?'—':r.debtFree!=null?mmyy(monthAt(r.debtFree)):'> 5 năm'}</b></div><div><span>Tiền lãi trả</span><b>${money(r10k(r.interest))}</b></div><div><span>Bắt đầu đầu tư</span><b>${r.firstInv===null?'—':r.firstInv===0?'Ngay':mmyy(monthAt(r.firstInv))}</b></div></div>
+ <div class="stratGrid"><div><span>Tài sản ròng 1 năm</span><b>${money(r10k(r.snaps[12]?.nw||0))}</b></div><div><span>3 năm</span><b>${money(r10k(r.snaps[36]?.nw||0))}</b></div><div><span>5 năm</span><b class="${r.key===best.key?'pos':''}">${money(r10k(r.snaps[60]?.nw||0))}</b></div></div>
+ <div class="muted" style="font-size:11px;margin-top:4px">${r.S.desc}</div></div>`).join('')}
+ <div class="muted" style="font-size:10.5px;margin-top:8px">Tài sản ròng = quỹ phòng hờ + đầu tư − nợ còn lại. Lợi nhuận đầu tư giả định ${rows[0].ret}%/năm (theo khẩu vị rủi ro), không đảm bảo. Nợ lãi cao thường làm cách "trả nợ trước" lợi hơn về toán; cách song song đổi một ít tiền lãi lấy việc tài sản đầu tư lớn dần ngay từ đầu.</div></section>`;
+}
+
+/* ---------- Thẻ "Nhịp dòng tiền" + quy tắc chia ---------- */
+const FLOW_COL={pL:'#2d91ff',pD:'#ffd17a',pR:'#7be0b0',pF:'#ff9d5c',pG:'#a9b8ff',pGoal:'#e59bff'};
+function flowRuleRows(sp,amount){return [['pL','Tiêu'],['pD','Nợ (Quỹ trả nợ)'],['pR','Phòng hờ'],['pF','Trả nhanh nợ lãi cao'],['pG','Tăng trưởng'],['pGoal','Mục tiêu']].filter(([k])=>sp[k]>0.004).map(([k,l])=>({k,l,p:sp[k],v:r1k(amount*sp[k])}))}
+function flowCardHtml(){
+ let st=flowStats(),sp=flowSplit(),c=flowCfg(),rows=flowRuleRows(sp,1000000),net=st.avgIn-st.avgOut;
+ return `<section class="panel"><div class="panelHead"><div><b>Nhịp dòng tiền</b><div class="muted">${st.enough?`Đo từ ${st.span} ngày gần nhất · ${st.mode==='daily'?'tiền vào liên tục':'thu nhập theo kỳ'}`:'Chưa đủ 14 ngày dữ liệu – đang dùng thu nhập ước tính'}</div></div><button class="addText" onclick="openPlanSettings()">⚙</button></div>
+ <div class="mgrStats"><div><span>Vào TB/ngày</span><b class="pos">${money(r1k(st.avgIn))}</b><small>thận trọng ${money(r1k(st.cons))}</small></div><div><span>Chi TB/ngày</span><b class="neg">${money(r1k(st.avgOut))}</b><small>ròng ${net>=0?'+':''}${money(r1k(net))}</small></div><div><span>Độ đều</span><b>${st.regular}</b><small>${st.weeks>=3?'dao động '+Math.round(st.cv*100)+'%/tuần':'cần ≥3 tuần'}</small></div></div>
+ <div class="dailyHead"><b>Mỗi 1.000.000 ₫ tiền vào chia ngay</b><span class="badge">${FLOW_STRAT[c.strategy].short}</span></div>
+ <div class="allocBar" style="height:14px">${rows.map(r=>`<i style="width:${r.p*100}%;background:${FLOW_COL[r.k]}"></i>`).join('')}</div>
+ <div class="flowRule">${rows.map(r=>`<div><i style="background:${FLOW_COL[r.k]}"></i><span>${r.l}</span><b>${money(r.v)}</b><small>${pctS(r.p)}</small></div>`).join('')}</div>
+ ${sp.deficit>0?`<div class="alert red" style="margin-top:8px"><b>Tiền vào chưa đủ cho chi tiêu + nợ</b><br>Thiếu ~${pctS(sp.deficit)} mỗi đồng vào (~${money(r1k(sp.deficit*sp.avgIn))}/ngày). Chưa thể để dành – cần giảm ngân sách hoặc tăng thu nhập.</div>`:''}
+ <details class="mgrHelp"><summary>Vì sao chia như vậy?</summary><div>${sp.why.map(x=>`<p>${x}</p>`).join('')}<p>Tỷ lệ tự điều chỉnh mỗi ngày theo dữ liệu: quỹ phòng hờ đủ thì phần đó chuyển sang tăng trưởng, hết nợ lãi cao thì phần trả nhanh cũng chuyển sang tăng trưởng.</p></div></details></section>`;
+}
+/* Việc cần làm: thêm "Đang gom" + thiếu hũ */
+const _today12=mgrTodayHtml;mgrTodayHtml=function(){
+ let h=_today12(),r=mgrOrders(),c=flowCfg(),m=r.m,extra='';
+ if(m.flowMode==='daily'&&m.liveIn!=null)extra+=`<div class="row line"><span>Hũ tiêu 30 ngày<div class="muted" style="font-size:11px">${pctS(r.sp.pL)} tiền vào (${money(m.liveIn)}) − đã tiêu ${money(m.liveOut)}</div></span><b class="${m.livePot>=0?'pos':'neg'}">${money(m.livePot)}</b></div>`;
+ if(r.gather.length)extra+=`<div class="mgrSkipped"><div class="muted">Đang gom – đủ ${money(c.minMove)} mới cần chuyển (đỡ chuyển lẻ tẻ):</div>${r.gather.map(g=>`<div class="row line"><span>${g.lbl}</span><b>${money(g.amt)}</b></div><div class="planBar" style="height:5px;margin:-2px 0 4px"><i style="width:${Math.min(100,g.amt/c.minMove*100)}%"></i></div>`).join('')}</div>`;
+ if(r.short>=50000)extra+=`<div class="alert amber" style="margin-top:8px"><b>Các hũ đang thiếu ${money(r.short)}</b><br>Phần đã giao cho hũ nhưng tiền đã bị tiêu. App chỉ ra lệnh trong số tiền thật đang có. <button type="button" class="mgrUndo" onclick="flowForgive()">Bỏ qua phần thiếu</button></div>`;
+ return h.replace('<details class="mgrHelp">',extra+'<details class="mgrHelp">').replace('<p><b>Không sao, kế hoạch không vỡ.</b>','<p><b>Tiền vào liên tục:</b> mỗi khoản thu bạn ghi, app giao ngay phần cho từng hũ. Không cần chuyển từng lần – gom đủ ngưỡng hoặc cuối ngày chuyển một lần.</p><p><b>Không sao, kế hoạch không vỡ.</b>');
+};
+
+/* ---------- Ghi thu xong → hiện ngay cách chia ---------- */
+function flowShowSplit(x){memoReset();let sp=flowSplit(),a=+x.amount||0,rows=flowRuleRows(sp,a),r=mgrOrders();
+ openModal(`<h2>Vừa vào ${money(a)}</h2><div class="muted" style="margin-bottom:8px">Chia ngay theo nhịp dòng tiền (${FLOW_STRAT[flowCfg().strategy].label}):</div>
+ <div class="allocBar" style="height:14px">${rows.map(q=>`<i style="width:${q.p*100}%;background:${FLOW_COL[q.k]}"></i>`).join('')}</div>
+ <div class="flowRule">${rows.map(q=>`<div><i style="background:${FLOW_COL[q.k]}"></i><span>${q.l}</span><b>${money(q.v)}</b><small>${pctS(q.p)}</small></div>`).join('')}</div>
+ <div class="muted" style="font-size:12px;margin:8px 0">Phần Tiêu ở lại tài khoản. Các phần khác cộng vào hũ – ${r.pending.length?`hiện có <b>${r.pending.length} việc chuyển (${money(r.sum)})</b>.`:'chưa đủ ngưỡng chuyển, cứ để gom.'}</div>
+ <button class="primary" style="width:100%" onclick="closeModal();mgrOpen('today')">Xem việc cần chuyển</button><button style="width:100%;margin-top:8px" onclick="closeModal()">Để sau</button>`)}
+const _submitTx12=submitTx;submitTx=function(e,t){let n=db.tx.length;let r=_submitTx12.apply(this,arguments);if(t==='income'&&db.tx.length>n){let x=db.tx[0];if(x&&x.type==='income'&&!isInvestmentWithdrawal(x)&&(+x.amount||0)>0)setTimeout(()=>{try{flowShowSplit(x)}catch(err){console.error(err)}},60)}return r};
+
+/* ---------- Trợ lý: thêm nhận xét theo dòng tiền ---------- */
+const _ins12=mgrInsights;mgrInsights=function(){return memo('ins12',()=>{
+ let a=_ins12().filter(x=>x.t!=='Mọi thứ đang đúng kế hoạch'),st=flowStats(),sp=flowSplit(),r=mgrOrders(),m=r.m;
+ if(st.enough&&st.mode==='daily'&&st.span>=21&&st.last7<st.avgIn*7*0.6)a.push({l:'amber',s:65,t:'Tuần này tiền vào chậm',d:`7 ngày qua vào ${money(r1k(st.last7))}, thấp hơn ${Math.round((1-st.last7/(st.avgIn*7))*100)}% so với trung bình. Hũ tăng trưởng tự nhỏ lại vì chia theo %; giữ chi ở mức thiết yếu, không động vào Quỹ trả nợ.`});
+ if(m.livePot!=null&&m.livePot<0)a.push({l:'red',s:75,t:`Hũ tiêu 30 ngày qua âm ${money(-m.livePot)}`,d:`Đã tiêu nhiều hơn phần ${pctS(sp.pL)} dành cho tiêu của tiền vào. Phần vượt đang lấn vào tiền của hũ nợ/phòng hờ/tăng trưởng.`});
+ if(sp.topRate>sp.ret+5&&sp.pG>0.02&&!sp.S.seq){let g=sp.pG*sp.avgIn*365,cost=r10k(g*(sp.topRate-sp.ret)/100/2);if(cost>=100000)a.push({l:'blue',s:28,t:`Đầu tư song song khi còn nợ lãi ${sp.topRate}%`,d:`Mỗi năm chênh lệch khoảng ${money(cost)} so với dồn hết trả nợ trước – đổi lại tài sản đầu tư tăng ngay từ đầu. Xem bảng so sánh ở tab Tích lũy để chọn.`})}
+ if(r.short>=50000)a.push({l:'amber',s:55,t:`Các hũ đang thiếu ${money(r.short)}`,d:'Tiền đã giao cho phòng hờ/tăng trưởng nhưng đã bị tiêu. Những khoản tiền vào sau sẽ bù dần, hoặc bấm "Bỏ qua phần thiếu" ở Việc cần làm.'});
+ const L={red:0,amber:1,green:2,blue:3};a.sort((x,y)=>L[x.l]-L[y.l]||y.s-x.s);
+ if(!a.some(x=>x.l==='red'||x.l==='amber'))a.unshift({l:'green',s:0,t:'Mọi thứ đang đúng kế hoạch',d:'Không có nợ thiếu tiền, không nhóm chi nào vượt nhịp. Cứ ghi thu chi và chuyển theo việc cần làm.'});
+ return a})};
+
+/* ---------- Dự báo: thu nhập hằng ngày (thận trọng) ---------- */
+const _fc12=mgrForecast;mgrForecast=function(){return memo('fc12',()=>{let st=flowStats();if(st.mode!=='daily')return _fc12();
+ let f=_fc12(),add=0,min=Infinity,minD=f.minD;f.days.forEach((d,i)=>{if(i>0)add+=st.cons;d.bal+=add;if(d.bal<min){min=d.bal;minD=d.d}});f.min=min;f.minD=minD;f.end=f.days[f.days.length-1].bal;f.learned=true;f.dailyIn=st.cons;return f})};
+const _fcHtml12=mgrForecastHtml;mgrForecastHtml=function(){let f=mgrForecast(),h=_fcHtml12();return f.dailyIn?h.replace('trả nợ đúng hạn','trả nợ đúng hạn, tiền vào thận trọng ~'+money(r1k(f.dailyIn))+'/ngày'):h};
+
+/* ---------- Trả nợ: tiền trả thêm gợi ý = phần trả nhanh trong dòng tiền ---------- */
+suggestedExtra=function(){let sp=flowSplit();return r10k(sp.pF*sp.avgIn*30.4)};
+
+/* ---------- Trang Kế hoạch / Trang chủ ---------- */
+mgrTabsHtml=function(){return `<div class="segmented mgrTabs">${[['today','Hôm nay'],['debt','Trả nợ'],['save','Tích lũy']].map(([k,l])=>`<button type="button" class="${mgrTab===k?'active':''}" onclick="mgrSetTab('${k}')">${l}</button>`).join('')}</div>`};
+const _renderPlan12=renderPlan;renderPlan=function(){_renderPlan12();let el=$('planBody');if(!el)return;try{
+ if(mgrTab==='today'){let t=el.querySelector('.mgrTabs');if(t)t.insertAdjacentHTML('afterend',flowCardHtml())}
+ if(mgrTab==='save'){let tl=[...el.querySelectorAll('section')].find(s=>s.textContent.includes('Lộ trình tài chính'));if(tl)tl.insertAdjacentHTML('beforebegin',flowCompareHtml());else el.insertAdjacentHTML('beforeend',flowCompareHtml())}
+}catch(e){console.error('plan12',e)}};
+const _home12=renderHomePlan;renderHomePlan=function(){_home12();let el=$('homePlan');if(!el)return;try{let sp=flowSplit(),rows=flowRuleRows(sp,1000000),m=moneyPicture();
+ let st=el.querySelector('.mgrStats');let rule=`<div class="homeRule"><div class="muted">Mỗi 1 triệu vào: ${rows.map(r=>`<span style="color:${FLOW_COL[r.k]}">${r.l} ${pctS(r.p)}</span>`).join(' · ')}</div><div class="allocBar" style="height:8px;margin:5px 0 8px">${rows.map(r=>`<i style="width:${r.p*100}%;background:${FLOW_COL[r.k]}"></i>`).join('')}</div></div>`;
+ if(st)st.insertAdjacentHTML('afterend',rule);
+ if(m.flowMode==='daily'&&m.livePot!=null&&st){let lab=st.querySelector('div:nth-child(3)');if(lab)lab.innerHTML=`<span>Hũ tiêu 30 ngày</span><b class="${m.livePot>=0?'pos':'neg'}">${money(m.livePot)}</b>`}
+}catch(e){console.error('home12',e)}};
+
+/* ---------- Thiết lập dòng tiền ---------- */
+const _ops12=openPlanSettings;openPlanSettings=function(){_ops12();let f=$('planSetForm');if(!f)return;let c=flowCfg();
+ f.insertAdjacentHTML('afterbegin',`<label>Chiến lược chia phần dư</label><select name="flowStrategy">${Object.entries(FLOW_STRAT).map(([k,v])=>`<option value="${k}" ${c.strategy===k?'selected':''}>${v.label}${k==='balanced'?' (khuyến nghị)':''}</option>`).join('')}</select>
+ <label>Phần tăng trưởng đi vào</label><select name="growDest">${Object.entries(GROW_DEST).map(([k,v])=>`<option value="${k}" ${c.growDest===k?'selected':''}>${v[0]}</option>`).join('')}</select>
+ <label>Gom đủ bao nhiêu mới ra lệnh chuyển</label><select name="minMove">${[50000,100000,200000,500000,1000000].map(n=>`<option value="${n}" ${+c.minMove===n?'selected':''}>${money(n)}${n===200000?' (khuyến nghị)':''}</option>`).join('')}</select>
+ <label>Kiểu thu nhập</label><select name="flowMode"><option value="auto" ${c.mode==='auto'?'selected':''}>Tự nhận diện (hiện: ${flowStats().mode==='daily'?'tiền vào liên tục':'theo kỳ'})</option><option value="daily" ${c.mode==='daily'?'selected':''}>Tiền vào liên tục mỗi ngày</option><option value="monthly" ${c.mode==='monthly'?'selected':''}>Lương/thu nhập theo tháng</option></select><div class="divider"></div>`);
+ let h=f.onsubmit;f.onsubmit=function(e){Object.assign(flowCfg(),{strategy:f.elements.flowStrategy.value,growDest:f.elements.growDest.value,minMove:+f.elements.minMove.value,mode:f.elements.flowMode.value});return h.call(this,e)}};
+flowCfg();try{render()}catch(e){console.error('v12',e)}
+
 </script>
 <script>
 if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
@@ -2345,11 +2590,11 @@ if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
 
 if('serviceWorker' in navigator){
  window.addEventListener('load',()=>{
-   navigator.serviceWorker.register('./sw.js?v=11100',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
+   navigator.serviceWorker.register('./sw.js?v=12000',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
  });
  navigator.serviceWorker.addEventListener('controllerchange',()=>{
-   if(!sessionStorage.getItem('v11100Reloaded')){sessionStorage.setItem('v11100Reloaded','1');location.reload()}
+   if(!sessionStorage.getItem('v12000Reloaded')){sessionStorage.setItem('v12000Reloaded','1');location.reload()}
  });
 }
 </script>
-<div id="buildBadge" style="position:fixed;right:5px;bottom:calc(64px + env(safe-area-inset-bottom));z-index:9999;font:700 8px system-ui;color:#6f8497;opacity:.65;pointer-events:none">V11.1.0</div></body></html>
+<div id="buildBadge" style="position:fixed;right:5px;bottom:calc(64px + env(safe-area-inset-bottom));z-index:9999;font:700 8px system-ui;color:#6f8497;opacity:.65;pointer-events:none">V12.0.0</div></body></html>

@@ -1,7 +1,8 @@
-V11.1.0 - GON HON, NHANH HON, THONG MINH HON
+V12.0.0 - BO MAY DONG TIEN SONG SONG
 Upload de 5 file len GitHub Pages. KHONG xoa PWA cu, KHONG xoa du lieu Safari. Du lieu van dung localStorage key kmFinancePro1.
 
-- Tro ly tai chinh tren trang chu va tab Hom nay: canh bao nhom chi tieu nhanh, thieu tien tra no, du bao hut tien, vua nhan luong, chi bat thuong.
-- Du bao dong tien 30 ngay.
-- Thu chi: loc theo thang va loai, nhom theo ngay.
-- Nhap giao dich: tu doan danh muc tu ghi chu, goi y khoan hay ghi.
+- Moi khoan tien vao chia ngay theo %: Tieu, No, Phong ho, Tra nhanh no lai cao, Tang truong, Muc tieu.
+- Tang truong bat dau ngay, song song voi tra no (doi chien luoc trong Ke hoach > cai dat).
+- So hu: gom du nguong moi ra lenh chuyen.
+- Ghi thu xong hien ngay cach chia.
+- Tab Tich luy: so sanh 4 chien luoc bang tai san rong 1/3/5 nam.
