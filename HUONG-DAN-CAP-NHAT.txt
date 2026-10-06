@@ -1,7 +1,7 @@
-V11.0.0 - NHA QUAN LY TAI CHINH CA NHAN
+V11.1.0 - GON HON, NHANH HON, THONG MINH HON
 Upload de 5 file len GitHub Pages. KHONG xoa PWA cu, KHONG xoa du lieu Safari. Du lieu van dung localStorage key kmFinancePro1.
 
-MOI: Them > Viec can lam hom nay / Ke hoach tra no / Ke hoach tiet kiem.
-- Moi ngay app ra lenh chuyen tien (Quy tra no, phong ho, muc tieu, dau tu). Chuyen that trong app ngan hang roi bam "Da chuyen".
-- Chua chuyen hom nay: bam "De mai" hoac bo qua, tien van nam trong tai khoan, lenh ngay mai tu cong don.
-- Loai tai khoan moi: Quy tra no (tien de rieng cho no, khong tinh vao tien tieu).
+- Tro ly tai chinh tren trang chu va tab Hom nay: canh bao nhom chi tieu nhanh, thieu tien tra no, du bao hut tien, vua nhan luong, chi bat thuong.
+- Du bao dong tien 30 ngay.
+- Thu chi: loc theo thang va loai, nhom theo ngay.
+- Nhap giao dich: tu doan danh muc tu ghi chu, goi y khoan hay ghi.
