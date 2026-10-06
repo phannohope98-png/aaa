@@ -1,2 +1,7 @@
-V10.4.0 CLEAN
-Upload đè 5 file lên GitHub Pages. KHÔNG xóa PWA cũ và KHÔNG xóa dữ liệu Safari. Dữ liệu tiếp tục dùng localStorage key kmFinancePro1.
+V11.0.0 - NHA QUAN LY TAI CHINH CA NHAN
+Upload de 5 file len GitHub Pages. KHONG xoa PWA cu, KHONG xoa du lieu Safari. Du lieu van dung localStorage key kmFinancePro1.
+
+MOI: Them > Viec can lam hom nay / Ke hoach tra no / Ke hoach tiet kiem.
+- Moi ngay app ra lenh chuyen tien (Quy tra no, phong ho, muc tieu, dau tu). Chuyen that trong app ngan hang roi bam "Da chuyen".
+- Chua chuyen hom nay: bam "De mai" hoac bo qua, tien van nam trong tai khoan, lenh ngay mai tu cong don.
+- Loai tai khoan moi: Quy tra no (tien de rieng cho no, khong tinh vao tien tieu).
