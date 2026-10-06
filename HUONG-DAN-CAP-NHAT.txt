@@ -1,8 +1,5 @@
-V13.0.0 - QUAN LY THEO DOI SONG THAT
+V14.0.0 - NHAC NHO, BAO CAO THANG, CANH BAO SOM
 Upload de 5 file len GitHub Pages. KHONG xoa PWA cu, KHONG xoa du lieu Safari. Du lieu van dung localStorage key kmFinancePro1.
 
-BAT DAU:
-1. Ke hoach > cai dat: nhap luong huu/thang + ngay nhan, muc gui vo, ho tro gia dinh.
-2. Trang chu > "So du thuc": lan dau chi chinh so du cho khop + nhap uoc chung moi ngay tieu bao nhieu.
-3. Moi ngay: co tien vao thi bam "Tien vao". 2-3 ngay bam "So du thuc" 1 lan - khong can ghi tung khoan chi.
-4. No nguoi quen: Them no > Chu ky "Khong lich".
+NHAC NHO: Them > Nhac nho hang ngay > "Them nhac vao Lich" (dong y them vao Lich dien thoai). Lich se bao chuong sang/toi moi ngay.
+BAO CAO THANG: Them > Bao cao thang (hoac trang Phan tich).
