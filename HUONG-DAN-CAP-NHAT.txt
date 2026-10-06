@@ -1,6 +1,6 @@
-V15.0.0 - SAO LUU, SO TAY GIA DINH, HUU TRI TU LAP
+V16.0.0 - CHE DO TU DONG
 Upload de 5 file len GitHub Pages. KHONG xoa PWA cu, KHONG xoa du lieu Safari. Du lieu van dung localStorage key kmFinancePro1.
 
-SAO LUU: Them > Sao luu du lieu > gui file cho chinh minh qua Zalo/Drive. Lam moi tuan.
-SO TAY: Them > So tay tai chinh gia dinh > gui cho vo hoac in/luu PDF.
-HUU TRI: Ke hoach > Tich luy > Huu tri tu lap. Nhap tuoi trong cai dat.
+MOI NGAY CHI CAN: toi bam "Check-in cuoi ngay" - nhap tien vao hom nay + tong tien dang co. Xong.
+Co viec "Chuyen vao tai khoan de danh" thi chuyen that roi bam dau tick.
+Muon xem day du: bam "Day du" tren the chinh.
