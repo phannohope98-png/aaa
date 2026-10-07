@@ -562,6 +562,25 @@ body.ui172 .scTodo button{display:grid!important;place-items:center}
 .catPick span .ic{display:inline-block;vertical-align:-3px;width:15px;height:15px}
 @media (prefers-reduced-motion:reduce){body.ui172 #simpleCard .card172,.stp.now i{animation:none!important}}
 </style>
+<style id="app-style-v18">/* V18: sắp xếp tiền theo số dư thật */
+#simpleCard .arr18,#simpleCardPlan .arr18{background:linear-gradient(160deg,rgba(77,163,255,.12),rgba(123,107,255,.06) 50%,rgba(255,255,255,.02))!important;border:1px solid rgba(140,180,255,.22)!important;border-radius:22px;padding:16px;margin-bottom:14px;position:relative;overflow:hidden}
+#simpleCardPlan .arr18{display:block;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.arrSum{font-size:16px;background:linear-gradient(135deg,#7fd6ff,#c49bff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.arrTop{display:flex;justify-content:space-between;align-items:flex-end;gap:10px}.arrTop small{display:block;font-size:11px;color:#93a4bf}.arrTop b{font-size:24px;font-weight:800;letter-spacing:-.02em}.arrSide{text-align:right}.arrSide b{font-size:15px;color:#ffd27e}
+.arrBar{display:flex;height:12px;border-radius:8px;overflow:hidden;gap:2px;margin:10px 0 8px;background:rgba(255,255,255,.06)}.arrBar i{display:block;height:100%}
+.wf18{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.06)}.wf18>i{width:10px;height:10px;border-radius:4px;flex:none}.wf18 span{display:block;font-size:13px;font-weight:600}.wf18 small{display:block;font-size:11px;color:#8d9cb6;line-height:1.35}.wf18 b{font-size:13.5px;white-space:nowrap}
+.ord18{position:relative;background:rgba(5,10,24,.45);border:1px solid color-mix(in srgb,var(--c) 35%,transparent);border-radius:18px;padding:12px;margin:10px 0;box-shadow:0 0 0 1px rgba(255,255,255,.02),0 10px 24px color-mix(in srgb,var(--c) 12%,transparent)}
+.ord18::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:3px;border-radius:3px;background:var(--c);box-shadow:0 0 10px var(--c)}
+.ordTop{display:flex;gap:10px;align-items:flex-start}.ordIc{flex:none;width:36px;height:36px;border-radius:12px;display:grid;place-items:center;color:#fff;background:linear-gradient(145deg,color-mix(in srgb,var(--c) 45%,transparent),color-mix(in srgb,var(--c) 12%,transparent))}.ordIc .ic{width:18px;height:18px}
+.ordTop b{font-size:14px}.ordAmt{font-size:17px!important;font-weight:800;white-space:nowrap;color:#fff}
+.route18{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:4px;margin:8px 0 0;font-size:11.5px;color:#b9c8e2}.route18 span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;display:flex;align-items:center;gap:5px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:3px 8px}.route18 span.to{border-color:color-mix(in srgb,var(--c) 50%,transparent);color:#fff;background:color-mix(in srgb,var(--c) 16%,transparent)}.route18 i{color:#6d7c98;display:grid}.route18 small{opacity:.7}
+.ordWhy{font-size:12px;color:#a8b8cf;line-height:1.5;margin:8px 0 10px}
+.ordBtns{display:flex;gap:8px}.ordBtns button{border-radius:13px!important;padding:10px 12px!important;font-weight:700;font-size:13px;min-height:0!important;width:auto!important;margin:0!important}
+.ordDo{flex:1;display:flex!important;align-items:center;justify-content:center;gap:6px;border:0!important;color:#04221a!important;background:linear-gradient(135deg,#3ee6b0,#1fb88a)!important;box-shadow:0 8px 20px rgba(62,230,176,.35)}
+.ordEdit,.ordLater{background:rgba(255,255,255,.06)!important;border:1px solid rgba(255,255,255,.12)!important;color:#c9d7f2!important}
+.ordWarn{font-size:12px;line-height:1.5;color:#ffd27e;background:rgba(255,181,71,.08);border:1px solid rgba(255,181,71,.25);border-radius:13px;padding:9px 11px;margin-top:8px}
+#plan .mgrToday{display:none}
+</style>
 </head><body><div class="app iphoneApp">
 <header class="iosHeader"><div class="iosTitle" id="pageTitle">Tổng quan</div><button class="iconBtn" onclick="openTools()">⚙</button></header>
 <main class="screenWrap">
@@ -604,7 +623,7 @@ body.ui172 .scTodo button{display:grid!important;place-items:center}
 <nav class="bottomNav"><button class="active" data-page="home" onclick="showPage('home')"><i>⌂</i><span>Tổng quan</span></button><button data-page="transactions" onclick="showPage('transactions')"><i>☷</i><span>Thu chi</span></button><button class="centerAdd" onclick="openQuickAdd()">＋</button><button data-page="assets" onclick="showPage('assets')"><i>▣</i><span>Tài sản</span></button><button id="moreNavBtn" onclick="openMoreMenu()"><i>•••</i><span>Thêm</span></button></nav>
 </div><div class="modal" id="modal"><div class="sheet" id="sheet"></div></div>
 <script>
-const APP_VERSION='V17.2.0';
+const APP_VERSION='V18.0.0';
 const KEY='kmFinancePro1', $=x=>document.getElementById(x), money=(f=>n=>f.format(Number(n)||0))(new Intl.NumberFormat('vi-VN',{style:'currency',currency:'VND',maximumFractionDigits:0}));let current=new Date();current.setDate(1);const expenseCats=['Ăn Uống','Giao Lưu / Giải Trí','Đi Lại','Vợ','Con','Nhà Cửa','Ba Mẹ','Quà','Điện Thoại','Y Tế','Thể Thao - Giáo Dục','Cho Mượn','Chi Khác'],incomeCats=['Lương','Web','Khác','Rút từ đầu tư về'],investTypes=['Chứng khoán','Chứng chỉ quỹ','Vàng','Tiết kiệm'];const META_KEY=KEY+'_meta';
 function defaultDB(){return {accounts:[{id:1,name:'Tiền Mặt',kind:'liquid',opening:0},{id:2,name:'Tài khoản ngân hàng',kind:'liquid',opening:0},{id:3,name:'Dự phòng & dự trù',kind:'reserve',opening:0}],tx:[],investments:[],debts:[],budgets:[],goals:{'Trả nợ':25,'Dự phòng':20,'Mua vàng':15,'Gửi tiết kiệm':15,'Chứng chỉ quỹ':10,'Chứng khoán':15},recurring:[],fundGoals:[]}}
 function normalizeDB(x){x=x&&typeof x==='object'?x:defaultDB();x.accounts=Array.isArray(x.accounts)?x.accounts:defaultDB().accounts;x.tx=Array.isArray(x.tx)?x.tx:[];x.investments=Array.isArray(x.investments)?x.investments:[];x.debts=Array.isArray(x.debts)?x.debts:[];x.budgets=Array.isArray(x.budgets)?x.budgets:[];x.recurring=Array.isArray(x.recurring)?x.recurring:[];x.fundGoals=Array.isArray(x.fundGoals)?x.fundGoals:[];x.goals=x.goals&&typeof x.goals==='object'?x.goals:defaultDB().goals;x.prices=x.prices&&typeof x.prices==='object'&&!Array.isArray(x.prices)?x.prices:{};return x}
@@ -756,7 +775,7 @@ function openMoreMenu(){openModal(`<h2>Thêm chức năng</h2><div class='moreGr
 <button onclick="closeModal();openInitialSetup()"><b>⚙</b><span>Tài chính ban đầu</span></button>
 <button onclick="closeModal();openTools()"><b>☁</b><span>Sao lưu & dữ liệu</span></button>
 </div><div class='divider'></div><div class='moreLinks'><button onclick="closeModal();showPage('debts')">Nợ phải trả</button><button onclick="closeModal();showPage('investments')">Đầu tư</button></div>`)}
-function showPage(p){['home','transactions','investments','debts','assets','reports','plan'].forEach(x=>$(x).classList.toggle('hide',x!==p));document.querySelectorAll('.bottomNav button[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===p));let titles={home:'Tổng quan',transactions:'Thu chi',assets:'Tài sản',debts:'Nợ phải trả',investments:'Đầu tư',reports:'Phân tích',plan:'Kế hoạch phân bổ'};if($('pageTitle'))$('pageTitle').textContent=titles[p]||'App Thu Chi';render();if(p==='reports')updateReportControls()}function openTools(){openModal(`<h2>Công cụ & dữ liệu</h2><div class='muted' style='margin-bottom:10px'>Phiên bản đang chạy: <b>V17.2.0</b></div><label>Chọn tháng đang xem</label><input id='mp' type='month' value='${ym()}'><button class='primary' style='width:100%;margin-top:10px' onclick='changeMonth()'>Đổi tháng</button><div class='divider'></div><button style='width:100%' class='primary' onclick='openInitialSetup()'>Thiết lập tài chính ban đầu</button><button style='width:100%;margin-top:8px' onclick='verifyStorage(true)'>Kiểm tra dữ liệu đã lưu</button><button style='width:100%;margin-top:8px' onclick='backup()'>Xuất bản sao lưu JSON</button><button style='width:100%;margin-top:8px' onclick='pickRestore()'>Khôi phục từ file JSON</button><input id='restoreFile' type='file' accept='.json,application/json' style='display:none' onchange='restoreBackup(event)'><button class='dangerBtn' style='width:100%;margin-top:8px' onclick="if(confirm('Xóa toàn bộ dữ liệu?')){localStorage.removeItem(KEY);localStorage.removeItem(META_KEY);location.reload()}">Xóa dữ liệu</button>`)}function changeMonth(){let v=$('mp').value;if(v){current=new Date(v+'-01T00:00');closeModal();render()}}function backup(){let raw=JSON.stringify(db),pack={app:'App Thu Chi',version:APP_VERSION+'-PWA',exportedAt:new Date().toISOString(),checksum:checksum(raw),counts:dataCounts(),data:db},text=JSON.stringify(pack,null,2),b=new Blob([text],{type:'application/json;charset=utf-8'}),url=URL.createObjectURL(b),a=document.createElement('a');a.href=url;a.download='app-thu-chi-backup-'+new Date().toISOString().slice(0,10)+'.json';a.style.display='none';document.body.appendChild(a);a.click();setTimeout(()=>{a.remove();URL.revokeObjectURL(url)},5000)}
+function showPage(p){['home','transactions','investments','debts','assets','reports','plan'].forEach(x=>$(x).classList.toggle('hide',x!==p));document.querySelectorAll('.bottomNav button[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===p));let titles={home:'Tổng quan',transactions:'Thu chi',assets:'Tài sản',debts:'Nợ phải trả',investments:'Đầu tư',reports:'Phân tích',plan:'Kế hoạch phân bổ'};if($('pageTitle'))$('pageTitle').textContent=titles[p]||'App Thu Chi';render();if(p==='reports')updateReportControls()}function openTools(){openModal(`<h2>Công cụ & dữ liệu</h2><div class='muted' style='margin-bottom:10px'>Phiên bản đang chạy: <b>V18.0.0</b></div><label>Chọn tháng đang xem</label><input id='mp' type='month' value='${ym()}'><button class='primary' style='width:100%;margin-top:10px' onclick='changeMonth()'>Đổi tháng</button><div class='divider'></div><button style='width:100%' class='primary' onclick='openInitialSetup()'>Thiết lập tài chính ban đầu</button><button style='width:100%;margin-top:8px' onclick='verifyStorage(true)'>Kiểm tra dữ liệu đã lưu</button><button style='width:100%;margin-top:8px' onclick='backup()'>Xuất bản sao lưu JSON</button><button style='width:100%;margin-top:8px' onclick='pickRestore()'>Khôi phục từ file JSON</button><input id='restoreFile' type='file' accept='.json,application/json' style='display:none' onchange='restoreBackup(event)'><button class='dangerBtn' style='width:100%;margin-top:8px' onclick="if(confirm('Xóa toàn bộ dữ liệu?')){localStorage.removeItem(KEY);localStorage.removeItem(META_KEY);location.reload()}">Xóa dữ liệu</button>`)}function changeMonth(){let v=$('mp').value;if(v){current=new Date(v+'-01T00:00');closeModal();render()}}function backup(){let raw=JSON.stringify(db),pack={app:'App Thu Chi',version:APP_VERSION+'-PWA',exportedAt:new Date().toISOString(),checksum:checksum(raw),counts:dataCounts(),data:db},text=JSON.stringify(pack,null,2),b=new Blob([text],{type:'application/json;charset=utf-8'}),url=URL.createObjectURL(b),a=document.createElement('a');a.href=url;a.download='app-thu-chi-backup-'+new Date().toISOString().slice(0,10)+'.json';a.style.display='none';document.body.appendChild(a);a.click();setTimeout(()=>{a.remove();URL.revokeObjectURL(url)},5000)}
 function pickRestore(){let f=$('restoreFile');if(f)f.click()}
 function restoreBackup(e){let file=e.target.files&&e.target.files[0];if(!file)return;let r=new FileReader();r.onload=()=>{try{let pack=JSON.parse(r.result),x=pack&&pack.data?pack.data:pack;if(pack&&pack.data&&pack.checksum&&checksum(JSON.stringify(pack.data))!==pack.checksum)throw new Error('Checksum file backup không khớp');if(!x||!Array.isArray(x.accounts)||!Array.isArray(x.tx))throw new Error('Sai cấu trúc');x=normalizeDB(x);if(!confirm('Khôi phục sẽ thay thế dữ liệu hiện tại. Tiếp tục?')){e.target.value='';return}db=x;if(!save())throw new Error('Không thể ghi dữ liệu khôi phục');closeModal();render();if(!verifyStorage(false))throw new Error('Dữ liệu sau khôi phục không vượt qua kiểm tra');alert('Đã khôi phục và kiểm tra dữ liệu thành công.')}catch(err){alert('Khôi phục thất bại: '+(err.message||err))}finally{e.target.value=''}};r.readAsText(file)}
 
@@ -3613,6 +3632,92 @@ payPickHtml=function(name,def){return `<div class="payPick" data-name="${name}">
 document.body.classList.add('ui172');
 try{memoReset();render()}catch(e){console.error('v172',e)}
 
+
+/* ===== V18.0.0: Sắp xếp tiền theo SỐ DƯ THẬT – lệnh cụ thể, bấm một lần là xong ==========================
+   Tiền đang có (ngân hàng + tiền mặt) → giữ đủ tiêu 7 ngày (theo chi tiêu thật) → giữ hóa đơn sắp tới (tiền nhà…)
+   → giữ hũ Vợ/Gia đình → phần còn lại: đủ Quỹ trả nợ cho các kỳ trong 30 ngày → dư nữa mới vào Dự phòng / nợ người quen /
+   quỹ mục tiêu / đầu tư theo giai đoạn. Mỗi lệnh ghi rõ: bao nhiêu, từ tài khoản nào, sang tài khoản nào, để làm gì.
+   - Bỏ báo "hôm qua còn X chưa chuyển" sai: lệnh luôn tính lại từ số dư thật nên không có gì bị nợ lại.
+   - Trang chủ mới luôn bật.
+=========================================================================================== */
+(function(){let L=lifeCfg();if(!L.v18init){L.simple=true;L.v18init=true;let m=mgr(),t=today();Object.entries(m.days||{}).forEach(([d,r])=>{if(d<t&&r)r.plan=r.done||0});mgrSaveSoon()}})();
+const DAY18=864e5,addD=(d,n)=>localDate(new Date(d+'T00:00').getTime()+n*DAY18);
+function addMon(d,n){let x=new Date(d+'T00:00'),day=x.getDate();x.setDate(1);x.setMonth(x.getMonth()+n);x.setDate(Math.min(day,new Date(x.getFullYear(),x.getMonth()+1,0).getDate()));return localDate(x.getTime())}
+const dd18=d=>{let x=new Date(d+'T00:00');return x.getDate()+'/'+(x.getMonth()+1)};
+/* Mức chi thật mỗi ngày (không tính cho vợ, gia đình, cho mượn) */
+function spendRate18(){return memo('sr18',()=>{let t=today(),first=db.tx.reduce((m,x)=>x.date&&x.date<m?x.date:m,t),span=Math.min(30,Math.max(1,Math.round((new Date(t+'T00:00')-new Date(first+'T00:00'))/DAY18)+1)),from=dayShift(-span+1);
+ let v=db.tx.filter(x=>x.type==='expense'&&x.date>=from&&x.date<=t&&!isSideCat(x.category)&&x.category!=='Cho Mượn').reduce((q,x)=>q+(+x.amount||0),0)/span,L=lifeCfg();
+ if(span<7&&+L.spendGuess>0)v=Math.max(v,+L.spendGuess);return Math.max(100000,r10k(v))})}
+/* Hóa đơn cố định sắp tới (khoản định kỳ) */
+function bills18(h){let t=today(),end=addD(t,h||30),out=[];(db.recurring||[]).filter(r=>r.active!==false&&(+r.amount||0)>0).forEach(r=>{let mk=t.slice(0,7),dim=new Date(+mk.slice(0,4),+mk.slice(5,7),0).getDate(),day=Math.min(+r.day||1,dim),due=mk+'-'+String(day).padStart(2,'0');
+ let paid=db.tx.some(x=>x.type==='expense'&&x.date?.slice(0,7)===mk&&(x.recurringId===r.id||(x.category===r.cat&&Math.abs((+x.amount||0)-(+r.amount||0))<=(+r.amount||0)*0.1)));
+ if(due<t||paid)due=addMon(due,1);if(due<=end)out.push({name:r.name||r.cat,amount:+r.amount||0,due,acc:r.account})});return out}
+/* Các kỳ nợ có lịch trong h ngày tới */
+function debtNeeds18(h){let t=today(),end=addD(t,h||30),out=[];db.debts.filter(d=>d.freq!=='flex'&&debtRemain(d)>0).forEach(d=>{let left=debtRemain(d),due=d.nextDue||t,n=0;
+ while(left>0&&due<=end&&n<12){let a=Math.min(left,d.freq==='once'?left:(+d.installment||left));out.push({d,amount:a,due,late:due<t});left-=a;n++;if(d.freq==='once')break;due=d.freq==='weekly'?addD(due,7):addMon(due,1)}});return out.sort((a,b)=>a.due.localeCompare(b.due))}
+const fundAccs18=()=>db.accounts.filter(a=>a.kind==='debtfund'),resAcc18=()=>db.accounts.filter(a=>a.kind==='reserve').sort((a,b)=>actual(b)-actual(a))[0];
+function plan18(){return memo('p18',()=>{let liqA=db.accounts.filter(a=>a.kind==='liquid'),liq=liqA.reduce((q,a)=>q+actual(a),0),fund=fundAccs18().reduce((q,a)=>q+Math.max(0,actual(a)),0),rate=spendRate18();
+ let bills=bills18(30),billSum=bills.reduce((q,b)=>q+b.amount,0),wp=Math.max(0,wifePot()),fp=Math.max(0,famPot()),keepLive=r10k(rate*7);
+ let keep=[{k:'live',l:'Giữ để tiêu 7 ngày',v:keepLive,d:`~${money(rate)}/ngày theo chi tiêu thật (không tính cho vợ, gia đình)`,c:'#4da3ff'}];
+ bills.forEach(b=>keep.push({k:'bill',l:`Giữ trả ${b.name} ${dd18(b.due)}`,v:b.amount,d:'Hóa đơn cố định – để sẵn trong tài khoản',c:'#2ec4b6'}));
+ if(wp+fp>=10000)keep.push({k:'pots',l:'Hũ Vợ + Gia đình',v:wp+fp,d:`Vợ ${money(wp)} · Gia đình ${money(fp)}`,c:'#ff5fa2'});
+ let keepSum=keep.reduce((q,x)=>q+x.v,0),avail=liq-keepSum,needs=debtNeeds18(30),needSum=needs.reduce((q,n)=>q+n.amount,0),fundGap=Math.max(0,needSum-fund);
+ let moves=[],bank=bankAcc()||liqA[0],src=bank&&actual(bank)>0?bank:liqA.sort((a,b)=>actual(b)-actual(a))[0],srcBal=src?actual(src):0,fl=v=>Math.floor(v/10000)*10000;
+ let toFund=fl(Math.min(fundGap,Math.max(0,avail),srcBal));
+ if(toFund>=50000){let fa=fundAccs18()[0];moves.push({k:'m18|fund',type:'move',toKind:'debtfund',toName:'Quỹ trả nợ',toId:fa?fa.id:null,fromId:src.id,icon:'⛁',title:'Chuyển vào Quỹ trả nợ',amount:toFund,c:'#ffc857',
+  why:`Cho ${needs.slice(0,3).map(n=>`${n.d.name} ${money(n.amount)} ${n.late?'<b class="neg">quá hạn</b>':'hạn '+dd18(n.due)}`).join(' · ')}${needs.length>3?` +${needs.length-3} kỳ`:''}. Quỹ có ${money(fund)} → sau khi chuyển ${money(fund+toFund)} / cần ${money(needSum)}${fund+toFund<needSum?` – <b>còn thiếu ${money(needSum-fund-toFund)}</b>, các khoản vào tới đây app tự gom tiếp`:' ✓ đủ'}.`});srcBal-=toFund}
+ avail-=toFund;let surplus=fl(Math.max(0,Math.min(avail,srcBal))),G=stage172(),w=Object.assign({},G.w),goals=(db.fundGoals||[]).filter(g=>(+g.target||0)>(+g.current||0));
+ let short=fundGap-toFund>0?fundGap-toFund:0;
+ if(surplus>=200000&&!short){if(goals.length){Object.keys(w).forEach(k=>w[k]*=0.75);w.goal=0.25}
+  let fx=flexTarget(),hi=db.debts.filter(d=>debtRemain(d)>0&&(+d.rate||0)>=12).sort((a,b)=>(+b.rate||0)-(+a.rate||0))[0],ra=resAcc18();
+  let part=k=>fl(surplus*(w[k]||0));
+  if(part('r')>=100000)moves.push({k:'m18|r',type:'move',toKind:'reserve',toName:'Dự phòng & dự trù',toId:ra?ra.id:null,fromId:src.id,icon:'⛨',title:'Chuyển vào Dự phòng',amount:part('r'),c:'#3ee6b0',why:`Giai đoạn ${G.cur.k}/4 – ${G.cur.n}: dự phòng ${money(G.res)} / ${money(r10k(G.cur.k===1?G.cur.t:G.RT.target))}. Tiền này chỉ dùng khi ốm đau, nghỉ làm.`});
+  if(part('x')>=100000&&fx)moves.push({k:'m18|x',type:'pay',debtId:fx.id,from:'liquid',icon:'↺',title:'Trả bớt nợ '+fx.name,amount:Math.min(part('x'),debtRemain(fx)),c:'#e8c06a',why:`Nợ người quen còn ${money(debtRemain(fx))}. Trả dần mỗi lần dư tiền – khoản nhỏ nhất trước để dứt hẳn một người.`});
+  if(part('f')>=100000&&hi)moves.push({k:'m18|f',type:'pay',debtId:hi.id,from:'liquid',icon:'⚡',title:'Trả nhanh '+hi.name,amount:Math.min(part('f'),debtRemain(hi)),c:'#ff9d5c',why:`Lãi ${hi.rate}%/năm – trả trước ngày nào đỡ lãi ngày đó.`});
+  if(part('goal')>=100000){let g=goals.sort((a,b)=>(a.deadline||'9').localeCompare(b.deadline||'9'))[0],sa=db.accounts.find(a=>a.kind==='saving');moves.push({k:'m18|goal',type:'move',toKind:'saving',toName:'Tiết kiệm mục tiêu',toId:sa?sa.id:null,fromId:src.id,goalId:g.id,icon:'⚑',title:'Góp quỹ '+g.name,amount:part('goal'),c:'#7fd6ff',why:`Đang có ${money(+g.current||0)} / ${money(+g.target||0)}${g.deadline?`, hạn ${new Date(g.deadline+'T00:00').toLocaleDateString('vi-VN')}`:''}.`})}
+  if(part('g')>=100000){let ra2=resAcc18();moves.push({k:'m18|g',type:'move',toKind:'reserve',toName:'Dự phòng & dự trù',toId:ra2?ra2.id:null,fromId:src.id,stashG:true,icon:'↗',title:'Để riêng cho đầu tư',amount:part('g'),c:'#a98bff',why:'Gom trong tài khoản để dành, đủ 1 triệu app nhắc mua chứng chỉ quỹ một lần mỗi tháng.'})}}
+ let perDay=rate;if(avail<0)perDay=Math.max(r10k(rate*0.6),r10k((liq-billSum-Math.max(0,fundGap))/10));
+ let spentToday=db.tx.filter(x=>x.type==='expense'&&x.date===today()&&!x.auto&&!isSideCat(x.category)&&x.category!=='Cho Mượn').reduce((q,x)=>q+(+x.amount||0),0);
+ return {liq,fund,keep,keepSum,needs,needSum,fundGap,short,moves,surplus,rate,perDay,spentToday,left:avail-moves.filter(m=>m.k!=='m18|fund').reduce((q,m)=>q+m.amount,0),src}})}
+/* Lệnh chuyển = lệnh sắp xếp tiền (+ kỳ nợ tới hạn ≤3 ngày + gợi ý cho vợ) */
+const _mo18=mgrOrders;mgrOrders=function(){return memo('mo18',()=>{let r=Object.assign({},_mo18()),P=plan18(),rec=r.rec,keep=r.orders.filter(o=>/^pay\|/.test(o.k)||o.type==='wife'||o.type==='stashinv');
+ let orders=keep.concat(P.moves.map(o=>Object.assign({},o)));orders.forEach(o=>o.skipped=!!rec.skip[o.k]);r.orders=orders;r.pending=orders.filter(o=>!o.skipped);r.skipped=orders.filter(o=>o.skipped);r.sum=r.pending.filter(o=>o.type!=='stashinv'&&o.type!=='wife').reduce((q,o)=>q+o.amount,0);
+ let plan=rec.done+r.sum;if(Math.abs((rec.plan||0)-plan)>=1000){rec.plan=plan;mgrSaveSoon()}return r})};
+/* Mức tiêu mỗi ngày theo chi tiêu thật */
+const _mp18=moneyPicture;moneyPicture=function(){return memo('mp18',()=>{let m=Object.assign({},_mp18());try{let P=plan18();m.perDay=P.perDay;m.spentToday=P.spentToday;m.todayLeft=P.perDay-P.spentToday}catch(e){console.error('mp18',e)}return m})};
+/* Một chạm: chuyển xong → bấm là ghi luôn */
+function doneMove18(k){let o=mgrFind(k);if(!o)return render();if(o.type!=='move')return mgrDo(k);
+ let from=accountById(o.fromId)||bankAcc(),to=o.toId!=null?accountById(o.toId):db.accounts.find(a=>a.kind===o.toKind);if(!to){to={id:Date.now(),name:o.toName,kind:o.toKind,opening:0};db.accounts.push(to)}
+ let x={id:Date.now()+1,type:'transfer',amount:o.amount,from:from.id,to:to.id,date:today(),category:'Chuyển tiền',note:'Kế hoạch: '+o.title};if(o.stashG){x.pot='multi';x.pots={g:o.amount};x.stashG=o.amount}db.tx.unshift(x);
+ if(o.goalId!=null){let g=goalById(o.goalId);if(g){g.current=Math.min(+g.target||0,(+g.current||0)+o.amount);goalNoteMonth(g.id,o.amount)}}
+ mgrLog(o.k,o.amount);if(!save())return;render();toast(`Đã ghi: ${money(o.amount)} → ${to.name}`,x.id)}
+function editMove18(k){let o=mgrFind(k);if(!o)return;if(o.type!=='move')return mgrDo(k);mgrMoveModal(o);let f=$('mgrForm');if(!f)return;if(o.fromId!=null)f.elements.from.value=financeId(o.fromId);if(o.toId!=null)f.elements.to.value=financeId(o.toId)}
+function order18Html(o){let k=escAttr(JSON.stringify(o.k)),from=o.fromId!=null?accountById(o.fromId):null,to=o.toId!=null?accountById(o.toId):null,toN=to?to.name:(o.toName||''),isMove=o.type==='move';
+ let route=isMove?`<div class="route18"><span>${ic(isCashAcc(from)?'cash':'bank',14)}${escAttr(from?from.name:'Tài khoản thanh toán')}</span><i>${ic('chev',14)}</i><span class="to">${ic(o.toKind==='debtfund'?'lock':o.toKind==='saving'?'flag':'shield',14)}${escAttr(toN)}${to?'':' <small>(tạo mới)</small>'}</span></div>`:o.type==='pay'?`<div class="route18"><span>${ic('bank',14)}Tài khoản thanh toán</span><i>${ic('chev',14)}</i><span class="to">${ic('repay',14)}Trả cho ${escAttr((debtById(o.debtId)||{}).name||'')}</span></div>`:'';
+ let btn=o.type==='wife'?'Cho vợ':o.type==='pay'?'Đã trả':o.type==='stashinv'?'Mua':'Đã chuyển';
+ return `<div class="ord18" style="--c:${o.c||'#4da3ff'}"><div class="ordTop"><span class="ordIc">${deEmoji(o.icon||'')}</span><div class="grow"><b>${o.title}</b></div><b class="ordAmt">${money(o.amount)}</b></div>${route}<div class="ordWhy">${o.why||''}</div><div class="ordBtns"><button type="button" class="ordDo" onclick='${isMove?'doneMove18':'mgrDo'}(${k})'>${ic('check',16)} ${btn}</button>${isMove?`<button type="button" class="ordEdit" onclick='editMove18(${k})'>Sửa số</button>`:''}<button type="button" class="ordLater" onclick='mgrSkip(${k})'>Để mai</button></div></div>`}
+function arrange18Html(full){let P=plan18(),r=mgrOrders(),tot=Math.max(1,P.liq),segs=P.keep.map(x=>({l:x.l,v:x.v,c:x.c}));P.moves.forEach(m=>segs.push({l:m.title,v:m.amount,c:m.c}));let used=segs.reduce((q,s)=>q+s.v,0);if(P.liq-used>0)segs.push({l:'Còn trống',v:P.liq-used,c:'rgba(255,255,255,.18)'});
+ let rows=P.keep.map(x=>`<div class="wf18"><i style="background:${x.c}"></i><div class="grow"><span>${x.l}</span><small>${x.d}</small></div><b>${money(x.v)}</b></div>`).join('');
+ let head=`<div class="arrTop"><div><small>Tiền đang có · ngân hàng + tiền mặt</small><b>${money(P.liq)}</b></div><div class="arrSide"><small>Quỹ trả nợ</small><b>${money(P.fund)}</b></div></div><div class="arrBar">${segs.map(s=>`<i style="width:${Math.max(0,s.v)/Math.max(tot,used)*100}%;background:${s.c}"></i>`).join('')}</div>${rows}`;
+ let todo=r.pending.length?r.pending.map(order18Html).join(''):`<div class="scDone">${ic('check',16,'inl')} ${r.rec.done>0?`Hôm nay đã làm xong ${money(r.rec.done)} – tiền đã nằm đúng chỗ.`:'Không cần chuyển gì – tiền đã nằm đúng chỗ.'}</div>`;
+ let note=P.short?`<div class="ordWarn">${ic('clock',15,'inl')} Còn thiếu <b>${money(P.short)}</b> cho các kỳ nợ 30 ngày tới. Chưa chuyển dự phòng – ưu tiên đủ tiền trả nợ đúng hạn trước.</div>`:P.liq-P.keepSum<0?`<div class="ordWarn">${ic('clock',15,'inl')} Tiền đang có ít hơn phần cần giữ ${money(P.keepSum-P.liq)} – app hạ mức tiêu mỗi ngày còn ${money(P.perDay)}.</div>`:'';
+ let skipped=r.skipped.length?`<div class="mgrSkipped"><div class="muted">Đã hoãn sang mai:</div>${r.skipped.map(o=>`<div class="row line"><span>${o.title}</span><span><b>${money(o.amount)}</b> <button type="button" class="mgrUndo" onclick='mgrUnskip(${escAttr(JSON.stringify(o.k))})'>Làm hôm nay</button></span></div>`).join('')}</div>`:'';
+ return `<section class="blk arr18"><div class="blkHead"><div><b><span class="ai17">${ic('spark',16,'inl')}</span> Sắp xếp tiền hôm nay</b><small>Tính từ số dư thật · chuyển xong bấm "Đã chuyển"</small></div>${r.sum?`<b class="arrSum">${money(r.sum)}</b>`:''}</div>${head}<div class="dailyHead" style="margin-top:12px"><b>${r.pending.length?`Việc cần làm (${r.pending.length})`:'Việc cần làm'}</b></div>${todo}${note}${skipped}</section>`}
+/* Trang chủ: thay khối "Việc cần làm" bằng khối sắp xếp tiền; nút ⋯ mở trang Kế hoạch */
+const _home18=v172Home;v172Home=function(){let h=_home18();h=h.replace(/<section class="blk"><div class="blkHead"><div><b>Việc cần làm<\/b>[\s\S]*?<\/section>/,arrange18Html());h=h.replace(/onclick="lifeSet\('simple',false\)"/g,`onclick="mgrOpen('today')"`);return h};
+simpleCardHtml=function(){return v172Home()};
+mgrTodayHtml=function(){return `<div id="simpleCardPlan">${arrange18Html(true)}</div>`};
+/* Trợ lý: ngân sách đặt nhầm, dự báo theo chi tiêu thật */
+function fixBudget18(cat,v){let k=realMonth();db.budgets=(db.budgets||[]).filter(b=>!(b.cat===cat&&b.month===k));if(v>0)db.budgets.push({month:k,cat,limit:v});if(db.budgetSnap&&db.budgetSnap[k])delete db.budgetSnap[k];save();memoReset();render();toast(`Đã sửa ngân sách ${cat}`)}
+const _ins18=mgrInsights;mgrInsights=function(){return memo('ins18',()=>{let a=_ins18().filter(x=>!/^Dự báo hụt tiền|^Hôm qua còn/.test(x.t)),k=realMonth(),st=flowStats(),incM=Math.max(1,st.avgIn*30.4),P=plan18();
+ (db.budgets||[]).filter(b=>b.month===k&&(+b.limit||0)>0).forEach(b=>{let span=Math.max(7,Math.min(30,st.span)),act=db.tx.filter(x=>x.type==='expense'&&x.category===b.cat&&x.date>=dayShift(-span+1)).reduce((q,x)=>q+(+x.amount||0),0)/span*30.4,sug=Math.max(100000,Math.round(act*1.15/100000)*100000);
+  if(b.limit>incM*0.35&&b.limit>act*2.5)a.push({l:'amber',s:70,t:`Ngân sách ${b.cat} ${money(b.limit)}/tháng – có gõ nhầm không?`,d:`Thực tế đang chi ~${money(r10k(act))}/tháng. Mức quá cao làm app tưởng bạn tiêu gần hết tiền vào (nên báo "hụt tiền", "tiền sống" sai). Gợi ý ${money(sug)}.`,act:[`Sửa thành ${money(sug)}`,`fixBudget18('${b.cat}',${sug})`]})});
+ if(P.short)a.push({l:'amber',s:72,t:`Quỹ trả nợ còn thiếu ${money(P.short)} cho 30 ngày tới`,d:`Cần ${money(P.needSum)} cho ${P.needs.map(n=>n.d.name+' '+dd18(n.due)).join(', ')}. Mỗi khoản vào app sẽ gom tiếp trước khi để dành.`});
+ const LV={red:0,amber:1,green:2,blue:3};a.sort((x,y)=>LV[x.l]-LV[y.l]||y.s-x.s);return a})};
+const _plan18=renderPlan;renderPlan=function(){_plan18();let el=$('planBody');if(!el||mgrTab!=='today')return;try{let a=$('simpleCardPlan'),t=el.querySelector('.mgrTabs');if(a&&t){let q=el.querySelector('.lifeQuick');(q&&q.previousElementSibling===t?q:t).insertAdjacentElement('afterend',a)}[...el.querySelectorAll('section.panel')].forEach(x=>{let b=x.querySelector('.panelHead b');if(b&&b.textContent==='Nhịp dòng tiền')x.style.display='none'})}catch(e){console.error('plan18',e)}};
+waterLive=function(sp){let st=flowStats();return spendRate18()*30.4/Math.max(4,st.perMonthDays||0)};
+try{memoReset();render()}catch(e){console.error('v18',e)}
+
 </script>
 <script>
 if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
@@ -3642,8 +3747,8 @@ if('serviceWorker' in navigator){
    navigator.serviceWorker.register('./sw.js?v=16000',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
  });
  navigator.serviceWorker.addEventListener('controllerchange',()=>{
-   if(!sessionStorage.getItem('v17200Reloaded')){sessionStorage.setItem('v17200Reloaded','1');location.reload()}
+   if(!sessionStorage.getItem('v18000Reloaded')){sessionStorage.setItem('v18000Reloaded','1');location.reload()}
  });
 }
 </script>
-<div id="buildBadge" style="position:fixed;right:5px;bottom:calc(64px + env(safe-area-inset-bottom));z-index:9999;font:700 8px system-ui;color:#6f8497;opacity:.65;pointer-events:none">V17.2.0</div></body></html>
+<div id="buildBadge" style="position:fixed;right:5px;bottom:calc(64px + env(safe-area-inset-bottom));z-index:9999;font:700 8px system-ui;color:#6f8497;opacity:.65;pointer-events:none">V18.0.0</div></body></html>
