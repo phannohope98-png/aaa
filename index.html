@@ -724,6 +724,93 @@ body.ui201 #amountDisplay,body.ui201 .sheet .amountDisplay{font-family:"Space Gr
 .balGrid small{font-size:10.5px;color:#9fb3d6}.balGrid b{font-size:13.5px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .amountsHidden .bal201 .amt17{filter:blur(8px)}
 </style>
+<style id="app-style-v21">/* V21 Premium: tiết chế – một điểm nhấn, nhiều khoảng thở */
+body.ui21{--bg:#05060c;--card:rgba(255,255,255,.045);--card2:rgba(255,255,255,.07);--hair:rgba(255,255,255,.07);--tx:#f4f6fb;--mu:#8a93a8;--acc1:#5b8cff;--acc2:#a66bff;--grad:linear-gradient(135deg,#5b8cff,#a66bff);--pos:#34d399;--neg:#fb7185;background:var(--bg)!important;font-family:"Be Vietnam Pro",system-ui,-apple-system,sans-serif!important}
+body.ui21 *{font-family:inherit}
+body.ui21 b,body.ui21 .panel b,body.ui21 .blk b,body.ui21 .sheet h2,body.ui21 .heroValue,body.ui21 .iosTitle,body.ui21 .summary3 b,body.ui21 .amt20,body.ui21 .txAmount{font-family:"Be Vietnam Pro",system-ui,sans-serif!important;font-variant-numeric:tabular-nums}
+body.ui21::before{background:radial-gradient(45% 30% at 10% 0%,rgba(91,140,255,.22),transparent 70%),radial-gradient(40% 30% at 100% 10%,rgba(166,107,255,.18),transparent 70%),var(--bg)!important;animation:none!important}
+body.ui21::after{opacity:.35}
+body.ui21 #fx20{opacity:.45}
+body.ui21 .pos{color:var(--pos)!important;text-shadow:none!important}body.ui21 .neg{color:var(--neg)!important;text-shadow:none!important}
+body.ui21 .muted{color:var(--mu)!important}
+/* header */
+body.ui21 .iosHeader{background:rgba(5,6,12,.72)!important;border-bottom:1px solid var(--hair)!important}body.ui21 .iosHeader::after{display:none}
+body.ui21 .iosTitle{background:none!important;color:var(--tx)!important;-webkit-text-fill-color:currentColor;font-weight:700!important;font-size:17px!important}
+body.ui21.onHome .iosTitle{opacity:0}
+body.ui21 .iconBtn{background:var(--card)!important;border:1px solid var(--hair)!important}
+/* thẻ chung: bỏ góc HUD, viền mảnh */
+body.ui21 .panel,body.ui21 #strategy .blk:not(.card172),body.ui21 #txCats17 .blk,body.ui21 .summary3,body.ui21 #simpleCardPlan .arr18,body.ui21 .mis20,body.ui21 .bal201,body.ui21 #simpleCard .qeBlk,body.ui21 .card21{background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.03))!important;border:1px solid var(--hair)!important;border-radius:24px!important;box-shadow:0 1px 0 rgba(255,255,255,.04) inset,0 20px 40px rgba(0,0,0,.35)!important;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+body.ui21 .panelHead>div>b:first-child,body.ui21 .panelHead>b:first-child,body.ui21 .panel>b:first-child,body.ui21 #strategy .blkHead>div>b,body.ui21 #txCats17 .blkHead>div>b,body.ui21 .arr18 .blkHead>div>b{font-size:15px!important;letter-spacing:-.01em!important;text-transform:none!important;color:var(--tx)!important;text-shadow:none!important;font-weight:700!important}
+body.ui21 .heroCard,body.ui21 #strategy .card172{animation:none!important;background:radial-gradient(120% 90% at 0% 0%,rgba(91,140,255,.45),transparent 60%),radial-gradient(90% 80% at 100% 100%,rgba(166,107,255,.4),transparent 60%),#10142a!important;border:1px solid rgba(255,255,255,.1)!important}
+body.ui21 .heroCard .heroIcon{background:rgba(255,255,255,.12)!important;box-shadow:none!important}
+body.ui21 .heroValue{text-shadow:none!important;font-weight:700!important}
+/* nút */
+body.ui21 button.primary,body.ui21 .sheet .primary,body.ui21 .addText,body.ui21 #investmentAddBtn,body.ui21 .debtPayBtn{background:var(--grad)!important;box-shadow:0 8px 20px rgba(91,110,255,.3)!important;border:0!important}
+body.ui21 #transactions button:not(.active):not(.editMini),body.ui21 #assets button:not(.activeTab):not(.addText):not(.primary),body.ui21 #debts button:not(.activeTab):not(.addText):not(.debtPayBtn):not(.primary),body.ui21 #investments button:not(.activeTab):not(#investmentAddBtn):not(.primary),body.ui21 #reports button,body.ui21 #plan button:not(.active):not(.primary){background:var(--card2)!important;border:1px solid var(--hair)!important;color:#dfe5f2!important}
+body.ui21 .segmented,body.ui21 .assetTabs{background:var(--card)!important;border:1px solid var(--hair)!important}
+body.ui21 .segmented button.active,body.ui21 .assetTabs button.activeTab,body.ui21 .chartModeSwitch button.active{background:rgba(255,255,255,.12)!important;color:#fff!important;box-shadow:0 1px 0 rgba(255,255,255,.1) inset,0 4px 12px rgba(0,0,0,.3)!important}
+/* thanh dưới */
+body.ui21 .bottomNav{background:rgba(14,16,28,.78)!important;border:1px solid var(--hair)!important;box-shadow:0 20px 40px rgba(0,0,0,.5)!important}
+body.ui21 .bottomNav button.active{color:#fff!important}body.ui21 .bottomNav button.active i{color:#fff!important;filter:none!important}
+body.ui21 .bottomNav .centerAdd{background:var(--grad)!important;box-shadow:0 10px 24px rgba(110,100,255,.45)!important}
+/* sheet */
+body.ui21 .sheet{background:#0e1020!important;border:1px solid var(--hair)!important;box-shadow:0 -20px 60px rgba(0,0,0,.6)!important}
+body.ui21 .sheet::before{background:rgba(255,255,255,.2)!important;box-shadow:none!important}
+body.ui21 .sheet input,body.ui21 .sheet select,body.ui21 .sheet textarea,body.ui21 .search{background:rgba(255,255,255,.05)!important;border:1px solid var(--hair)!important}
+body.ui21 .sheet input:focus,body.ui21 .sheet select:focus,body.ui21 .search:focus{border-color:rgba(124,140,255,.6)!important;box-shadow:0 0 0 4px rgba(124,140,255,.15)!important}
+body.ui21 .keypad button{background:var(--card2)!important;border:0!important;font-weight:500!important}
+body.ui21 #amountDisplay{text-shadow:none!important}
+body.ui21 .sheet label{color:var(--mu)}
+/* các trang */
+body.ui21 .txDay{color:var(--mu)!important;border-bottom:1px solid var(--hair)!important;letter-spacing:0}
+body.ui21 .summary3 small{letter-spacing:.02em;text-transform:none;font-size:11px!important;color:var(--mu)}
+body.ui21 #report .row.line{border:1px solid var(--hair)!important;background:rgba(255,255,255,.03)!important}
+body.ui21 #cashChart i:first-child{background:var(--pos)!important;box-shadow:none!important}body.ui21 #cashChart i:last-child{background:var(--neg)!important;box-shadow:none!important}
+body.ui21 .ico17,body.ui21 .ico{box-shadow:none!important}
+body.ui21 .task20::before,body.ui21 .ord18::before{box-shadow:none!important}
+/* ===== Trang chủ V21 ===== */
+.h21{display:flex;justify-content:space-between;align-items:flex-end;margin:-6px 4px 16px}.h21 small{font-size:13px;color:var(--mu);font-weight:500}.h21 h1{margin:2px 0 0;font-size:28px;font-weight:700;letter-spacing:-.03em}
+.eye21{width:40px!important;height:40px!important;min-height:40px!important;padding:0!important;border-radius:14px!important;display:grid!important;place-items:center;background:var(--card)!important;border:1px solid var(--hair)!important;color:#cfd6e6!important}
+.wal21{position:relative;overflow:hidden;padding:20px!important;margin-bottom:22px;cursor:pointer;background:#0f1330!important;border:1px solid rgba(255,255,255,.1)!important}
+.mesh21{position:absolute;inset:0;pointer-events:none;background:radial-gradient(70% 90% at 0% 0%,rgba(91,140,255,.55),transparent 60%),radial-gradient(60% 80% at 100% 20%,rgba(166,107,255,.5),transparent 60%),radial-gradient(60% 70% at 60% 120%,rgba(52,211,153,.22),transparent 65%);animation:mesh 14s ease-in-out infinite alternate}
+@keyframes mesh{to{transform:scale(1.15) translate(-4%,3%)}}
+.wal21::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.08) 50%,transparent 60%);background-size:250% 100%;animation:sheen 6s ease-in-out infinite}@keyframes sheen{0%,60%{background-position:150% 0}100%{background-position:-100% 0}}
+.wal21>*{position:relative;z-index:1}.wal21>.mesh21{position:absolute;z-index:0}body.ui21 #simpleCard .wal21{background:#0f1330!important;border-color:rgba(255,255,255,.12)!important}
+.w21Top{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:rgba(255,255,255,.75)}.w21Net{font-size:12px}.w21Net b{color:#fff;font-weight:600;margin-left:3px}
+.w21Amt{display:block;font-size:36px;font-weight:700;letter-spacing:-.035em;margin:8px 0 18px;color:#fff}
+.w21Grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 12px;padding-top:14px;border-top:1px solid rgba(255,255,255,.14)}.w21Grid span{display:block;font-size:12px;color:rgba(255,255,255,.7)}.w21Grid b{display:block;font-size:15.5px;font-weight:600;margin-top:2px;color:#fff}
+.lbl21{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:600;color:var(--mu);margin:0 6px 8px}.lbl21 span{color:#cfd6e6}
+.day21{padding:18px!important;margin-bottom:14px}
+.d21Row{display:grid;grid-template-columns:1fr 1fr}.d21Row>div+div{padding-left:16px;border-left:1px solid var(--hair)}.d21Row span{font-size:13px;color:var(--mu)}.d21Row b{display:block;font-size:24px;font-weight:700;letter-spacing:-.02em;margin-top:2px}
+.in21{color:var(--pos)}.out21{color:#fff}
+.d21Left{margin-top:16px}.d21Left .row{display:flex;justify-content:space-between;font-size:13px;color:var(--mu)}.d21Left b{color:#fff;font-weight:600}
+.bar21{height:6px;border-radius:6px;background:rgba(255,255,255,.07);overflow:hidden;margin-top:8px}.bar21 i{display:block;height:100%;border-radius:6px;background:var(--grad)}.bar21.warn i{background:#f59e0b}.bar21.over i{background:var(--neg)}
+.d21Tx{margin-top:14px;border-top:1px solid var(--hair);padding-top:10px}.d21Tx summary{list-style:none;display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--mu);cursor:pointer;flex-wrap:wrap}.d21Tx summary::-webkit-details-marker{display:none}.d21Tx summary span{color:#cfd6e6;font-weight:600}.d21Tx summary em{font-style:normal;font-size:11.5px;background:var(--card2);border-radius:999px;padding:2px 8px}.d21Tx summary .ic{margin-left:auto;transition:transform .2s}.d21Tx[open] summary .ic{transform:rotate(90deg)}
+.qe21{position:relative;display:flex;align-items:center;gap:8px;margin:0 0 22px;padding:6px 6px 6px 14px;border-radius:18px;background:var(--card);border:1px solid var(--hair);flex-wrap:wrap}
+.qe21:focus-within{border-color:rgba(124,140,255,.55);box-shadow:0 0 0 4px rgba(124,140,255,.12)}
+.qeIc{color:#a7b4ff;display:grid}.qe21 input{flex:1;min-width:0;background:transparent!important;border:0!important;box-shadow:none!important;padding:10px 0!important;margin:0!important;font-size:15px;color:#fff;outline:0}
+.qe21 button{width:42px!important;height:42px!important;min-height:42px!important;padding:0!important;margin:0!important;border-radius:13px!important;display:grid!important;place-items:center;border:0!important;background:var(--grad)!important;color:#fff!important}.qe21 button:disabled{background:var(--card2)!important;color:#5d6578!important}
+.qe21 .qePrev{flex-basis:100%;margin:0 0 4px;min-height:0}.qe21 .qePrev:empty{display:none}.qe21 .qePrev .muted{display:none}
+.list21{padding:4px 0!important;margin-bottom:14px;overflow:hidden}
+.t21{display:flex;align-items:center;gap:12px;padding:14px 16px;border-bottom:1px solid var(--hair)}.t21:last-of-type{border-bottom:0}
+.t21 .grow{min-width:0;cursor:pointer}.t21 b{display:block;font-size:14.5px;font-weight:600}.t21 small{display:block;font-size:12px;color:var(--mu);margin-top:2px}
+.a21{font-size:15px;font-weight:600;white-space:nowrap}
+.ck21{flex:none;width:28px!important;height:28px!important;min-height:28px!important;padding:0!important;margin:0!important;border-radius:50%!important;display:grid!important;place-items:center;border:2px solid color-mix(in srgb,var(--c) 75%,#fff 0%)!important;background:transparent!important;color:transparent!important;transition:all .2s cubic-bezier(.2,.8,.2,1)}
+.ck21:active{transform:scale(.85)}
+.t21.done .ck21{background:var(--pos)!important;border-color:var(--pos)!important;color:#05060c!important}.t21.done b,.t21.done .a21{color:var(--mu);text-decoration:line-through;text-decoration-color:rgba(255,255,255,.25)}.t21.done small{opacity:.7}
+.t21.opt{opacity:.55;padding:10px 16px}.t21.opt .ck21{width:22px!important;height:22px!important;min-height:22px!important}
+.allDone21,.empty21{display:flex;align-items:center;gap:8px;justify-content:center;padding:16px;color:var(--pos);font-weight:600;font-size:14px;border-bottom:1px solid var(--hair)}.empty21{color:var(--mu)}
+.note21{font-size:12px;color:#f5c26b;padding:12px 16px;border-top:1px solid var(--hair);line-height:1.45}
+.tip21{display:flex!important;align-items:center;gap:10px;width:100%!important;margin:0 0 10px!important;padding:13px 14px!important;border-radius:18px!important;background:var(--card)!important;border:1px solid var(--hair)!important;color:#e7ebf5!important;font-size:13px;text-align:left}.tip21 .ic:first-child{color:#f5c26b}.tip21 span{flex:1}.tip21 .ic:last-child{color:var(--mu)}
+.amountsHidden .wal21 .amt17{filter:blur(9px)}
+/* menu Thêm */
+.mg21{margin-bottom:18px}.mgT{font-size:12.5px;font-weight:600;color:var(--mu);margin:0 6px 7px}
+.mgL{background:rgba(255,255,255,.04);border:1px solid var(--hair);border-radius:18px;overflow:hidden}
+.mgL button{display:flex!important;align-items:center;gap:12px;width:100%!important;margin:0!important;padding:11px 14px!important;background:transparent!important;border:0!important;border-bottom:1px solid var(--hair)!important;border-radius:0!important;color:#eef1f8!important;text-align:left;min-height:0!important}.mgL button:last-child{border-bottom:0!important}.mgL button:active{background:rgba(255,255,255,.05)!important}
+.mgI{flex:none;width:32px;height:32px;border-radius:10px;display:grid;place-items:center;color:#fff;background:var(--c)}
+.mgX{flex:1;min-width:0}.mgX b{display:block;font-size:14.5px;font-weight:600}.mgX small{display:block;font-size:12px;color:var(--mu);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mgC{color:#4b5263}
+</style>
 </head><body><div class="app iphoneApp">
 <header class="iosHeader"><div class="iosTitle" id="pageTitle">Tổng quan</div><button class="iconBtn" onclick="openTools()">⚙</button></header>
 <main class="screenWrap">
@@ -766,7 +853,7 @@ body.ui201 #amountDisplay,body.ui201 .sheet .amountDisplay{font-family:"Space Gr
 <nav class="bottomNav"><button class="active" data-page="home" onclick="showPage('home')"><i>⌂</i><span>Tổng quan</span></button><button data-page="transactions" onclick="showPage('transactions')"><i>☷</i><span>Thu chi</span></button><button class="centerAdd" onclick="openQuickAdd()">＋</button><button data-page="assets" onclick="showPage('assets')"><i>▣</i><span>Tài sản</span></button><button id="moreNavBtn" onclick="openMoreMenu()"><i>•••</i><span>Thêm</span></button></nav>
 </div><div class="modal" id="modal"><div class="sheet" id="sheet"></div></div>
 <script>
-const APP_VERSION='V20.1.0';
+const APP_VERSION='V21.0.0';
 const KEY='kmFinancePro1', $=x=>document.getElementById(x), money=(f=>n=>f.format(Number(n)||0))(new Intl.NumberFormat('vi-VN',{style:'currency',currency:'VND',maximumFractionDigits:0}));let current=new Date();current.setDate(1);const expenseCats=['Ăn Uống','Giao Lưu / Giải Trí','Đi Lại','Vợ','Con','Nhà Cửa','Ba Mẹ','Quà','Điện Thoại','Y Tế','Thể Thao - Giáo Dục','Cho Mượn','Chi Khác'],incomeCats=['Lương','Web','Khác','Rút từ đầu tư về'],investTypes=['Chứng khoán','Chứng chỉ quỹ','Vàng','Tiết kiệm'];const META_KEY=KEY+'_meta';
 function defaultDB(){return {accounts:[{id:1,name:'Tiền Mặt',kind:'liquid',opening:0},{id:2,name:'Tài khoản ngân hàng',kind:'liquid',opening:0},{id:3,name:'Dự phòng & dự trù',kind:'reserve',opening:0}],tx:[],investments:[],debts:[],budgets:[],goals:{'Trả nợ':25,'Dự phòng':20,'Mua vàng':15,'Gửi tiết kiệm':15,'Chứng chỉ quỹ':10,'Chứng khoán':15},recurring:[],fundGoals:[]}}
 function normalizeDB(x){x=x&&typeof x==='object'?x:defaultDB();x.accounts=Array.isArray(x.accounts)?x.accounts:defaultDB().accounts;x.tx=Array.isArray(x.tx)?x.tx:[];x.investments=Array.isArray(x.investments)?x.investments:[];x.debts=Array.isArray(x.debts)?x.debts:[];x.budgets=Array.isArray(x.budgets)?x.budgets:[];x.recurring=Array.isArray(x.recurring)?x.recurring:[];x.fundGoals=Array.isArray(x.fundGoals)?x.fundGoals:[];x.goals=x.goals&&typeof x.goals==='object'?x.goals:defaultDB().goals;x.prices=x.prices&&typeof x.prices==='object'&&!Array.isArray(x.prices)?x.prices:{};return x}
@@ -918,7 +1005,7 @@ function openMoreMenu(){openModal(`<h2>Thêm chức năng</h2><div class='moreGr
 <button onclick="closeModal();openInitialSetup()"><b>⚙</b><span>Tài chính ban đầu</span></button>
 <button onclick="closeModal();openTools()"><b>☁</b><span>Sao lưu & dữ liệu</span></button>
 </div><div class='divider'></div><div class='moreLinks'><button onclick="closeModal();showPage('debts')">Nợ phải trả</button><button onclick="closeModal();showPage('investments')">Đầu tư</button></div>`)}
-function showPage(p){['home','transactions','investments','debts','assets','reports','plan'].forEach(x=>$(x).classList.toggle('hide',x!==p));document.querySelectorAll('.bottomNav button[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===p));let titles={home:'Tổng quan',transactions:'Thu chi',assets:'Tài sản',debts:'Nợ phải trả',investments:'Đầu tư',reports:'Phân tích',plan:'Kế hoạch phân bổ'};if($('pageTitle'))$('pageTitle').textContent=titles[p]||'App Thu Chi';render();if(p==='reports')updateReportControls()}function openTools(){openModal(`<h2>Công cụ & dữ liệu</h2><div class='muted' style='margin-bottom:10px'>Phiên bản đang chạy: <b>V20.1.0</b></div><label>Chọn tháng đang xem</label><input id='mp' type='month' value='${ym()}'><button class='primary' style='width:100%;margin-top:10px' onclick='changeMonth()'>Đổi tháng</button><div class='divider'></div><button style='width:100%' class='primary' onclick='openInitialSetup()'>Thiết lập tài chính ban đầu</button><button style='width:100%;margin-top:8px' onclick='verifyStorage(true)'>Kiểm tra dữ liệu đã lưu</button><button style='width:100%;margin-top:8px' onclick='backup()'>Xuất bản sao lưu JSON</button><button style='width:100%;margin-top:8px' onclick='pickRestore()'>Khôi phục từ file JSON</button><input id='restoreFile' type='file' accept='.json,application/json' style='display:none' onchange='restoreBackup(event)'><button class='dangerBtn' style='width:100%;margin-top:8px' onclick="if(confirm('Xóa toàn bộ dữ liệu?')){localStorage.removeItem(KEY);localStorage.removeItem(META_KEY);location.reload()}">Xóa dữ liệu</button>`)}function changeMonth(){let v=$('mp').value;if(v){current=new Date(v+'-01T00:00');closeModal();render()}}function backup(){let raw=JSON.stringify(db),pack={app:'App Thu Chi',version:APP_VERSION+'-PWA',exportedAt:new Date().toISOString(),checksum:checksum(raw),counts:dataCounts(),data:db},text=JSON.stringify(pack,null,2),b=new Blob([text],{type:'application/json;charset=utf-8'}),url=URL.createObjectURL(b),a=document.createElement('a');a.href=url;a.download='app-thu-chi-backup-'+new Date().toISOString().slice(0,10)+'.json';a.style.display='none';document.body.appendChild(a);a.click();setTimeout(()=>{a.remove();URL.revokeObjectURL(url)},5000)}
+function showPage(p){['home','transactions','investments','debts','assets','reports','plan'].forEach(x=>$(x).classList.toggle('hide',x!==p));document.querySelectorAll('.bottomNav button[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===p));let titles={home:'Tổng quan',transactions:'Thu chi',assets:'Tài sản',debts:'Nợ phải trả',investments:'Đầu tư',reports:'Phân tích',plan:'Kế hoạch phân bổ'};if($('pageTitle'))$('pageTitle').textContent=titles[p]||'App Thu Chi';render();if(p==='reports')updateReportControls()}function openTools(){openModal(`<h2>Công cụ & dữ liệu</h2><div class='muted' style='margin-bottom:10px'>Phiên bản đang chạy: <b>V21.0.0</b></div><label>Chọn tháng đang xem</label><input id='mp' type='month' value='${ym()}'><button class='primary' style='width:100%;margin-top:10px' onclick='changeMonth()'>Đổi tháng</button><div class='divider'></div><button style='width:100%' class='primary' onclick='openInitialSetup()'>Thiết lập tài chính ban đầu</button><button style='width:100%;margin-top:8px' onclick='verifyStorage(true)'>Kiểm tra dữ liệu đã lưu</button><button style='width:100%;margin-top:8px' onclick='backup()'>Xuất bản sao lưu JSON</button><button style='width:100%;margin-top:8px' onclick='pickRestore()'>Khôi phục từ file JSON</button><input id='restoreFile' type='file' accept='.json,application/json' style='display:none' onchange='restoreBackup(event)'><button class='dangerBtn' style='width:100%;margin-top:8px' onclick="if(confirm('Xóa toàn bộ dữ liệu?')){localStorage.removeItem(KEY);localStorage.removeItem(META_KEY);location.reload()}">Xóa dữ liệu</button>`)}function changeMonth(){let v=$('mp').value;if(v){current=new Date(v+'-01T00:00');closeModal();render()}}function backup(){let raw=JSON.stringify(db),pack={app:'App Thu Chi',version:APP_VERSION+'-PWA',exportedAt:new Date().toISOString(),checksum:checksum(raw),counts:dataCounts(),data:db},text=JSON.stringify(pack,null,2),b=new Blob([text],{type:'application/json;charset=utf-8'}),url=URL.createObjectURL(b),a=document.createElement('a');a.href=url;a.download='app-thu-chi-backup-'+new Date().toISOString().slice(0,10)+'.json';a.style.display='none';document.body.appendChild(a);a.click();setTimeout(()=>{a.remove();URL.revokeObjectURL(url)},5000)}
 function pickRestore(){let f=$('restoreFile');if(f)f.click()}
 function restoreBackup(e){let file=e.target.files&&e.target.files[0];if(!file)return;let r=new FileReader();r.onload=()=>{try{let pack=JSON.parse(r.result),x=pack&&pack.data?pack.data:pack;if(pack&&pack.data&&pack.checksum&&checksum(JSON.stringify(pack.data))!==pack.checksum)throw new Error('Checksum file backup không khớp');if(!x||!Array.isArray(x.accounts)||!Array.isArray(x.tx))throw new Error('Sai cấu trúc');x=normalizeDB(x);if(!confirm('Khôi phục sẽ thay thế dữ liệu hiện tại. Tiếp tục?')){e.target.value='';return}db=x;if(!save())throw new Error('Không thể ghi dữ liệu khôi phục');closeModal();render();if(!verifyStorage(false))throw new Error('Dữ liệu sau khôi phục không vượt qua kiểm tra');alert('Đã khôi phục và kiểm tra dữ liệu thành công.')}catch(err){alert('Khôi phục thất bại: '+(err.message||err))}finally{e.target.value=''}};r.readAsText(file)}
 
@@ -4064,6 +4151,43 @@ const _v20h=v20Home;v20Home=function(){let h=_v20h();return h.replace('<section 
 document.body.classList.add('ui201');
 try{memoReset();render()}catch(e){console.error('v201',e)}
 
+
+/* ===== V21.0.0: Giao diện Premium – tiết chế, rõ ràng, một điểm nhấn ======================================
+   Trang chủ: thẻ ví (tổng tiền + 4 số dư) · Hôm nay (thu/chi) · ghi nhanh · Việc tối nay (danh sách tích).
+   Menu Thêm: danh sách có nhóm, mỗi dòng một chức năng + số liệu hiện tại.
+=========================================================================================== */
+function v21Home(){let S=todaySums20(),m=moneyPicture(),P=plan18(),items=tasks20(),todo=items.filter(x=>!x.done&&!x.opt),done=items.filter(x=>x.done&&!x.opt),opt=items.filter(x=>x.opt&&!x.done),now=new Date(),h=now.getHours();
+ let bank=bankTotal(),cash=cashTotal(),res=db.accounts.filter(a=>a.kind==='reserve').reduce((q,a)=>q+actual(a),0),fund=db.accounts.filter(a=>a.kind==='debtfund').reduce((q,a)=>q+actual(a),0),sav=db.accounts.filter(a=>a.kind==='saving').reduce((q,a)=>q+actual(a),0),tot=bank+cash+res+fund+sav;
+ let dstr=now.toLocaleDateString('vi-VN',{weekday:'long',day:'numeric',month:'numeric'});dstr=dstr.charAt(0).toUpperCase()+dstr.slice(1);
+ let per=Math.max(1,m.perDay||0),left=m.todayLeft,pct=Math.min(1,(m.spentToday||0)/per);
+ let head=`<div class="h21"><div><small>${dstr}</small><h1>${h<11?'Chào buổi sáng':h<14?'Chào buổi trưa':h<18?'Chào buổi chiều':'Chào buổi tối'}</h1></div><button type="button" class="eye21" onclick="toggleAmounts()" aria-label="Ẩn/hiện số dư">${ic(amountsHidden?'eyeOff':'eye',19)}</button></div>`;
+ let wallet=`<section class="card21 wal21" onclick="showPage('assets')"><div class="mesh21"></div><div class="w21Top"><span>Tổng tiền đang có</span><span class="w21Net">Tài sản ròng <b class="amt17">${cmpMoney(net())}</b></span></div><b class="w21Amt amt17 cnt" data-v="${Math.round(tot)}">${money(tot)}</b>
+ <div class="w21Grid">${[['bank','Ngân hàng',bank],['cash','Tiền mặt',cash],['shield','Dự phòng',res],['lock','Quỹ trả nợ',fund]].concat(sav>0?[['flag','Tiết kiệm',sav]]:[]).map(x=>`<div><span>${ic(x[0],14,'inl')} ${x[1]}</span><b class="amt17 ${x[2]<0?'neg':''}">${money(x[2])}</b></div>`).join('')}</div></section>`;
+ let today=`<div class="lbl21">Hôm nay</div><section class="card21 day21"><div class="d21Row"><div><span>Thu</span><b class="in21 cnt" data-v="${S.inc}">${money(S.inc)}</b></div><div><span>Chi</span><b class="out21 cnt" data-v="${S.out}">${money(S.out)}</b></div></div>
+ <div class="d21Left"><div class="row"><span>Còn tiêu được</span><b class="${left>=0?'':'neg'}">${left>=0?money(left):'Vượt '+money(-left)}</b></div><div class="bar21 ${pct>=1?'over':pct>=.8?'warn':''}"><i style="width:${pct*100}%"></i></div></div>
+ ${S.n?`<details class="d21Tx"><summary><span>${S.n} giao dịch</span>${[['Sinh hoạt',S.g.live],['Vợ',S.g.wife],['Gia đình',S.g.fam]].filter(x=>x[1]>0).map(x=>`<em>${x[0]} ${cmpMoney(x[1])}</em>`).join('')}${ic('chev',14)}</summary><div>${S.tx.slice().sort((a,b)=>(+b.id||0)-(+a.id||0)).map(txHtml).join('')}</div></details>`:''}</section>`;
+ let qe=`<form id="qeForm" class="qe21" autocomplete="off"><span class="qeIc">${ic('spark',18)}</span><input id="qeIn" placeholder="Ghi nhanh: ăn trưa 45k, vào 2tr…" enterkeyhint="done"><button type="submit" id="qeBtn" disabled aria-label="Ghi">${ic('arrowOut',18)}</button><div id="qePrev" class="qePrev"></div></form>`;
+ let all=todo.length+done.length,row=it=>{let k=it.done?`undoTask20('${it.id}')`:`doTask20(${escAttr(JSON.stringify(it.k))})`;return `<div class="t21 ${it.done?'done':''} ${it.opt?'opt':''}" style="--c:${it.c}"><button type="button" class="ck21" onclick="${k}" aria-label="${it.done?'Bỏ đánh dấu':'Đã làm'}">${ic('check',15)}</button><div class="grow" ${!it.done&&it.k&&!it.opt?`onclick='editTask20(${escAttr(JSON.stringify(it.k))})'`:it.opt?`onclick="openReconcile()"`:''}><b>${it.title}</b><small>${escAttr((it.sub||'').replace(/Tài khoản ngân hàng/g,'Ngân hàng'))}</small></div>${it.amount!=null?`<span class="a21">${money(it.amount)}</span>`:''}</div>`};
+ let tasks=`<div class="lbl21">Việc tối nay <span>${all?`${done.length}/${all}`:''}</span></div><section class="card21 list21">${all?'':`<div class="empty21">${ic('check',18)} Hôm nay không có việc gì</div>`}${todo.map(row).join('')}${!todo.length&&all?`<div class="allDone21">${ic('check',18)} Xong hết hôm nay</div>`:''}${done.map(row).join('')}${opt.map(row).join('')}
+ ${P.short?`<div class="note21">${ic('clock',14,'inl')} Quỹ trả nợ còn thiếu ${money(P.short)} cho 30 ngày tới – app gom dần từ tiền vào.</div>`:''}</section>`;
+ let ins=mgrInsights().filter(x=>(x.l==='red'||x.l==='amber')&&!/check-in|Check-in|số dư|Quỹ trả nợ còn thiếu/.test(x.t))[0];
+ let tip=ins?`<button type="button" class="tip21" onclick="${ins.act?escAttr(ins.act[1]):"mgrOpen('today')"}">${ic('spark',15)}<span>${ins.t}</span>${ic('chev',14)}</button>`:'';
+ return head+wallet+today+qe+tasks+tip}
+simpleCardHtml=function(){return v21Home()};
+const _ap21=applySimple;applySimple=function(){_ap21();document.body.classList.add('v21')};
+
+/* ---------- Menu Thêm: danh sách có nhóm ---------- */
+openMoreMenu=function(){let fx=flexDebts(),inv=invValue(),goals=(db.fundGoals||[]).length,rec=(db.recurring||[]).filter(r=>r.active!==false).length,L=lifeCfg(),bk=daysSince(L.lastBackup);
+ let G=[['Tiền của bạn',[['wallet','#4da3ff','Tài khoản',`${db.accounts.length} tài khoản`,"showPage('assets')"],['repay','#ffb547','Nợ phải trả',`còn ${cmpMoney(debtsTotal())}`,"showPage('debts')"],['trend','#34d399','Đầu tư',cmpMoney(inv),"showPage('investments')"],['flag','#fb7185','Mục tiêu',goals?goals+' mục tiêu':'chưa có','openGoal()']]],
+  ['Kế hoạch & báo cáo',[['target','#a78bfa','Chiến lược tiền','lộ trình, đầu tư vào gì',"showPage('strategy')"],['cal','#38bdf8','Báo cáo tháng','một trang','openMonthReport()'],['chart','#818cf8','Phân tích','biểu đồ, chỉ số',"showPage('reports')"],['spark','#60a5fa','Kế hoạch chi tiết','lệnh chuyển, trả nợ, tích lũy',"showPage('plan')"],['target','#2dd4bf','Ngân sách','hạn mức từng nhóm','openBudget()'],['repay','#f59e0b','Khoản định kỳ',rec?rec+' khoản':'chưa có','openRecurring()']]],
+  ['Công cụ',[['check','#38bdf8','Đối chiếu số dư','khi số dư lệch','openReconcile()'],['book','#f472b6','Sổ tay gia đình','tiền ở đâu, nợ ai','openFamilyMemo()'],['bell','#fbbf24','Nhắc nhở',`${L.remindPM||'21:00'} mỗi tối`,'openReminders()']]],
+  ['Dữ liệu',[['cloud','#60a5fa','Sao lưu',bk===null?'chưa sao lưu':bk===0?'hôm nay':bk+' ngày trước','shareBackup()'],['gear','#94a3b8','Cài đặt',"chia tiền, cho vợ, gia đình","showPage('plan');openPlanSettings()"],['gear','#64748b','Dữ liệu & phiên bản',APP_VERSION,'openTools()']]]];
+ openModal(`<h2>Thêm</h2>${G.map(([t,rows])=>`<div class="mg21"><div class="mgT">${t}</div><div class="mgL">${rows.map(r=>`<button type="button" onclick="closeModal();${r[4]}"><span class="mgI" style="--c:${r[1]}">${ic(r[0],17)}</span><span class="mgX"><b>${r[2]}</b><small>${escAttr(r[3])}</small></span>${ic('chev',16,'mgC')}</button>`).join('')}</div></div>`).join('')}`)};
+/* Rung nhẹ khi tích việc */
+const _do21=doTask20;doTask20=function(k){try{navigator.vibrate&&navigator.vibrate(12)}catch(e){}return _do21(k)};
+const _sp21=showPage;showPage=function(p){_sp21(p);document.body.classList.toggle('onHome',p==='home')};document.body.classList.add('ui21','onHome');
+try{memoReset();render()}catch(e){console.error('v21',e)}
+
 </script>
 <script>
 if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
@@ -4093,8 +4217,8 @@ if('serviceWorker' in navigator){
    navigator.serviceWorker.register('./sw.js?v=16000',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
  });
  navigator.serviceWorker.addEventListener('controllerchange',()=>{
-   if(!sessionStorage.getItem('v20100Reloaded')){sessionStorage.setItem('v20100Reloaded','1');location.reload()}
+   if(!sessionStorage.getItem('v21000Reloaded')){sessionStorage.setItem('v21000Reloaded','1');location.reload()}
  });
 }
 </script>
-<div id="buildBadge" style="position:fixed;right:5px;bottom:calc(64px + env(safe-area-inset-bottom));z-index:9999;font:700 8px system-ui;color:#6f8497;opacity:.65;pointer-events:none">V20.1.0</div></body></html>
+<div id="buildBadge" style="position:fixed;right:5px;bottom:calc(64px + env(safe-area-inset-bottom));z-index:9999;font:700 8px system-ui;color:#6f8497;opacity:.65;pointer-events:none">V21.0.0</div></body></html>
