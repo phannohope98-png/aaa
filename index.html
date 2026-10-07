@@ -329,7 +329,62 @@ body{margin:0;background:#020912!important;color:var(--text);font-family:Inter,s
 .remBar{display:flex;align-items:center;gap:8px;padding:10px 12px;margin-bottom:10px;border-radius:13px;background:#1d2a4a;border:1px solid #2f4f8a}.remBar span{flex:1;display:flex;flex-direction:column;gap:2px;font-size:13px;min-width:0}.remBar small{font-size:11px;color:#a9bdd0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.remBar button{min-height:34px;padding:0 12px;border:0;border-radius:10px;background:#2187ff;color:#fff;font-weight:700}.remBar button.x{background:transparent;color:#8fa6ba;padding:0 6px}.repHead{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}.repHead h2{margin:0;font-size:18px;text-align:center}.repHead button{min-width:40px;min-height:36px;border:0;border-radius:10px;background:#13283b;color:#dce9f5;font-size:18px}.repHead button:disabled{opacity:.3}.repDot{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:7px}.repCmp div{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:6px;padding:6px 0;border-bottom:1px solid #172838;font-size:12px}.repCmp b{text-align:right;font-size:12px}.repCmp div:first-child b{color:#9fb2c4;font-size:10.5px}.repNotes p{margin:4px 0;font-size:12.5px;line-height:1.5;color:#c8d6e4}
 .memo h3{font-size:13px;color:#78b9ff;margin:12px 0 4px;padding-bottom:3px;border-bottom:1px solid #1c3a55}.memo .mr{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px solid #172838;font-size:13px}.memo .mr span{display:flex;flex-direction:column;min-width:0}.memo .mr small{font-size:11px;color:#8fa6ba}.memo .mr b{white-space:nowrap}.memo .mm{font-size:12px;color:#9fb2c4;margin:4px 0}.memo .mn{font-size:12.5px;line-height:1.5}#memoNote{width:100%;min-height:80px;border-radius:12px;padding:10px;background:#0d1f30;color:#e8f1f9;border:1px solid #1c3a55;font:inherit}
 body.simpleMode #home>section:not(.heroCard),body.simpleMode #home>.stat4{display:none!important}.simpleCard .scHead{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}.simpleCard .scHead>div{display:flex;flex-direction:column;gap:2px}.simpleCard .scHead span{font-size:12px;color:#9fb2c4}.simpleCard .scHead b{font-size:30px;line-height:1.1}.simpleCard .scHead small{font-size:11.5px;color:#9fb2c4}.scFull{border:0;background:#13283b;color:#a9bdd0;border-radius:10px;min-height:32px;padding:0 10px;font-size:12px}.scCheck{width:100%;margin:12px 0 4px;min-height:52px;border:0;border-radius:14px;background:#1f9d64;color:#fff;font-weight:800;font-size:15px}.scCheck.done{background:#123a2c;color:#7be0b0;font-weight:700;font-size:13px;min-height:42px}.scTodo{display:grid;grid-template-columns:1fr auto 40px;gap:8px;align-items:center;padding:9px 0;border-bottom:1px solid #172838;font-size:13px}.scTodo b{white-space:nowrap}.scTodo button{min-height:36px;border:0;border-radius:10px;background:#1f9d64;color:#fff;font-weight:800}.scDone{padding:10px 12px;border-radius:12px;background:#123a2c;color:#7be0b0;font-weight:700;font-size:13px}
-</style></head><body><div class="app iphoneApp">
+</style><style id="app-style-v17">/* V17: trang chủ chia khối, hũ tiền, chi theo nhóm, ghi nhanh */
+body.v17 #home>.heroCard{display:none!important}
+#simpleCard .blk,#txCats17 .blk{background:linear-gradient(180deg,#0e1d2d,#0b1825);border:1px solid #17304a;border-radius:20px;padding:15px;margin:0 0 12px}
+.blkHead{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:10px}.blkHead>div{display:flex;flex-direction:column;gap:2px}.blkHead b{font-size:15.5px}.blkHead small{font-size:11.5px;color:#8fa5bb}.blkHead .addText{white-space:nowrap;font-size:12.5px}
+.hero17{background:radial-gradient(120% 140% at 0% 0%,#1b5f8f 0%,#14325a 45%,#111d3a 100%)!important;border-color:#2a5482!important}
+.h17Top{display:flex;justify-content:space-between;align-items:flex-start}.h17Top span{font-size:12px;color:#b8cde2}.h17Top b{display:block;font-size:30px;font-weight:900;letter-spacing:-.5px;margin-top:2px}
+.eye17{background:rgba(255,255,255,.1);border:0;color:#fff;border-radius:12px;width:36px;height:36px;font-size:16px}
+.h17Tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}.h17Tiles>div{background:rgba(5,14,28,.45);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:9px 10px;min-width:0}.h17Tiles span{display:block;font-size:11px;color:#b8cde2;white-space:nowrap}.h17Tiles b{display:block;font-size:13.5px;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.h17Debt{display:flex;align-items:center;gap:8px;margin-top:9px;font-size:12.5px;color:#ffd9a0;cursor:pointer}.h17Debt b{margin-left:auto}.h17Debt small{opacity:.6}
+.amountsHidden .amt17{filter:blur(8px)}
+.t17Head{display:flex;justify-content:space-between;align-items:flex-start}.t17Head>div{display:flex;flex-direction:column}.t17Head span{font-size:12.5px;color:#9fb2c4}.t17Head b{font-size:32px;font-weight:900;line-height:1.15}
+.t17Bar{height:9px;border-radius:9px;background:#18304a;margin:10px 0 6px;overflow:hidden}.t17Bar i{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,#19d48f,#43e6a8)}.t17Bar.warn i{background:linear-gradient(90deg,#ffbd59,#ff9b2f)}.t17Bar.over i{background:linear-gradient(90deg,#ff6f78,#ff4d5d)}
+.t17Sub{display:flex;justify-content:space-between;font-size:11.5px;color:#8fa5bb}
+.today17 .scCheck{margin-top:12px}
+.qeBlk{padding:12px!important}.qeRow{display:flex;gap:8px}.qeRow input{flex:1;min-width:0;margin:0!important;background:#081421!important;border:1px solid #21405f!important;border-radius:14px!important;padding:12px 13px!important;font-size:15px}
+.qeRow button{border:0;border-radius:14px;padding:0 18px;font-weight:800;background:#2387ff;color:#fff;font-size:15px}.qeRow button:disabled{background:#1a2c40;color:#5f7790}
+.qePrev{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;font-size:12px;min-height:20px;align-items:center}
+.qeChip{display:inline-flex;align-items:center;border:1px solid #27445f;background:#0f2134;color:#dfe9f3;border-radius:999px;padding:5px 10px;font-size:12.5px;font-weight:700;cursor:pointer;width:auto!important;margin:0!important;height:auto!important}
+select.qeChip{appearance:none;-webkit-appearance:none;padding-right:12px}.qeChip.strong{border-width:2px;color:#fff}.qeChip.pos{color:#19d48f}.qeChip.neg{color:#ff7a86}
+.qa17{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:0 0 12px}
+.qa17 button{display:flex;flex-direction:column;align-items:center;gap:5px;background:#0d1c2b;border:1px solid #17304a;border-radius:18px;padding:11px 4px 10px;color:#e8f1fa;min-width:0}
+.qa17 i{font-style:normal;width:38px;height:38px;border-radius:13px;display:grid;place-items:center;font-size:18px;background:color-mix(in srgb,var(--c) 18%,transparent);color:var(--c)}
+.qa17 span{font-size:12px;font-weight:700}.qa17 small{font-size:10.5px;color:#8fa5bb;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.potGrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.pot{text-align:left;background:#0a1624;border:1px solid #182f47;border-left:3px solid var(--c);border-radius:14px;padding:10px 11px;color:#e8f1fa;display:flex;flex-direction:column;gap:3px;min-width:0}
+.potTop{display:flex;align-items:center;gap:6px;font-size:12px;color:#b7c8d9}.potIc{color:var(--c);font-size:14px}.pot b{font-size:16.5px}.pot small{font-size:10.5px;color:#8197ad;line-height:1.3}
+.potBar{height:5px;background:#182f47;border-radius:5px;overflow:hidden;margin-top:4px}.potBar i{display:block;height:100%;background:var(--c)}
+.stackBar{display:flex;height:12px;border-radius:8px;overflow:hidden;gap:2px;background:#132638}.stackBar i{display:block;height:100%}
+.grpLegend{display:flex;flex-wrap:wrap;gap:6px 12px;margin:8px 0 10px;font-size:11.5px;color:#a9bccf}.grpLegend i{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:5px;vertical-align:-1px}.grpLegend b{color:#fff}
+.catList{display:flex;flex-direction:column;gap:9px}.catRow{display:flex;align-items:center;gap:10px}.catRow .row{display:flex;justify-content:space-between;font-size:13px}.catRow .row b{font-size:13px}
+.catBar{height:5px;background:#132638;border-radius:5px;overflow:hidden;margin-top:5px}.catBar i{display:block;height:100%;border-radius:5px}
+.ico17{flex:none;width:38px;height:38px;border-radius:13px;display:grid;place-items:center;font-size:17px;background:color-mix(in srgb,var(--c) 17%,#0b1825);color:var(--c);border:1px solid color-mix(in srgb,var(--c) 30%,transparent)}.ico17.sm{width:32px;height:32px;border-radius:11px;font-size:14px}
+.tx17{gap:11px!important;align-items:center}.tx17 .txMeta{font-size:11.5px}.autoTag{font-size:10px;color:#8fa5bb;background:#16283b;border-radius:6px;padding:1px 5px;font-weight:600}
+.ins17{border-radius:14px;padding:10px 12px;margin-bottom:8px;font-size:12.5px;line-height:1.45;background:#132538;border-left:3px solid #6fb8ff}.ins17>b{display:block;font-size:13.5px;margin-bottom:2px}.ins17>div{color:#b5c6d6}
+.ins17.amber{background:#2a2414;border-color:#ffbd59}.ins17.amber>b{color:#ffd17a}.ins17.red{background:#2d1720;border-color:#ff5d6c}.ins17.red>b{color:#ff9ca4}.ins17.green{background:#11291f;border-color:#19d48f}.ins17.green>b{color:#78e1a9}
+.ins17 button{margin-top:7px;border:0;background:rgba(255,255,255,.1);color:#fff;border-radius:10px;padding:6px 11px;font-weight:700;font-size:12px}
+#simpleCard .scTodo{background:#0a1624;border:1px solid #182f47;border-radius:13px;padding:9px 10px;margin-bottom:6px}
+.payPick{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:4px 0 6px}
+.payPick button{display:flex;flex-direction:column;align-items:center;gap:2px;border:1.5px solid #23405d;background:#0b1825;color:#cfdeec;border-radius:13px;padding:9px 6px;font-weight:800;font-size:13.5px}
+.payPick button small{font-size:10.5px;font-weight:600;color:#8197ad}.payPick button.on{border-color:#2387ff;background:#0f2a4a;color:#fff;box-shadow:0 0 0 3px rgba(35,135,255,.18)}
+.amtChips{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 2px}.amtChips button{border:1px solid #27445f;background:#0f2134;color:#dfe9f3;border-radius:999px;padding:6px 12px;font-weight:700;font-size:12.5px}
+.giveTop{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:4px 0 8px}.giveTop>div{background:#0a1624;border:1px solid #182f47;border-radius:13px;padding:9px 11px}.giveTop span{display:block;font-size:11px;color:#8fa5bb}.giveTop b{font-size:16px}
+.catPick{display:flex;gap:8px;flex-wrap:wrap}.catPick label{margin:0!important}.catPick input{display:none}.catPick span{display:inline-block;border:1.5px solid #23405d;border-radius:12px;padding:8px 12px;font-weight:700;font-size:13px}.catPick input:checked+span{border-color:#2387ff;background:#0f2a4a}
+.ciStep{display:flex;gap:10px;margin-bottom:12px}.ciStep>i{font-style:normal;flex:none;width:24px;height:24px;border-radius:50%;background:#2387ff;color:#fff;display:grid;place-items:center;font-size:12px;font-weight:800;margin-top:2px}.ciStep>div{flex:1;min-width:0}.ciStep label{margin-top:0!important}
+.ciBal{display:grid;grid-template-columns:1fr 1fr;gap:8px}.ciBal>div{display:flex;flex-direction:column;gap:3px;min-width:0}.ciBal span{font-size:12px;font-weight:700}.ciBal span small{font-weight:500;color:#8197ad}.ciBal small{font-size:10.5px;color:#8197ad}.ciBal input{margin:0!important}
+.ciGive{background:#0a1624;border:1px solid #182f47;border-radius:13px;padding:9px 10px;margin-bottom:8px}.ciGive>span{display:block;font-weight:700;font-size:13px;margin-bottom:5px}.ciGive input{margin:0 0 4px!important}
+.toast17{position:fixed;left:50%;bottom:96px;transform:translate(-50%,20px);opacity:0;pointer-events:none;transition:.25s;background:#1a2f45;border:1px solid #2c4c6c;color:#fff;border-radius:14px;padding:10px 12px;display:flex;gap:12px;align-items:center;font-size:13px;z-index:999;max-width:92vw;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+.toast17.show{opacity:1;transform:translate(-50%,0);pointer-events:auto}.toast17 button{border:0;background:#2387ff;color:#fff;border-radius:9px;padding:6px 10px;font-weight:800;font-size:12px;white-space:nowrap}
+#txCats17 .blk{margin-top:10px}
+.lnk17{background:none!important;border:0!important;color:#6fb8ff!important;font-weight:700;font-size:12.5px;padding:2px 0!important;white-space:nowrap;width:auto!important;box-shadow:none!important}
+.amtChips button,.qa17 button,.payPick button,.catPick span{width:auto!important;margin:0!important;min-height:0!important}.amtChips button{flex:none}.qa17 button,.payPick button{width:100%!important}
+details.ins17>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:8px}details.ins17>summary::-webkit-details-marker{display:none}details.ins17>summary::after{content:'⌄';opacity:.6}details.ins17[open]>summary::after{content:'⌃'}details.ins17>div{margin-top:3px}
+#simpleCard .scTodo span{font-size:13px;line-height:1.3}
+.toast17{bottom:auto;top:calc(12px + env(safe-area-inset-top));transform:translate(-50%,-20px)}
+</style>
+</head><body><div class="app iphoneApp">
 <header class="iosHeader"><div class="iosTitle" id="pageTitle">Tổng quan</div><button class="iconBtn" onclick="openTools()">⚙</button></header>
 <main class="screenWrap">
 <div id="home">
@@ -371,7 +426,7 @@ body.simpleMode #home>section:not(.heroCard),body.simpleMode #home>.stat4{displa
 <nav class="bottomNav"><button class="active" data-page="home" onclick="showPage('home')"><i>⌂</i><span>Tổng quan</span></button><button data-page="transactions" onclick="showPage('transactions')"><i>☷</i><span>Thu chi</span></button><button class="centerAdd" onclick="openQuickAdd()">＋</button><button data-page="assets" onclick="showPage('assets')"><i>▣</i><span>Tài sản</span></button><button id="moreNavBtn" onclick="openMoreMenu()"><i>•••</i><span>Thêm</span></button></nav>
 </div><div class="modal" id="modal"><div class="sheet" id="sheet"></div></div>
 <script>
-const APP_VERSION='V16.0.0';
+const APP_VERSION='V17.0.0';
 const KEY='kmFinancePro1', $=x=>document.getElementById(x), money=(f=>n=>f.format(Number(n)||0))(new Intl.NumberFormat('vi-VN',{style:'currency',currency:'VND',maximumFractionDigits:0}));let current=new Date();current.setDate(1);const expenseCats=['Ăn Uống','Giao Lưu / Giải Trí','Đi Lại','Vợ','Con','Nhà Cửa','Ba Mẹ','Quà','Điện Thoại','Y Tế','Thể Thao - Giáo Dục','Cho Mượn','Chi Khác'],incomeCats=['Lương','Web','Khác','Rút từ đầu tư về'],investTypes=['Chứng khoán','Chứng chỉ quỹ','Vàng','Tiết kiệm'];const META_KEY=KEY+'_meta';
 function defaultDB(){return {accounts:[{id:1,name:'Tiền Mặt',kind:'liquid',opening:0},{id:2,name:'Tài khoản ngân hàng',kind:'liquid',opening:0},{id:3,name:'Dự phòng & dự trù',kind:'reserve',opening:0}],tx:[],investments:[],debts:[],budgets:[],goals:{'Trả nợ':25,'Dự phòng':20,'Mua vàng':15,'Gửi tiết kiệm':15,'Chứng chỉ quỹ':10,'Chứng khoán':15},recurring:[],fundGoals:[]}}
 function normalizeDB(x){x=x&&typeof x==='object'?x:defaultDB();x.accounts=Array.isArray(x.accounts)?x.accounts:defaultDB().accounts;x.tx=Array.isArray(x.tx)?x.tx:[];x.investments=Array.isArray(x.investments)?x.investments:[];x.debts=Array.isArray(x.debts)?x.debts:[];x.budgets=Array.isArray(x.budgets)?x.budgets:[];x.recurring=Array.isArray(x.recurring)?x.recurring:[];x.fundGoals=Array.isArray(x.fundGoals)?x.fundGoals:[];x.goals=x.goals&&typeof x.goals==='object'?x.goals:defaultDB().goals;x.prices=x.prices&&typeof x.prices==='object'&&!Array.isArray(x.prices)?x.prices:{};return x}
@@ -523,7 +578,7 @@ function openMoreMenu(){openModal(`<h2>Thêm chức năng</h2><div class='moreGr
 <button onclick="closeModal();openInitialSetup()"><b>⚙</b><span>Tài chính ban đầu</span></button>
 <button onclick="closeModal();openTools()"><b>☁</b><span>Sao lưu & dữ liệu</span></button>
 </div><div class='divider'></div><div class='moreLinks'><button onclick="closeModal();showPage('debts')">Nợ phải trả</button><button onclick="closeModal();showPage('investments')">Đầu tư</button></div>`)}
-function showPage(p){['home','transactions','investments','debts','assets','reports','plan'].forEach(x=>$(x).classList.toggle('hide',x!==p));document.querySelectorAll('.bottomNav button[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===p));let titles={home:'Tổng quan',transactions:'Thu chi',assets:'Tài sản',debts:'Nợ phải trả',investments:'Đầu tư',reports:'Phân tích',plan:'Kế hoạch phân bổ'};if($('pageTitle'))$('pageTitle').textContent=titles[p]||'App Thu Chi';render();if(p==='reports')updateReportControls()}function openTools(){openModal(`<h2>Công cụ & dữ liệu</h2><div class='muted' style='margin-bottom:10px'>Phiên bản đang chạy: <b>V16.0.0</b></div><label>Chọn tháng đang xem</label><input id='mp' type='month' value='${ym()}'><button class='primary' style='width:100%;margin-top:10px' onclick='changeMonth()'>Đổi tháng</button><div class='divider'></div><button style='width:100%' class='primary' onclick='openInitialSetup()'>Thiết lập tài chính ban đầu</button><button style='width:100%;margin-top:8px' onclick='verifyStorage(true)'>Kiểm tra dữ liệu đã lưu</button><button style='width:100%;margin-top:8px' onclick='backup()'>Xuất bản sao lưu JSON</button><button style='width:100%;margin-top:8px' onclick='pickRestore()'>Khôi phục từ file JSON</button><input id='restoreFile' type='file' accept='.json,application/json' style='display:none' onchange='restoreBackup(event)'><button class='dangerBtn' style='width:100%;margin-top:8px' onclick="if(confirm('Xóa toàn bộ dữ liệu?')){localStorage.removeItem(KEY);localStorage.removeItem(META_KEY);location.reload()}">Xóa dữ liệu</button>`)}function changeMonth(){let v=$('mp').value;if(v){current=new Date(v+'-01T00:00');closeModal();render()}}function backup(){let raw=JSON.stringify(db),pack={app:'App Thu Chi',version:APP_VERSION+'-PWA',exportedAt:new Date().toISOString(),checksum:checksum(raw),counts:dataCounts(),data:db},text=JSON.stringify(pack,null,2),b=new Blob([text],{type:'application/json;charset=utf-8'}),url=URL.createObjectURL(b),a=document.createElement('a');a.href=url;a.download='app-thu-chi-backup-'+new Date().toISOString().slice(0,10)+'.json';a.style.display='none';document.body.appendChild(a);a.click();setTimeout(()=>{a.remove();URL.revokeObjectURL(url)},5000)}
+function showPage(p){['home','transactions','investments','debts','assets','reports','plan'].forEach(x=>$(x).classList.toggle('hide',x!==p));document.querySelectorAll('.bottomNav button[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===p));let titles={home:'Tổng quan',transactions:'Thu chi',assets:'Tài sản',debts:'Nợ phải trả',investments:'Đầu tư',reports:'Phân tích',plan:'Kế hoạch phân bổ'};if($('pageTitle'))$('pageTitle').textContent=titles[p]||'App Thu Chi';render();if(p==='reports')updateReportControls()}function openTools(){openModal(`<h2>Công cụ & dữ liệu</h2><div class='muted' style='margin-bottom:10px'>Phiên bản đang chạy: <b>V17.0.0</b></div><label>Chọn tháng đang xem</label><input id='mp' type='month' value='${ym()}'><button class='primary' style='width:100%;margin-top:10px' onclick='changeMonth()'>Đổi tháng</button><div class='divider'></div><button style='width:100%' class='primary' onclick='openInitialSetup()'>Thiết lập tài chính ban đầu</button><button style='width:100%;margin-top:8px' onclick='verifyStorage(true)'>Kiểm tra dữ liệu đã lưu</button><button style='width:100%;margin-top:8px' onclick='backup()'>Xuất bản sao lưu JSON</button><button style='width:100%;margin-top:8px' onclick='pickRestore()'>Khôi phục từ file JSON</button><input id='restoreFile' type='file' accept='.json,application/json' style='display:none' onchange='restoreBackup(event)'><button class='dangerBtn' style='width:100%;margin-top:8px' onclick="if(confirm('Xóa toàn bộ dữ liệu?')){localStorage.removeItem(KEY);localStorage.removeItem(META_KEY);location.reload()}">Xóa dữ liệu</button>`)}function changeMonth(){let v=$('mp').value;if(v){current=new Date(v+'-01T00:00');closeModal();render()}}function backup(){let raw=JSON.stringify(db),pack={app:'App Thu Chi',version:APP_VERSION+'-PWA',exportedAt:new Date().toISOString(),checksum:checksum(raw),counts:dataCounts(),data:db},text=JSON.stringify(pack,null,2),b=new Blob([text],{type:'application/json;charset=utf-8'}),url=URL.createObjectURL(b),a=document.createElement('a');a.href=url;a.download='app-thu-chi-backup-'+new Date().toISOString().slice(0,10)+'.json';a.style.display='none';document.body.appendChild(a);a.click();setTimeout(()=>{a.remove();URL.revokeObjectURL(url)},5000)}
 function pickRestore(){let f=$('restoreFile');if(f)f.click()}
 function restoreBackup(e){let file=e.target.files&&e.target.files[0];if(!file)return;let r=new FileReader();r.onload=()=>{try{let pack=JSON.parse(r.result),x=pack&&pack.data?pack.data:pack;if(pack&&pack.data&&pack.checksum&&checksum(JSON.stringify(pack.data))!==pack.checksum)throw new Error('Checksum file backup không khớp');if(!x||!Array.isArray(x.accounts)||!Array.isArray(x.tx))throw new Error('Sai cấu trúc');x=normalizeDB(x);if(!confirm('Khôi phục sẽ thay thế dữ liệu hiện tại. Tiếp tục?')){e.target.value='';return}db=x;if(!save())throw new Error('Không thể ghi dữ liệu khôi phục');closeModal();render();if(!verifyStorage(false))throw new Error('Dữ liệu sau khôi phục không vượt qua kiểm tra');alert('Đã khôi phục và kiểm tra dữ liệu thành công.')}catch(err){alert('Khôi phục thất bại: '+(err.message||err))}finally{e.target.value=''}};r.readAsText(file)}
 
@@ -2453,7 +2508,7 @@ moneyPicture=function(){return memo('mp',()=>{let m=_mp12();try{
  let future=st.mode==='daily'?st.cons*sp.pL*Math.max(0,m.daysLeft-1):0;
  let budgetPerDay=m.budgetLeft/m.daysLeft,cashPerDay=Math.max(0,m.afterDebt-m.owedPots+future)/(m.daysLeft+(st.mode==='daily'?Math.min(7,s.bufferDays):s.bufferDays)),perDay=Math.min(budgetPerDay,cashPerDay);
  m.tight=cashPerDay<budgetPerDay*0.98;m.perDay=r1k(perDay);m.todayLeft=r1k(perDay-m.spentToday);m.flowMode=st.mode;
- if(st.mode==='daily'){let fr=dayShift(-29),inM=db.tx.filter(x=>x.type==='income'&&!isInvestmentWithdrawal(x)&&x.date>=fr).reduce((q,x)=>q+(+x.amount||0),0),outM=db.tx.filter(x=>x.type==='expense'&&x.date>=fr).reduce((q,x)=>q+(+x.amount||0),0);m.livePot=r1k(inM*sp.pL-outM);m.liveIn=r1k(inM*sp.pL);m.liveOut=outM}
+ if(st.mode==='daily'){let fr=dayShift(-29),inM=db.tx.filter(x=>x.type==='income'&&!isInvestmentWithdrawal(x)&&x.date>=fr).reduce((q,x)=>q+(+x.amount||0),0),outM=db.tx.filter(x=>x.type==='expense'&&x.date>=fr&&!isSideCat(x.category)).reduce((q,x)=>q+(+x.amount||0),0);m.livePot=r1k(inM*sp.pL-outM);m.liveIn=r1k(inM*sp.pL);m.liveOut=outM}
 }catch(e){console.error('mp12',e)}return m})};
 
 /* ---------- Mô phỏng chiến lược: tài sản ròng theo thời gian ---------- */
@@ -2571,7 +2626,7 @@ flowCfg();try{render()}catch(e){console.error('v12',e)}
 /* ===== V13.0.0: Quản lý theo đời sống thật – nhẹ đầu =========================================
    - Không cần ghi chi tiêu: nhập số dư thực tế, app tự suy ra phần chi chưa ghi
    - Lương hưu = nền thu nhập chắc chắn: quỹ phòng hờ chỉ cần bù phần lương hưu không đủ
-   - Gửi vợ theo ngày thu tốt (200–500k, tự tính theo tiền vào hôm đó)
+   - Cho vợ theo ngày thu tốt (200–500k, tự tính theo tiền vào hôm đó)
    - Hũ gia đình: để riêng cho bố mẹ, anh chị em; cho bao nhiêu trừ vào hũ
    - Nợ không lịch (người quen): trả dần khi có tiền, khoản nhỏ dứt trước
    - Nghỉ làm là mất thu nhập: tính số tháng sống được, nhắc bảo hiểm
@@ -2619,7 +2674,7 @@ const _fo13=flowOwed;flowOwed=function(){return memo('fo13',()=>{let o=Object.as
 const _fpo13=flowPotOrder;flowPotOrder=function(p,amt,why,idle){if(p==='fam')return null;if(p==='x'){let d=flexTarget();if(!d)return null;return {k:'pot|x',pot:'x',type:'pay',debtId:d.id,from:'liquid',icon:'↺',title:'Trả bớt nợ: '+d.name,amount:Math.min(amt,debtRemain(d)),why:`Phần ${pctS(flowSplit().pX)} tiền vào dành trả dần nợ không lịch. Có tiền thì trả một ít – khoản nhỏ nhất trước (còn ${money(debtRemain(d))}) để dứt hẳn một người.`}}return _fpo13(p,amt,why,idle)};
 function famPot(){let o=flowOwed();return Math.round(o.fam||0)}
 
-/* ---------- Gửi vợ theo ngày thu tốt ---------- */
+/* ---------- Cho vợ theo ngày thu tốt ---------- */
 function wifeToday(){let L=lifeCfg();if(!L.wifeOn)return null;let t=today(),inc=db.tx.filter(x=>x.date===t&&x.type==='income'&&!isPension(x)&&!isInvestmentWithdrawal(x)).reduce((q,x)=>q+(+x.amount||0),0);
  let st=flowStats(),thr=+L.wifeFrom>0?+L.wifeFrom:Math.max(300000,r10k(st.freeAvg||st.avgIn));
  let sent=db.tx.filter(x=>x.date===t&&x.type==='expense'&&x.category==='Vợ').reduce((q,x)=>q+(+x.amount||0),0);
@@ -2627,7 +2682,7 @@ function wifeToday(){let L=lifeCfg();if(!L.wifeOn)return null;let t=today(),inc=
  let lo=Math.min(+L.wifeMin||0,+L.wifeMax||0),hi=Math.max(+L.wifeMin||0,+L.wifeMax||0),amt=Math.round((lo+(hi-lo)*Math.min(1,(inc-thr)/thr))/50000)*50000;
  return {need:sent>0?0:amt,amt,inc,thr,sent}}
 mgrOrders=function(){return memo('mo13',()=>{let r=Object.assign({},mgrOrdersV12()),w=wifeToday();r.gather=r.gather.filter(g=>g.p!=='fam');r.orders=r.orders.slice();
- if(w&&w.need>=50000){let o={k:'wife',type:'wife',icon:'♥',title:'Gửi vợ hôm nay',amount:w.need,why:`Hôm nay vào ${money(w.inc)} – ngày thu tốt (từ ${money(w.thr)} trở lên) nên gửi ${money(w.amt)}${w.sent?`, đã gửi ${money(w.sent)}`:''}. Ngày vào ít thì không cần gửi.`};o.skipped=!!r.rec.skip[o.k];r.orders.unshift(o)}
+ if(w&&w.need>=50000){let o={k:'wife',type:'wife',icon:'♥',title:'Cho vợ hôm nay',amount:w.need,why:`Hôm nay vào ${money(w.inc)} – ngày thu tốt (từ ${money(w.thr)} trở lên) nên gửi ${money(w.amt)}${w.sent?`, đã gửi ${money(w.sent)}`:''}. Ngày vào ít thì không cần gửi.`};o.skipped=!!r.rec.skip[o.k];r.orders.unshift(o)}
  r.pending=r.orders.filter(o=>!o.skipped);r.skipped=r.orders.filter(o=>o.skipped);r.sum=r.pending.reduce((q,o)=>q+o.amount,0);r.fam=famPot();return r})};
 function lifeExpenseModal(title,hint,cats,amount,note,onDone){
  let liq=db.accounts.filter(a=>a.kind==='liquid'),src=mainLiquid();
@@ -2637,7 +2692,7 @@ function lifeExpenseModal(title,hint,cats,amount,note,onDone){
   if(onDone&&onDone.check&&!onDone.check(amt))return;
   db.tx.unshift({id:Date.now(),type:'expense',amount:amt,category:f.elements.cat?f.elements.cat.value:cats[0],account:acc.id,date:today(),note:f.elements.note.value.trim()||note||''});
   if(onDone)onDone(amt);if(!save())return;closeModal();render()}}
-const _mgrDo13=mgrDo;mgrDo=function(k){let o=mgrFind(k);if(o&&o.type==='wife')return lifeExpenseModal('Gửi vợ hôm nay','Chuyển xong thì xác nhận – app ghi là chi tiêu nhóm Vợ.',['Vợ'],o.amount,'Gửi vợ',amt=>mgrLog('wife',amt));return _mgrDo13(k)};
+const _mgrDo13=mgrDo;mgrDo=function(k){let o=mgrFind(k);if(o&&o.type==='wife')return lifeExpenseModal('Cho vợ hôm nay','Chuyển xong thì xác nhận – app ghi là chi tiêu nhóm Vợ.',['Vợ'],o.amount,'Cho vợ',amt=>mgrLog('wife',amt));return _mgrDo13(k)};
 function openFamilyGive(){let left=famPot(),sp=flowSplit();
  let fn=amt=>{};fn.check=amt=>amt<=Math.max(0,left)||confirm(`Hũ gia đình chỉ còn ${money(Math.max(0,left))}. Phần vượt ${money(amt-Math.max(0,left))} sẽ lấy vào tiền tiêu. Vẫn ghi?`);
  lifeExpenseModal('Cho gia đình',`Hũ gia đình còn <b class="${left>=0?'pos':'neg'}">${money(left)}</b> (mỗi khoản tiền vào để riêng ${pctS(sp.pFam||0)}). Cho trong hũ thì không ảnh hưởng tiền nợ, phòng hờ hay tăng trưởng.`,FAM_CATS,'','',fn)}
@@ -2686,14 +2741,14 @@ const _ins13=mgrInsights;mgrInsights=function(){return memo('ins13',()=>{
 function lifeQuickHtml(){let fp=famPot();return `<div class="lifeQuick"><button type="button" onclick="openTx('income')"><b>＋</b><span>Tiền vào</span></button><button type="button" onclick="openReconcile()"><b>⟳</b><span>Số dư thực</span></button><button type="button" onclick="openFamilyGive()"><b>♥</b><span>Cho gia đình</span><small class="${fp>=0?'':'neg'}">còn ${money(fp)}</small></button></div>`}
 const _home13=renderHomePlan;renderHomePlan=function(){_home13();let el=$('homePlan');if(el)try{el.insertAdjacentHTML('afterbegin',lifeQuickHtml())}catch(e){console.error('home13',e)}};
 const _plan13=renderPlan;renderPlan=function(){_plan13();let el=$('planBody');if(!el||mgrTab!=='today')return;try{let t=el.querySelector('.mgrTabs');if(t)t.insertAdjacentHTML('afterend',lifeQuickHtml())}catch(e){console.error('plan13',e)}};
-const _split13=flowShowSplit;flowShowSplit=function(x){_split13(x);try{memoReset();let w=wifeToday();if(w&&w.need>=50000){let s=$('sheet'),h=s&&s.querySelector('h2');if(h)h.insertAdjacentHTML('afterend',`<div class="alert green" style="margin:6px 0"><b>♥ Ngày thu tốt – gửi vợ ${money(w.need)}</b><br>Hôm nay đã vào ${money(w.inc)}. <button type="button" class="mgrUndo" onclick="closeModal();mgrDo('wife')">Gửi ngay</button></div>`)}}catch(e){}};
+const _split13=flowShowSplit;flowShowSplit=function(x){_split13(x);try{memoReset();let w=wifeToday();if(w&&w.need>=50000){let s=$('sheet'),h=s&&s.querySelector('h2');if(h)h.insertAdjacentHTML('afterend',`<div class="alert green" style="margin:6px 0"><b>♥ Ngày thu tốt – cho vợ ${money(w.need)}</b><br>Hôm nay đã vào ${money(w.inc)}. <button type="button" class="mgrUndo" onclick="closeModal();mgrDo('wife')">Gửi ngay</button></div>`)}}catch(e){}};
 
 /* ---------- Thiết lập: đời sống ---------- */
 const _ops13=openPlanSettings;openPlanSettings=function(){_ops13();let f=$('planSetForm');if(!f)return;let L=lifeCfg(),fa=famMonthlyAuto();
  f.insertAdjacentHTML('afterbegin',`<div class="setHead">Đời sống của bạn</div>
  <label>Thu nhập cố định mỗi tháng (lương hưu…)</label><input name="pension" type="number" inputmode="numeric" min="0" value="${L.pension||0}">
  <label>Ngày nhận (để nhắc ghi nhận)</label><input name="pensionDay" type="number" inputmode="numeric" min="0" max="31" value="${L.pensionDay||0}">
- <label class="chk"><input type="checkbox" name="wifeOn" ${L.wifeOn?'checked':''}> Gửi vợ vào ngày thu tốt</label>
+ <label class="chk"><input type="checkbox" name="wifeOn" ${L.wifeOn?'checked':''}> Cho vợ vào ngày thu tốt</label>
  <div class="splitGrid"><div><span>Ít nhất</span><input name="wifeMin" type="number" inputmode="numeric" value="${L.wifeMin}"></div><div><span>Nhiều nhất</span><input name="wifeMax" type="number" inputmode="numeric" value="${L.wifeMax}"></div><div><span>Ngày vào từ (0 = tự tính)</span><input name="wifeFrom" type="number" inputmode="numeric" value="${L.wifeFrom||0}"></div></div>
  <label>Hỗ trợ gia đình / tháng (để trống = tự tính${fa?': '+money(r10k(fa)):''})</label><input name="famMonthly" type="number" inputmode="numeric" min="0" value="${L.famMonthly==null?'':L.famMonthly}">
  <label>Trả dần nợ không lịch (% phần dư)</label><select name="flexPct">${[0,10,15,25,40].map(n=>`<option value="${n}" ${+L.flexPct===n?'selected':''}>${n}%${n===15?' (khuyến nghị)':''}</option>`).join('')}</select>
@@ -2701,7 +2756,7 @@ const _ops13=openPlanSettings;openPlanSettings=function(){_ops13();let f=$('plan
  let h=f.onsubmit;f.onsubmit=function(e){let L=lifeCfg(),n=k=>Math.max(0,+f.elements[k].value||0);Object.assign(L,{pension:n('pension'),pensionDay:Math.min(31,n('pensionDay')),wifeOn:f.elements.wifeOn.checked,wifeMin:n('wifeMin'),wifeMax:n('wifeMax'),wifeFrom:n('wifeFrom'),famMonthly:f.elements.famMonthly.value===''?null:n('famMonthly'),flexPct:+f.elements.flexPct.value,insOk:f.elements.insOk.checked});if(L.pension<=0)L.noFixed=true;return h.call(this,e)}};
 lifeCfg();try{render()}catch(e){console.error('v13',e)}
 /* Thu nhập hằng ngày: mức tiêu mỗi ngày = nhịp chi thực tế ± phần dư/thiếu của hũ tiêu, không vượt tiền thật */
-const _mp13=moneyPicture;moneyPicture=function(){return memo('mp13',()=>{let m=Object.assign({},_mp13());try{let st=flowStats();if(st.mode==='daily'){let sp=flowSplit(),t=today(),spent=db.tx.filter(x=>x.type==='expense'&&x.date===t&&!x.auto&&!FAM_CATS.includes(x.category)).reduce((q,x)=>q+(+x.amount||0),0),pot=m.livePot||0,per=pot>=0?sp.liveDay+pot/30:Math.max(0,sp.liveDay+pot/14),cash=Math.max(0,m.liquid-m.debtHold-(m.owedPots||0));per=Math.min(per,cash);m.perDay=r1k(per);m.spentToday=spent;m.todayLeft=r1k(per-spent);m.tight=per<sp.liveDay*0.98}}catch(e){console.error('mp13',e)}return m})};
+const _mp13=moneyPicture;moneyPicture=function(){return memo('mp13',()=>{let m=Object.assign({},_mp13());try{let st=flowStats();if(st.mode==='daily'){let sp=flowSplit(),t=today(),spent=db.tx.filter(x=>x.type==='expense'&&x.date===t&&!x.auto&&!isSideCat(x.category)).reduce((q,x)=>q+(+x.amount||0),0),pot=m.livePot||0,per=pot>=0?sp.liveDay+pot/30:Math.max(0,sp.liveDay+pot/14),cash=Math.max(0,m.liquid-m.debtHold-(m.owedPots||0));per=Math.min(per,cash);m.perDay=r1k(per);m.spentToday=spent;m.todayLeft=r1k(per-spent);m.tight=per<sp.liveDay*0.98}}catch(e){console.error('mp13',e)}return m})};
 
 /* Chi thiết yếu: không thấp hơn 70% mức chi thực tế (người ít ghi chi tiêu) */
 function obsDaily(){return memo('obsd',()=>{let st=flowStats(),L=lifeCfg(),since=L.firstRec?Math.round((new Date(today()+'T00:00')-new Date(L.firstRec+'T00:00'))/864e5):-1,from=since>=7?L.firstRec:dayShift(-st.span+1),span=since>=7?since+1:st.span,v=db.tx.filter(x=>x.type==='expense'&&x.date>=from&&!FAM_CATS.includes(x.category)).reduce((q,x)=>q+(+x.amount||0),0)/Math.max(1,span);if(since<7&&+L.spendGuess>0)v=Math.max(v,+L.spendGuess);else if(since<7&&db.tx.filter(x=>x.type==='expense'&&x.date>=from).length<st.span*0.3)v=Math.max(v,(st.avgIn||0)*0.4);return st.enough||+L.spendGuess>0?v:0})}
@@ -2764,7 +2819,7 @@ function shiftMonthReport(n){let [y,m]=repMonth.split('-').map(Number);repMonth=
 function renderMonthReport(){
  let R=monthReport(repMonth),P=monthReport(prevMonthKey(repMonth),R.isNow?R.elapsed:0),k=R.k,lbl=k.split('-').reverse().join('/'),pct=(a,b)=>b>0?Math.round((a-b)/b*100):null,ch=(a,b,good)=>{let p=pct(a,b);if(p===null||!isFinite(p))return '';let up=p>=0;return `<small class="${(up===good)?'pos':'neg'}">${up?'▲':'▼'} ${Math.abs(p)}% so với ${R.isNow?'cùng kỳ ':''}tháng trước</small>`};
  let bar=(v,t,c)=>`<i style="width:${t>0?Math.max(0,v)/t*100:0}%;background:${c}"></i>`;
- let outs=[['Tiêu (đã ghi)',R.live,'#2d91ff'],['Chi chưa ghi (tự suy ra)',R.inferOut,'#6f8497'],['Gia đình',R.fam,'#ff7eb6'],['Gửi vợ',R.wife,'#e59bff'],['Trả nợ',R.debtPaid,'#ffd17a'],['Vào phòng hờ',R.reserve,'#7be0b0'],['Đầu tư / tiết kiệm',R.invest+R.saving,'#a9b8ff']].filter(x=>x[1]>=1000);
+ let outs=[['Tiêu (đã ghi)',R.live,'#2d91ff'],['Chi chưa ghi (tự suy ra)',R.inferOut,'#6f8497'],['Gia đình',R.fam,'#ff7eb6'],['Cho vợ',R.wife,'#e59bff'],['Trả nợ',R.debtPaid,'#ffd17a'],['Vào phòng hờ',R.reserve,'#7be0b0'],['Đầu tư / tiết kiệm',R.invest+R.saving,'#a9b8ff']].filter(x=>x[1]>=1000);
  let totOut=outs.reduce((q,x)=>q+x[1],0),rest=R.inc-totOut,topCats=Object.entries(R.cats).sort((a,b)=>b[1]-a[1]).slice(0,4);
  let notes=[];
  if(R.inc>0&&P.inc>0){let p=pct(R.inc,P.inc);notes.push(`Tiền vào ${p>=0?'tăng':'giảm'} ${Math.abs(p)}% so với ${R.isNow?`cùng kỳ (ngày 1–${R.elapsed}) `:''}tháng trước (${money(P.inc)} → ${money(R.inc)}).`)}
@@ -2897,7 +2952,7 @@ const _more15=openMoreMenu;openMoreMenu=function(){_more15();let g=document.quer
 try{render()}catch(e){console.error('v15',e)}
 
 /* ===== V16.0.0: Chế độ tự động – mỗi ngày chỉ một lần Check-in ============================
-   - Check-in cuối ngày: tiền vào hôm nay + tổng tiền đang có (+ gửi vợ/cho gia đình nếu có). App tự làm phần còn lại.
+   - Check-in cuối ngày: tiền vào hôm nay + tổng tiền đang có (+ cho vợ/cho gia đình nếu có). App tự làm phần còn lại.
    - Một tài khoản để dành duy nhất: phòng hờ + đầu tư + mục tiêu gộp thành MỘT lệnh chuyển; app tự chia sổ bên trong.
      Đầu tư: mỗi tháng một lần, khi tài khoản để dành vượt mức phòng hờ.
    - Trang chủ gọn: được tiêu hôm nay · việc cần làm · kế hoạch tháng app tự lập.
@@ -2939,12 +2994,12 @@ function openCheckin(){let L=lifeCfg(),t=today(),incT=db.tx.filter(x=>x.date===t
  <label>1. Hôm nay tiền vào tổng cộng bao nhiêu?</label><input name="inc" type="number" inputmode="numeric" min="0" value="${incT||''}" placeholder="Không có thì để trống">
  <label>2. Tổng tiền đang có bây giờ (ví + tài khoản chính${st?`, không tính "${escAttr(st.name)}"`:''})</label><input name="bal" type="number" inputmode="numeric" min="0" placeholder="Mở app ngân hàng xem số dư">
  <div class="muted" style="font-size:11px;margin-top:3px">App đang tính: ${money(appTot)}${first?' · lần đầu: app chỉ chỉnh cho khớp, không tính là chi tiêu':''}</div>
- <details class="mgrHelp"${w&&w.need>=50000?' open':''}><summary>Gửi vợ / cho gia đình hôm nay? (có thì điền)</summary><div><label>Gửi vợ${w&&w.need>=50000?` <span class="muted">(gợi ý ${money(w.need)})</span>`:''}</label><input name="wife" type="number" inputmode="numeric" min="0"><label>Cho gia đình (bố mẹ, anh chị em)</label><input name="fam" type="number" inputmode="numeric" min="0"></div></details>
+ <details class="mgrHelp"${w&&w.need>=50000?' open':''}><summary>Cho vợ / cho gia đình hôm nay? (có thì điền)</summary><div><label>Cho vợ${w&&w.need>=50000?` <span class="muted">(gợi ý ${money(w.need)})</span>`:''}</label><input name="wife" type="number" inputmode="numeric" min="0"><label>Cho gia đình (bố mẹ, anh chị em)</label><input name="fam" type="number" inputmode="numeric" min="0"></div></details>
  <button class="primary" type="submit" style="width:100%;margin-top:10px">Xong</button></form>`);
  let f=$('ciForm');f.querySelectorAll('input').forEach(i=>i.addEventListener('focus',()=>setTimeout(()=>i.select(),0)));
  f.onsubmit=function(e){e.preventDefault();let acc=mainAcc();if(!acc)return alert('Chưa có tài khoản – vào Tài sản để thêm');let id=Date.now(),n=k=>Math.max(0,Math.round(+f.elements[k].value||0)),inc=n('inc'),wife=n('wife'),fam=n('fam'),balRaw=f.elements.bal.value,newInc=null;
   if(inc>incT){newInc={id:id++,type:'income',amount:inc-incT,category:topIncomeCat(),account:acc.id,date:t,note:'Check-in'};db.tx.unshift(newInc)}
-  if(wife>0){db.tx.unshift({id:id++,type:'expense',amount:wife,category:'Vợ',account:acc.id,date:t,note:'Gửi vợ'});mgrLog('wife',wife)}
+  if(wife>0){db.tx.unshift({id:id++,type:'expense',amount:wife,category:'Vợ',account:acc.id,date:t,note:'Cho vợ'});mgrLog('wife',wife)}
   if(fam>0)db.tx.unshift({id:id++,type:'expense',amount:fam,category:'Ba Mẹ',account:acc.id,date:t,note:'Cho gia đình'});
   let out=0,inn=0;if(balRaw!==''){let bal=Math.round(+balRaw),cur=db.accounts.filter(a=>a.kind==='liquid').reduce((q,a)=>q+_actual111(a),0),diff=Math.round(cur-bal);
    if(first){acc.opening=(+acc.opening||0)-diff;L.firstRec=t}else if(diff>=1000){out=diff;db.tx.unshift({id:id++,type:'expense',amount:diff,category:'Chi chưa ghi',account:acc.id,date:t,note:'Tự suy ra từ check-in',auto:true})}else if(diff<=-1000){inn=-diff;db.tx.unshift({id:id++,type:'income',amount:-diff,category:'Khác',account:acc.id,date:t,note:'Thu chưa ghi (tự suy ra từ check-in)',auto:true})}
@@ -2989,6 +3044,209 @@ const _qa16=openQuickAdd;openQuickAdd=function(){_qa16();let s=$('sheet');if(s&&
 const _ops16=openPlanSettings;openPlanSettings=function(){_ops16();let f=$('planSetForm');if(!f)return;f.insertAdjacentHTML('afterbegin',`<label class="chk"><input type="checkbox" name="simpleMode" ${isSimple()?'checked':''}> Chế độ tự động (trang chủ gọn, gộp lệnh chuyển)</label>`);let h=f.onsubmit;f.onsubmit=function(e){lifeCfg().simple=f.elements.simpleMode.checked;return h.call(this,e)}};
 try{render()}catch(e){console.error('v16',e)}
 
+
+/* ===== V17.0.0: Cho vợ gộp một mối · Tiền mặt riêng · Ghi nhanh bằng câu · Trang chủ chia khối =====
+   - "Chi cho vợ" và "gửi vợ" là MỘT: nhóm Vợ, một nút ♥ Cho vợ, một hũ Vợ để riêng trong mỗi khoản tiền vào.
+     Cho vợ không còn ăn vào "hôm nay được tiêu". Chọn Tiền mặt hoặc Chuyển khoản mỗi lần cho.
+   - Tiền mặt theo dõi riêng: check-in nhập số dư ngân hàng và tiền mặt trong ví tách nhau.
+   - Ghi nhanh bằng một câu: "cho vợ 300k tiền mặt", "ăn trưa 45k", "vào 2tr2", "rút 1tr".
+   - Trang chủ chia khối: tài sản · hôm nay · ghi nhanh · việc cần làm · các hũ · chi theo nhóm · trợ lý · gần đây.
+=========================================================================================== */
+function isSideCat(c){return c==='Vợ'||c==='Ba Mẹ'||c==='Anh Chị Em'}
+const WIFE='Vợ';
+const CAT_UI={'Ăn Uống':['🍜','#ff9b2f'],'Giao Lưu / Giải Trí':['🎉','#c77dff'],'Đi Lại':['🛵','#4cc9f0'],'Vợ':['♥','#ff5fa2'],'Con':['🧸','#ffd166'],'Nhà Cửa':['🏠','#2ec4b6'],'Ba Mẹ':['👪','#f78c6b'],'Anh Chị Em':['🤝','#f4a261'],'Quà':['🎁','#e76f51'],'Điện Thoại':['📱','#90e0ef'],'Y Tế':['💊','#ef476f'],'Thể Thao - Giáo Dục':['📚','#8ecae6'],'Cho Mượn':['⇢','#adb5bd'],'Chi Khác':['◦','#8fa5bb'],'Chi chưa ghi':['?','#6f8497']};
+function catUi(x){if(x&&x.type&&x.type!=='expense'){if(x.type==='income')return ['＋','#19d48f'];if(x.type==='debtPay')return ['◷','#ffd17a'];if(x.type==='investBuy'||x.type==='investSell')return ['↗','#a9b8ff'];return ['⇄','#6fb8ff']}return CAT_UI[x&&x.category||x]||['◦','#8fa5bb']}
+(function(){let L=lifeCfg(),c=flowCfg();if(L.wifeMonthly===undefined)L.wifeMonthly=null;if(!L.wifePay)L.wifePay='bank';if(!L.wifeStart){L.wifeStart=today();L.wifeSeed=true}POT_LBL.wife='Vợ';FLOW_COL.pWife='#ff5fa2';mgrSaveSoon()})();
+
+/* ---------- Tài khoản: tiền mặt / ngân hàng ---------- */
+const isCashAcc=a=>a&&a.kind==='liquid'&&/tiền mặt|tien mat|cash|ví/i.test(a.name||'');
+function cashAcc(create){let a=db.accounts.filter(isCashAcc).sort((x,y)=>actual(y)-actual(x))[0];if(!a&&create){a={id:Date.now(),name:'Tiền Mặt',kind:'liquid',opening:0};db.accounts.push(a)}return a||null}
+function bankAccs(){return db.accounts.filter(a=>a.kind==='liquid'&&!isCashAcc(a))}
+function bankAcc(){return mainAcc()&&!isCashAcc(mainAcc())?mainAcc():bankAccs()[0]||mainAcc()}
+function payAcc(k){return k==='cash'?cashAcc(true):bankAcc()||cashAcc(true)}
+function cashTotal(){return db.accounts.filter(isCashAcc).reduce((q,a)=>q+actual(a),0)}
+function bankTotal(){return bankAccs().reduce((q,a)=>q+actual(a),0)}
+function payPickHtml(name,def){return `<div class="payPick" data-name="${name}"><input type="hidden" name="${name}" value="${def}"><button type="button" data-v="cash" class="${def==='cash'?'on':''}">💵 Tiền mặt<small>${money(cashTotal())}</small></button><button type="button" data-v="bank" class="${def==='bank'?'on':''}">🏦 Chuyển khoản<small>${money(bankTotal())}</small></button></div>`}
+function payPickWire(root){(root||document).querySelectorAll('.payPick').forEach(p=>p.querySelectorAll('button').forEach(b=>b.onclick=()=>{p.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));p.querySelector('input').value=b.dataset.v}))}
+function chipAmtHtml(target,list){return `<div class="amtChips">${list.map(v=>`<button type="button" onclick="let i=document.querySelector('[name=${target}]');if(i){i.value=${v};i.dispatchEvent(new Event('input'))}">${v>=1e6?(v/1e6+'tr').replace('.',','):v/1000+'k'}</button>`).join('')}</div>`}
+
+/* ---------- Hũ Vợ: chia trong mỗi khoản tiền vào ---------- */
+function wifeSpent(from,to){return db.tx.filter(x=>x.type==='expense'&&x.category===WIFE&&x.date>=from&&(!to||x.date<=to)).reduce((q,x)=>q+(+x.amount||0),0)}
+function wifeMonthlyAuto(){let st=flowStats(),span=Math.max(14,st.span),v=wifeSpent(dayShift(-span+1))/span*30.4,L=lifeCfg();if(v<=0&&L.wifeOn)v=((+L.wifeMin||0)+(+L.wifeMax||0))/2*6;return v}
+function wifeMonthly(){let L=lifeCfg();return L.wifeMonthly!=null&&L.wifeMonthly!==''&&+L.wifeMonthly>=0?+L.wifeMonthly:wifeMonthlyAuto()}
+const _fsp17=flowSplit;flowSplit=function(){return memo('fsp17',()=>{let sp=Object.assign({},_fsp17()),avg=Math.max(1,sp.avgIn),st=flowStats(),wm=wifeMonthly();
+ let pW=Math.min(0.2,wm/30.4/avg);if(pW<=0.002){sp.pWife=0;return sp}
+ let obsW=st.enough?wifeSpent(dayShift(-st.span+1))/Math.max(1,st.span)/avg:0,inL=Math.min(pW,obsW,sp.pL*0.6);sp.pL-=inL;sp.liveDay=Math.max(0,(sp.liveDay||0)-inL*avg);
+ let extra=pW-inL,pool=sp.pR+sp.pF+sp.pG+(sp.pX||0);if(extra>0&&pool>0){let take=Math.min(extra,pool*0.5),k=(pool-take)/pool;sp.pR*=k;sp.pF*=k;sp.pG*=k;sp.pX=(sp.pX||0)*k;pW=inL+take}else pW=inL+(extra>0?0:extra);
+ sp.pWife=pW;sp.wifeMonthly=wm;sp.why=sp.why.slice();sp.why.splice(1,0,`<b>Vợ ${pctS(pW)}</b>: ~${money(r10k(wm))}/tháng cho vợ (chuyển khoản, tiền mặt, mua đồ – tính chung). Để riêng trong mỗi khoản tiền vào nên cho vợ không ăn vào tiền tiêu hằng ngày.`);return sp})};
+const _rows17=flowRuleRows;flowRuleRows=function(sp,amount){let r=_rows17(sp,amount);if((sp.pWife||0)>0.004){let i=r.findIndex(x=>x.k==='pFam');r.splice(i>=0?i:1,0,{k:'pWife',l:'Vợ',p:sp.pWife,v:r1k(amount*sp.pWife)})}return r};
+const _alloc17=flowAllocate;flowAllocate=function(){_alloc17();let c=flowCfg(),L=lifeCfg(),sp=null,ch=false,byId={};db.tx.forEach(x=>byId[String(x.id)]=x);
+ Object.entries(c.alloc).forEach(([k,o])=>{if(o.wife!==undefined)return;let x=byId[k];if(!x)return;if(x.date>=L.wifeStart){sp=sp||flowSplit();o.wife=Math.round((+o.b||0)*(sp.pWife||0))}else o.wife=0;ch=true});if(ch)mgrSaveSoon()};
+const _fpo17=flowPotOf;flowPotOf=function(x){if(!x.pot&&x.type==='expense'&&x.category===WIFE&&x.date>=lifeCfg().wifeStart&&x.date>=flowCfg().start)return 'wife';return _fpo17(x)};
+const _fpord17=flowPotOrder;flowPotOrder=function(p,amt,why,idle){if(p==='wife')return null;return _fpord17(p,amt,why,idle)};
+function wifePot(){return Math.round(flowOwed().wife||0)}
+(function(){let L=lifeCfg();if(L.wifeSeed){try{memoReset();let c=flowCfg(),seed=r10k(wifeMonthly()*0.25);if(seed>0)c.adj.wife=(c.adj.wife||0)-seed}catch(e){}delete L.wifeSeed;mgrSaveSoon()}})();
+
+/* ---------- Gợi ý cho vợ ngày thu tốt: tính cả hũ ---------- */
+const _wt17=wifeToday;wifeToday=function(){let w=_wt17();if(!w)return w;w.pot=wifePot();return w};
+const _mo17=mgrOrders;mgrOrders=function(){return memo('mo17',()=>{let r=Object.assign({},_mo17());r.gather=(r.gather||[]).filter(g=>g.p!=='wife');
+ r.orders=r.orders.map(o=>o.type!=='wife'?o:Object.assign({},o,{title:'Cho vợ hôm nay',why:o.why+` Hũ Vợ đang có ${money(wifePot())}. Chuyển khoản hay đưa tiền mặt đều được.`}));r.pending=r.orders.filter(o=>!o.skipped);r.skipped=r.orders.filter(o=>o.skipped);return r})};
+
+/* ---------- Một nút cho vợ / cho gia đình: chọn tiền mặt hoặc chuyển khoản ---------- */
+function giveModal(o){let L=lifeCfg(),left=o.pot(),k=realMonth(),mSpent=db.tx.filter(x=>x.type==='expense'&&o.cats.includes(x.category)&&x.date?.slice(0,7)===k).reduce((q,x)=>q+(+x.amount||0),0);
+ openModal(`<h2>${o.icon} ${o.title}</h2><div class="giveTop"><div><span>Hũ ${o.potName} còn</span><b class="${left>=0?'pos':'neg'}">${money(left)}</b></div><div><span>Tháng này đã cho</span><b>${money(mSpent)}</b></div></div>
+ <form id="giveForm"><label>Số tiền</label><input name="amount" type="number" inputmode="numeric" min="1" value="${o.amount||''}" required placeholder="VD: 300000">${chipAmtHtml('amount',o.chips)}
+ ${o.cats.length>1?`<label>Cho ai</label><div class="catPick">${o.cats.map((c,i)=>`<label><input type="radio" name="cat" value="${c}" ${i===0?'checked':''}><span>${catUi(c)[0]} ${c}</span></label>`).join('')}</div>`:''}
+ <label>Đưa bằng</label>${payPickHtml('pay',L[o.payKey]||'bank')}
+ <label>Ghi chú <span class="muted">(không bắt buộc)</span></label><input name="note" placeholder="${o.ph}">
+ <button class="primary" type="submit" style="width:100%;margin-top:12px">✓ Ghi ${o.title.toLowerCase()}</button></form><div class="muted" style="font-size:11.5px;margin-top:8px">${o.hint}</div>`);
+ let f=$('giveForm');payPickWire(f);f.elements.amount.focus();
+ f.onsubmit=function(e){e.preventDefault();let amt=Math.round(+f.elements.amount.value||0);if(!(amt>0))return alert('Số tiền phải lớn hơn 0');
+  if(o.check&&!o.check(amt,left))return;let pay=f.elements.pay.value,acc=payAcc(pay),cat=f.elements.cat?([...f.querySelectorAll('[name=cat]')].find(r=>r.checked)||{}).value||o.cats[0]:o.cats[0];
+  L[o.payKey]=pay;let x={id:Date.now(),type:'expense',amount:amt,category:cat,account:acc.id,date:today(),note:f.elements.note.value.trim()||o.defNote,pay};db.tx.unshift(x);if(o.done)o.done(amt);if(!save())return;closeModal();render();toast(`Đã ghi ${o.title.toLowerCase()} ${money(amt)} · ${pay==='cash'?'tiền mặt':'chuyển khoản'}`,x.id)}}
+function openWifeGive(amount){let w=wifeToday(),sug=w&&w.need>=50000?w.need:0,L=lifeCfg();
+ giveModal({icon:'♥',title:'Cho vợ',potName:'Vợ',cats:[WIFE],pot:wifePot,amount:amount||sug||'',payKey:'wifePay',defNote:'Cho vợ',ph:'Gửi vợ, mua đồ cho vợ…',chips:[...new Set([sug,200000,300000,500000,1000000].filter(v=>v>0))].slice(0,5),
+  hint:`Mọi khoản cho vợ – chuyển khoản, đưa tiền mặt, mua đồ – đều ghi vào đây, tính chung một nhóm "Vợ". Mỗi khoản tiền vào app để riêng ${pctS(flowSplit().pWife||0)} cho hũ này nên không ảnh hưởng tiền tiêu.`,
+  done:amt=>{if(w&&w.need>0)mgrLog('wife',amt)}})}
+openFamilyGive=function(){giveModal({icon:'👪',title:'Cho gia đình',potName:'Gia đình',cats:FAM_CATS,pot:famPot,payKey:'famPay',defNote:'Cho gia đình',ph:'VD: Út đóng học, biếu mẹ…',chips:[200000,500000,1000000,2000000],
+ hint:`Mỗi khoản tiền vào để riêng ${pctS(flowSplit().pFam||0)} cho bố mẹ, anh chị em. Cho trong hũ thì không ảnh hưởng tiền nợ, phòng hờ hay tăng trưởng.`,
+ check:(amt,left)=>amt<=Math.max(0,left)||confirm(`Hũ gia đình còn ${money(Math.max(0,left))}. Phần vượt ${money(amt-Math.max(0,left))} sẽ lấy vào tiền tiêu. Vẫn ghi?`)})};
+const _mgrDo17=mgrDo;mgrDo=function(k){let o=mgrFind(k);if(o&&o.type==='wife')return openWifeGive(o.amount);return _mgrDo17(k)};
+function openCashMove(dir){let toCash=dir!=='in',b=bankAcc(),c=cashAcc(true);
+ openModal(`<h2>${toCash?'Rút tiền mặt':'Nộp tiền mặt vào tài khoản'}</h2><div class="giveTop"><div><span>🏦 Ngân hàng</span><b>${money(bankTotal())}</b></div><div><span>💵 Tiền mặt</span><b>${money(cashTotal())}</b></div></div><form id="cmForm"><label>Số tiền</label><input name="amount" type="number" inputmode="numeric" min="1" required>${chipAmtHtml('amount',[500000,1000000,2000000,5000000])}<button class="primary" type="submit" style="width:100%;margin-top:12px">✓ ${toCash?'Đã rút':'Đã nộp'}</button></form><button type="button" class="addText full" onclick="openCashMove('${toCash?'in':'out'}')">${toCash?'Nộp tiền mặt vào tài khoản thay vào đó':'Rút tiền mặt thay vào đó'} ›</button>`);
+ let f=$('cmForm');f.elements.amount.focus();f.onsubmit=function(e){e.preventDefault();let amt=Math.round(+f.elements.amount.value||0);if(!(amt>0))return alert('Số tiền phải lớn hơn 0');if(!b)return alert('Chưa có tài khoản ngân hàng');
+  let x={id:Date.now(),type:'transfer',amount:amt,from:toCash?b.id:c.id,to:toCash?c.id:b.id,date:today(),category:toCash?'Rút tiền mặt':'Nộp tiền mặt',note:toCash?'Rút tiền mặt':'Nộp tiền mặt'};db.tx.unshift(x);if(!save())return;closeModal();render();toast(`${toCash?'Rút':'Nộp'} ${money(amt)} ✓`,x.id)}}
+
+/* ---------- Thông báo nhỏ + hoàn tác ---------- */
+let _toastT=null;
+function toast(msg,undoId){let t=$('v17toast');if(!t){document.body.insertAdjacentHTML('beforeend','<div id="v17toast" class="toast17"></div>');t=$('v17toast')}
+ t.innerHTML=`<span>${msg}</span>${undoId?`<button type="button" onclick="undoTx(${undoId})">Hoàn tác</button>`:''}`;t.classList.add('show');clearTimeout(_toastT);_toastT=setTimeout(()=>t.classList.remove('show'),5000)}
+function undoTx(id){let i=db.tx.findIndex(x=>x.id===id);if(i>=0){db.tx.splice(i,1);save();render()}let t=$('v17toast');if(t)t.classList.remove('show')}
+
+/* ---------- Ghi nhanh bằng một câu ---------- */
+const QW={cash:/(^|\s)(tiền mặt|tien mat|tm|cash|tiền túi|ví)(?=\s|$)/i,bank:/(^|\s)(ck|chuyển khoản|chuyen khoan|bank|ngân hàng|ngan hang|thẻ|the|momo|stk)(?=\s|$)/i};
+const QW_=w=>new RegExp('(^|\\s)('+w+')(?=\\s|$)','i');
+const QCAT=[[QW_('vợ|vo|bà xã|bx|vk'),'Vợ'],[/(nhậu|bia|karaoke|xem phim|đi chơi|du lịch|giải trí)/i,'Giao Lưu / Giải Trí'],[/(mẹ|bố mẹ|ba mẹ|ba má|biếu)/i,'Ba Mẹ'],[QW_('bố|ba|má|cha'),'Ba Mẹ'],[QW_('anh|chị|em|út|cậu|dì|cô|chú'),'Anh Chị Em'],[QW_('con|sữa|bỉm|tã'),'Con'],
+ [/(xăng|grab|taxi|gửi xe|sửa xe|rửa xe)/i,'Đi Lại'],[QW_('xe|vé|be'),'Đi Lại'],[/(cơm|phở|bún|bánh|cafe|cà phê|siêu thị|đồ ăn|lẩu|ăn sáng|ăn trưa|ăn tối)/i,'Ăn Uống'],[QW_('ăn|cf|trà|nước|chợ'),'Ăn Uống'],
+ [/(tiền điện|tiền nước|wifi|internet|thuê nhà|tiền nhà|gas)/i,'Nhà Cửa'],[QW_('điện|nhà'),'Nhà Cửa'],[/(thuốc|khám|bệnh viện|viện phí|nha khoa)/i,'Y Tế'],[/(điện thoại|nạp card|4g|5g)/i,'Điện Thoại'],[QW_('card|sim'),'Điện Thoại'],[/(quà|sinh nhật|đám cưới|mừng|phúng)/i,'Quà'],[QW_('đám'),'Quà'],[/(học|sách|gym|bóng|khóa)/i,'Thể Thao - Giáo Dục']];
+function parseAmt(s){let re=/(\d+(?:[.,]\d+)*)\s*(triệu|trieu|tr|củ|cu|m|nghìn|nghin|ngàn|ngan|k|đ|vnd)?(\d{1,3})?(?![\d\p{L}])/iu,m=s.match(re);if(!m)return null;
+ let raw=m[1],u=(m[2]||'').toLowerCase(),tail=m[3]||'',n;
+ if(/^\d{1,3}([.,]\d{3})+$/.test(raw)&&!/^(tr|triệu|trieu|củ|cu|m)$/.test(u))n=+raw.replace(/[.,]/g,'');else n=+raw.replace(',','.');
+ if(/^(triệu|trieu|tr|củ|cu|m)$/.test(u))n=n*1e6+(tail?+('0.'+tail)*1e6:0);else if(/^(k|nghìn|nghin|ngàn|ngan)$/.test(u))n*=1000;else if(!u&&n<1000)n*=1000;
+ return {v:Math.round(n),txt:m[0]}}
+function quickParse(text){let s=' '+String(text||'').trim()+' ',a=parseAmt(s);if(!a)return null;let rest=s.replace(a.txt,' '),low=rest.toLowerCase(),type='expense',cat=null,pay=null;
+ if(/(^|\s)(rút|rut)(?=\s|$)/i.test(low))return {type:'withdraw',amount:a.v,note:'Rút tiền mặt'};
+ if(/(^|\s)(nộp|nop)(?=\s|$)/i.test(low))return {type:'deposit',amount:a.v,note:'Nộp tiền mặt'};
+ if(/^\s*\+|(^|\s)(vào|thu|nhận|lương|công|khách trả|được trả|bán|tiền vào|thu nhập)(?=\s|$)/i.test(low)&&!/(^|\s)(cho|gửi|mua|đưa|biếu|trả nợ)(?=\s|$)/i.test(low)||/^\s*\+/.test(low))type='income';
+ if(QW.cash.test(low))pay='cash';else if(QW.bank.test(low))pay='bank';
+ let note=rest.replace(QW.cash,' ').replace(QW.bank,' ').replace(/(^|\s)(bằng|qua|đưa|bang)(?=\s|$)/gi,' ').replace(/^\s*\+/,'').replace(/\s+/g,' ').trim();
+ if(type==='income'){cat=topIncomeCat()}else{for(const [re,c] of QCAT)if(re.test(' '+note.toLowerCase()+' ')){cat=c;break}
+  if(!cat){let key=note.toLowerCase(),hit={};db.tx.filter(x=>x.type==='expense'&&(x.note||'').toLowerCase()===key).forEach(x=>hit[x.category]=(hit[x.category]||0)+1);cat=Object.entries(hit).sort((x,y)=>y[1]-x[1])[0]?.[0]||'Chi Khác'}}
+ if(!pay){let h={cash:0,bank:0};db.tx.filter(x=>x.type===type&&x.category===cat).slice(0,40).forEach(x=>{let ac=accountById(x.account);if(ac)h[isCashAcc(ac)?'cash':'bank']++});pay=h.cash+h.bank?(h.cash>h.bank?'cash':'bank'):type==='income'?'bank':a.v<=200000?'cash':'bank'}
+ if(cat===WIFE&&!/vợ/i.test(note))note='Cho vợ '+note;
+ return {type,amount:a.v,cat,pay,note:(note=note.replace(/^(vào|thu|nhận)\s*/i,'')||(type==='income'?'Tiền vào':cat),note.charAt(0).toUpperCase()+note.slice(1))}}
+let qeState=null;
+function quickEntryHtml(){return `<section class="blk qeBlk"><form id="qeForm" autocomplete="off"><div class="qeRow"><input id="qeIn" placeholder="Ghi nhanh: cho vợ 300k tiền mặt · ăn trưa 45k · vào 2tr" enterkeyhint="done"><button type="submit" id="qeBtn" disabled>Ghi</button></div><div id="qePrev" class="qePrev"><span class="muted">Gõ như nhắn tin – app tự hiểu số tiền, nhóm chi, tiền mặt hay chuyển khoản.</span></div></form></section>`}
+function qePrevHtml(p){if(!p)return '<span class="muted">Chưa thấy số tiền – thử "ăn sáng 30k" hoặc "vào 1tr5".</span>';
+ if(p.type==='withdraw'||p.type==='deposit')return `<span class="qeChip">${p.type==='withdraw'?'🏦 → 💵 Rút tiền mặt':'💵 → 🏦 Nộp tiền mặt'}</span><span class="qeChip strong">${money(p.amount)}</span>`;
+ let u=catUi(p.type==='income'?{type:'income'}:p.cat),cats=p.type==='income'?incomeCats.filter(c=>c!=='Rút từ đầu tư về'):expenseCats.filter(c=>c!=='Cho Mượn');
+ return `<span class="qeChip ${p.type==='income'?'pos':'neg'}" onclick="qeFlip()">${p.type==='income'?'＋ Thu':'− Chi'}</span><select class="qeChip" onchange="qeState.cat=this.value">${cats.map(c=>`<option ${c===p.cat?'selected':''}>${c}</option>`).join('')}</select><span class="qeChip strong" style="border-color:${u[1]}">${money(p.amount)}</span><span class="qeChip" onclick="qeState.pay=qeState.pay==='cash'?'bank':'cash';document.getElementById('qePrev').innerHTML=qePrevHtml(qeState)">${p.pay==='cash'?'💵 Tiền mặt':'🏦 Chuyển khoản'}</span>`}
+function qeFlip(){if(!qeState)return;qeState.type=qeState.type==='income'?'expense':'income';qeState.cat=qeState.type==='income'?topIncomeCat():'Chi Khác';$('qePrev').innerHTML=qePrevHtml(qeState)}
+function qeWire(){let f=$('qeForm'),i=$('qeIn');if(!f||!i||f.dataset.w)return;f.dataset.w=1;
+ i.addEventListener('input',()=>{qeState=quickParse(i.value);$('qePrev').innerHTML=i.value.trim()?qePrevHtml(qeState):'<span class="muted">Gõ như nhắn tin – app tự hiểu số tiền, nhóm chi, tiền mặt hay chuyển khoản.</span>';$('qeBtn').disabled=!qeState});
+ f.onsubmit=e=>{e.preventDefault();let p=qeState;if(!p)return;let id=Date.now(),x;
+  if(p.type==='withdraw'||p.type==='deposit'){let b=bankAcc(),c=cashAcc(true);if(!b)return alert('Chưa có tài khoản ngân hàng');x={id,type:'transfer',amount:p.amount,from:p.type==='withdraw'?b.id:c.id,to:p.type==='withdraw'?c.id:b.id,date:today(),category:p.note,note:p.note}}
+  else{let acc=payAcc(p.pay);x={id,type:p.type,amount:p.amount,category:p.cat,account:acc.id,date:today(),note:p.note||p.cat,pay:p.pay}}
+  if(x.type==='expense'&&x.category===WIFE){let w=wifeToday();if(w&&w.need>0)mgrLog('wife',x.amount)}
+  db.tx.unshift(x);if(!save())return;qeState=null;i.value='';render();
+  if(x.type==='income'){setTimeout(()=>{try{flowShowSplit(x)}catch(e){}},60)}else toast(`Đã ghi: ${x.note} ${money(x.amount)}${x.pay?` · ${x.pay==='cash'?'tiền mặt':'chuyển khoản'}`:''}`,x.id)}}
+
+/* ---------- Check-in: ngân hàng + tiền mặt tách riêng; cho vợ / gia đình có chọn tiền mặt ---------- */
+openCheckin=function(){let L=lifeCfg(),t=today(),incT=db.tx.filter(x=>x.date===t&&incReal(x)).reduce((q,x)=>q+(+x.amount||0),0),st=stashAcc(),w=wifeToday(),bt=bankTotal(),ct=cashTotal(),wifeT=db.tx.filter(x=>x.date===t&&x.type==='expense'&&x.category===WIFE).reduce((q,x)=>q+(+x.amount||0),0);
+ openModal(`<h2>Check-in cuối ngày</h2><div class="muted" style="margin-bottom:8px">Khoảng 20 giây. Ô nào không biết thì để trống.</div><form id="ciForm">
+ <div class="ciStep"><i>1</i><div><label>Hôm nay tiền vào bao nhiêu?</label><input name="inc" type="number" inputmode="numeric" min="0" value="${incT||''}" placeholder="Không có thì để trống">${payPickHtml('incPay',L.incPay||'bank')}</div></div>
+ <div class="ciStep"><i>2</i><div><label>Số dư bây giờ</label><div class="ciBal"><div><span>🏦 Ngân hàng${st?` <small>(không tính ${escAttr(st.name)})</small>`:''}</span><input name="bal" type="number" inputmode="numeric" min="0" placeholder="Mở app ngân hàng"><small>app đang tính ${money(bt)}</small></div><div><span>💵 Tiền mặt trong ví</span><input name="cash" type="number" inputmode="numeric" min="0" placeholder="Đếm ví"><small>app đang tính ${money(ct)}${ct<0?' – chưa đúng, đếm lại nhé':''}</small></div></div></div></div>
+ <div class="ciStep"><i>3</i><div><label>Hôm nay có cho vợ / gia đình? ${wifeT?`<span class="muted">(đã ghi cho vợ ${money(wifeT)})</span>`:''}</label>
+ <div class="ciGive"><span>♥ Vợ${w&&w.need>=50000?` <small class="pos">gợi ý ${money(w.need)}</small>`:''}</span><input name="wife" type="number" inputmode="numeric" min="0" placeholder="0">${payPickHtml('wifePay',L.wifePay||'bank')}</div>
+ <div class="ciGive"><span>👪 Gia đình</span><input name="fam" type="number" inputmode="numeric" min="0" placeholder="0">${payPickHtml('famPay',L.famPay||'bank')}</div></div></div>
+ <button class="primary" type="submit" style="width:100%;margin-top:10px">Xong</button></form>`);
+ let f=$('ciForm');payPickWire(f);f.querySelectorAll('input[type=number]').forEach(i=>i.addEventListener('focus',()=>setTimeout(()=>i.select(),0)));
+ f.onsubmit=function(e){e.preventDefault();let id=Date.now(),n=k=>Math.max(0,Math.round(+f.elements[k].value||0)),inc=n('inc'),wife=n('wife'),fam=n('fam'),bRaw=f.elements.bal.value,cRaw=f.elements.cash.value,newInc=null,first=!L.lastRec,cashFirst=!L.cashRec;
+  let P=k=>f.elements[k].value;L.incPay=P('incPay');if(wife)L.wifePay=P('wifePay');if(fam)L.famPay=P('famPay');
+  if(inc>incT){newInc={id:id++,type:'income',amount:inc-incT,category:topIncomeCat(),account:payAcc(P('incPay')).id,date:t,note:'Check-in',pay:P('incPay')};db.tx.unshift(newInc)}
+  if(wife>0){db.tx.unshift({id:id++,type:'expense',amount:wife,category:WIFE,account:payAcc(P('wifePay')).id,date:t,note:'Cho vợ',pay:P('wifePay')});if(w&&w.need>0)mgrLog('wife',wife)}
+  if(fam>0)db.tx.unshift({id:id++,type:'expense',amount:fam,category:'Ba Mẹ',account:payAcc(P('famPay')).id,date:t,note:'Cho gia đình',pay:P('famPay')});
+  let out=0,inn=0,fix=(accs,target,isFirst,label)=>{if(!accs.length)return;let cur=accs.reduce((q,a)=>q+_actual111(a),0),diff=Math.round(cur-target),acc=accs.slice().sort((a,b)=>_actual111(b)-_actual111(a))[0];
+   if(isFirst){acc.opening=(+acc.opening||0)-diff;return}
+   if(diff>=1000){out+=diff;db.tx.unshift({id:id++,type:'expense',amount:diff,category:'Chi chưa ghi',account:acc.id,date:t,note:'Tự suy ra từ check-in ('+label+')',auto:true})}else if(diff<=-1000){inn+=-diff;db.tx.unshift({id:id++,type:'income',amount:-diff,category:'Khác',account:acc.id,date:t,note:'Thu chưa ghi (tự suy ra – '+label+')',auto:true})}};
+  if(bRaw!==''){fix(bankAccs(),Math.round(+bRaw),first,'ngân hàng');L.lastRec=t;if(first)L.firstRec=t}
+  if(cRaw!==''){let c=cashAcc(true);fix([c],Math.round(+cRaw),cashFirst||first,'tiền mặt');L.cashRec=t;if(!L.lastRec){L.lastRec=t;L.firstRec=t}}
+  L.lastCheck=t;if(!save())return;render();checkinResult({inc,out,inn,wife,fam,first:first&&bRaw!=='',noBal:bRaw===''&&cRaw===''})}};
+
+/* ---------- Trợ lý: thông minh hơn ---------- */
+function weekSpend(){let side=x=>x.type==='expense'&&!isSideCat(x.category),sum=(a,b)=>db.tx.filter(x=>side(x)&&x.date>=a&&x.date<=b).reduce((q,x)=>q+(+x.amount||0),0);
+ let w=sum(dayShift(-6),today()),prev=sum(dayShift(-34),dayShift(-7))/4,cats={};db.tx.filter(x=>side(x)&&x.date>=dayShift(-6)&&x.category!=='Chi chưa ghi').forEach(x=>cats[x.category]=(cats[x.category]||0)+(+x.amount||0));
+ return {w,prev,top:Object.entries(cats).sort((a,b)=>b[1]-a[1])[0]}}
+function monthForecast(){let k=realMonth(),now=new Date(),dim=new Date(now.getFullYear(),now.getMonth()+1,0).getDate(),left=dim-now.getDate(),st=flowStats(),sp=flowSplit();
+ let inM=db.tx.filter(x=>x.date?.slice(0,7)===k&&x.type==='income'&&!isInvestmentWithdrawal(x)).reduce((q,x)=>q+(+x.amount||0),0),outM=db.tx.filter(x=>x.date?.slice(0,7)===k&&x.type==='expense').reduce((q,x)=>q+(+x.amount||0),0);
+ let inE=inM+st.avgIn*left,outE=outM+(sp.liveDay+(sp.pWife||0)*st.avgIn+(sp.pFam||0)*st.avgIn)*left;return {inM,outM,inE,outE,left,dim}}
+const _ins17=mgrInsights;mgrInsights=function(){return memo('ins17',()=>{let a=_ins17().slice(),L=lifeCfg(),ct=cashTotal();
+ if(ct<-1000)a.push({l:'amber',s:66,t:`Tiền mặt app tính đang âm ${money(-ct)}`,d:'Có khoản rút tiền mặt hoặc tiền mặt nhận vào chưa ghi. Lúc check-in nhập số tiền trong ví – app tự sửa cho khớp.',act:['Check-in','openCheckin()']});
+ else if(!L.cashRec&&db.tx.some(x=>{let ac=accountById(x.account);return isCashAcc(ac)}))a.push({l:'blue',s:35,t:'Đếm ví một lần để app theo dõi tiền mặt',d:'Check-in giờ có ô "Tiền mặt trong ví" riêng – nhập một lần là app biết tiền mặt thật.',act:['Check-in','openCheckin()']});
+ let W=weekSpend();if(W.prev>200000&&W.w>W.prev*1.3)a.push({l:'amber',s:55,t:`Tuần này tiêu nhiều hơn thường ${Math.round((W.w/W.prev-1)*100)}%`,d:`7 ngày qua ${money(W.w)} so với ~${money(r10k(W.prev))}/tuần${W.top?`, nhiều nhất là ${W.top[0]} (${money(W.top[1])})`:''}. Không tính phần cho vợ và gia đình.`});
+ let wp=wifePot(),wm=wifeSpent(realMonth()+'-01');if(wp<-100000)a.push({l:'amber',s:44,t:`Đã cho vợ vượt hũ ${money(-wp)}`,d:`Tháng này đã cho vợ ${money(wm)}. Phần vượt lấy vào tiền tiêu – nếu đây là mức thường xuyên, đặt "Cho vợ mỗi tháng" trong ⚙ để app để riêng đủ.`});
+ let F=monthForecast();if(F.left>=3&&F.inM>0)a.push({l:F.inE>=F.outE?'green':'amber',s:F.inE>=F.outE?20:50,t:`Cuối tháng dự kiến ${F.inE>=F.outE?'dư':'thiếu'} ~${money(r10k(Math.abs(F.inE-F.outE)))}`,d:`Đã vào ${money(F.inM)}, đã chi ${money(F.outM)}. Còn ${F.left} ngày: dự kiến vào thêm ~${money(r10k(F.inE-F.inM))}, chi thêm ~${money(r10k(F.outE-F.outM))} (tính cả cho vợ, gia đình).`});
+ const LV={red:0,amber:1,green:2,blue:3};a.sort((x,y)=>LV[x.l]-LV[y.l]||y.s-x.s);let gi=a.findIndex(x=>x.t==='Mọi thứ đang đúng kế hoạch');if(gi>=0&&a.some(x=>x.l==='red'||x.l==='amber'))a.splice(gi,1);return a})};
+
+/* ---------- Giao dịch: biểu tượng theo nhóm + tiền mặt/chuyển khoản ---------- */
+txHtml=function(x){let isOut=x.type==='expense'||x.type==='debtPay'||x.type==='investBuy',isIn=x.type==='income'||x.type==='investSell',sign=isOut?'−':isIn?'+':'',cls=isOut?'neg':isIn?'pos':'blue',u=catUi(x),canEdit=x.type==='income'||x.type==='expense',ac=accountById(x.account),via=x.type==='transfer'?`${(accountById(x.from)||{}).name||''} → ${(accountById(x.to)||{}).name||''}`:ac?(isCashAcc(ac)?'💵 Tiền mặt':'🏦 '+ac.name):'';
+ return `<div class='tx cleanTx tx17'><div class='ico17' style='--c:${u[1]}'>${u[0]}</div><div class='grow'><b class='txName'>${escAttr(x.note||x.category)}${x.auto?' <small class="autoTag">tự suy ra</small>':''}</b><div class='muted txMeta'>${x.category||''}${via?' · '+escAttr(via):''}</div></div><div class='txRight'><b class='${cls} txAmount'>${sign}${money(x.amount)}</b>${canEdit?`<button type='button' class='editMini' aria-label='Sửa giao dịch' onclick='editTx(${x.id})'>✎</button>`:''}</div></div>`};
+
+/* ---------- Trang chủ chia khối ---------- */
+function spendCats(k){let m={};db.tx.filter(x=>x.type==='expense'&&x.date?.slice(0,7)===k).forEach(x=>m[x.category]=(m[x.category]||0)+(+x.amount||0));return Object.entries(m).sort((a,b)=>b[1]-a[1])}
+function spendBlockHtml(k,title){let rows=spendCats(k),tot=rows.reduce((q,r)=>q+r[1],0);if(!tot)return '';
+ let grp={sh:0,wife:0,fam:0,un:0};rows.forEach(([c,v])=>{if(c===WIFE)grp.wife+=v;else if(FAM_CATS.includes(c))grp.fam+=v;else if(c==='Chi chưa ghi')grp.un+=v;else grp.sh+=v});
+ let G=[['Sinh hoạt',grp.sh,'#2d91ff'],['Vợ',grp.wife,'#ff5fa2'],['Gia đình',grp.fam,'#f78c6b'],['Chưa ghi rõ',grp.un,'#6f8497']].filter(g=>g[1]>0),mx=rows[0][1];
+ return `<section class="blk"><div class="blkHead"><div><b>${title||'Tháng này chi vào đâu'}</b><small>Tổng ${money(tot)}</small></div><button type="button" class="lnk17" onclick="showPage('transactions')">Chi tiết ›</button></div>
+ <div class="stackBar">${G.map(g=>`<i style="width:${g[1]/tot*100}%;background:${g[2]}"></i>`).join('')}</div><div class="grpLegend">${G.map(g=>`<span><i style="background:${g[2]}"></i>${g[0]} <b>${Math.round(g[1]/tot*100)}%</b></span>`).join('')}</div>
+ <div class="catList">${rows.slice(0,7).map(([c,v])=>{let u=catUi(c);return `<div class="catRow"><div class="ico17 sm" style="--c:${u[1]}">${u[0]}</div><div class="grow"><div class="row"><span>${c}</span><b>${money(v)}</b></div><div class="catBar"><i style="width:${v/mx*100}%;background:${u[1]}"></i></div></div></div>`}).join('')}</div></section>`}
+function potsHtml(){let m=moneyPicture(),sp=flowSplit(),RT=flowReserveTarget(),st=stashAcc(),fx=flexDebts(),o=flowOwed(),L=lifeCfg();
+ let card=(ic,col,name,val,sub,pct,act)=>`<button type="button" class="pot" style="--c:${col}" ${act?`onclick="${act}"`:''}><div class="potTop"><span class="potIc">${ic}</span><span>${name}</span></div><b class="${val<0?'neg':''}">${money(val)}</b><small>${sub}</small>${pct!=null?`<div class="potBar"><i style="width:${Math.max(0,Math.min(100,pct))}%"></i></div>`:''}</button>`;
+ let cards=[];
+ if(m.livePot!=null)cards.push(card('🛒','#2d91ff','Tiêu 30 ngày',m.livePot,`${pctS(sp.pL)} mỗi khoản vào`,m.liveIn>0?Math.max(0,m.livePot)/m.liveIn*100:null,"mgrOpen('today')"));
+ cards.push(card('♥','#ff5fa2','Hũ Vợ',wifePot(),`${pctS(sp.pWife||0)} · tháng này cho ${money(wifeSpent(realMonth()+'-01'))}`,null,'openWifeGive()'));
+ cards.push(card('👪','#f78c6b','Gia đình',famPot(),`${pctS(sp.pFam||0)} mỗi khoản vào`,null,'openFamilyGive()'));
+ if(fx.length)cards.push(card('↺','#d4b26a','Nợ người quen',Math.round(o.x||0),`còn nợ ${money(fx.reduce((q,d)=>q+debtRemain(d),0))}`,null,"showPage('debts')"));
+ if(st){let b=actual(st);cards.push(card('⛨','#7be0b0','Để dành',b,`mục tiêu phòng hờ ${money(r10k(RT.target))}`,RT.target>0?b/RT.target*100:null,"showPage('assets')"))}
+ return `<section class="blk"><div class="blkHead"><div><b>Các hũ tiền</b><small>Mỗi khoản tiền vào app tự chia vào các hũ</small></div><button type="button" class="lnk17" onclick="mgrOpen('today')">Cách chia ›</button></div><div class="potGrid">${cards.join('')}</div></section>`}
+function v17HomeHtml(){let r=mgrOrders(),m=r.m,L=lifeCfg(),t=today(),checked=L.lastCheck===t,now=new Date(),ins=mgrInsights().filter(x=>x.t!=='Mọi thứ đang đúng kế hoạch').slice(0,4),P=autoMonthPlan(),st=stashAcc();
+ let nw=net(),bt=bankTotal(),ct=cashTotal(),sv=st?actual(st):0,debt=debtsTotal(),spent=m.spentToday||0,per=Math.max(1,m.perDay||0),pct=Math.min(100,spent/per*100);
+ let hero=`<section class="blk hero17"><div class="h17Top"><div><span>Tài sản ròng</span><b class="amt17">${money(nw)}</b></div><button type="button" class="eye17" onclick="toggleAmounts()">${amountsHidden?'◎':'◉'}</button></div>
+ <div class="h17Tiles"><div><span>🏦 Ngân hàng</span><b class="amt17">${money(bt)}</b></div><div><span>💵 Tiền mặt</span><b class="amt17 ${ct<0?'neg':''}">${money(ct)}</b></div><div><span>⛨ Để dành</span><b class="amt17">${money(sv)}</b></div></div>${debt>0?`<div class="h17Debt" onclick="showPage('debts')"><span>Còn nợ</span><b>${money(debt)}</b><small>›</small></div>`:''}</section>`;
+ let today17=`<section class="blk today17"><div class="t17Head"><div><span>Hôm nay được tiêu</span><b class="${m.todayLeft>=0?'pos':'neg'}">${money(Math.max(0,m.todayLeft))}</b></div><button type="button" class="scFull" onclick="lifeSet('simple',false)">Đầy đủ ›</button></div>
+ <div class="t17Bar ${pct>=100?'over':pct>=80?'warn':''}"><i style="width:${pct}%"></i></div><div class="t17Sub"><span>Đã tiêu ${money(spent)}</span><span>Mức mỗi ngày ${money(m.perDay)}</span></div>${m.todayLeft<0?`<div class="neg" style="font-size:12px;margin-top:4px">Đã vượt ${money(-m.todayLeft)} – mai app tự giảm mức tiêu một chút.</div>`:''}
+ <button type="button" class="scCheck ${checked?'done':''}" onclick="openCheckin()">${checked?'✓ Đã check-in hôm nay · bấm để sửa':now.getHours()>=17?'🌙 Check-in cuối ngày (20 giây)':'＋ Check-in / ghi tiền vào'}</button></section>`;
+ let quick=`<div class="qa17"><button type="button" onclick="openTx('income')"><i style="--c:#19d48f">＋</i><span>Tiền vào</span></button><button type="button" onclick="openWifeGive()"><i style="--c:#ff5fa2">♥</i><span>Cho vợ</span><small class="${wifePot()<0?'neg':''}">còn ${money(wifePot())}</small></button><button type="button" onclick="openFamilyGive()"><i style="--c:#f78c6b">👪</i><span>Gia đình</span><small class="${famPot()<0?'neg':''}">còn ${money(famPot())}</small></button><button type="button" onclick="openCashMove('out')"><i style="--c:#4cc9f0">💵</i><span>Rút tiền mặt</span></button></div>`;
+ let todo=`<section class="blk"><div class="blkHead"><div><b>Việc cần làm</b><small>${r.pending.length?`${r.pending.length} việc · ${money(r.sum)}`:'Tiền đã nằm đúng chỗ'}</small></div>${r.pending.length>3?`<button type="button" class="lnk17" onclick="mgrOpen('today')">Tất cả ›</button>`:''}</div>${r.pending.length?r.pending.slice(0,3).map(o=>`<div class="scTodo"><span>${o.icon} ${o.title}</span><b>${money(o.amount)}</b><button type="button" onclick='mgrDo(${escAttr(JSON.stringify(o.k))})'>✓</button></div>`).join(''):`<div class="scDone">✓ Không có việc gì cần làm${r.rec.done>0?` – hôm nay đã chuyển ${money(r.rec.done)}`:''}</div>`}</section>`;
+ let assist=ins.length?`<section class="blk"><div class="blkHead"><div><b>Trợ lý</b><small>Nhận xét từ dữ liệu của bạn</small></div><button type="button" class="lnk17" onclick="mgrOpen('today')">Thêm ›</button></div>${ins.map((x,i)=>`<details class="ins17 ${x.l}" ${i===0?"open":""}><summary><b>${x.t}</b></summary><div>${x.d}</div>${x.act?`<button type="button" onclick='${x.act[1]}'>${x.act[0]}</button>`:''}</details>`).join('')}</section>`:'';
+ let rec=db.tx.slice().sort((a,b)=>(b.date||'').localeCompare(a.date||'')||(+b.id||0)-(+a.id||0)).slice(0,5);
+ let recent=`<section class="blk"><div class="blkHead"><div><b>Gần đây</b></div><button type="button" class="lnk17" onclick="showPage('transactions')">Xem tất cả ›</button></div>${rec.map(txHtml).join('')||'<div class="empty">Chưa có giao dịch</div>'}</section>`;
+ let plan=`<section class="blk"><details class="mgrHelp"><summary>Kế hoạch tháng ${k2(realMonth())} app tự lập</summary><div><p>Dự kiến tiền vào ~<b>${money(r10k(P.exp))}</b> (tháng chậm ~${money(r10k(P.cons))}). Tháng này đã vào <b>${money(P.inM)}</b>.</p>${P.rows.map(x=>`<div class="row line"><span><i class="repDot" style="background:${FLOW_COL[x.k]}"></i>${x.l}</span><b>${money(r10k(x.v))}</b></div>`).join('')}<p style="margin-top:8px">Để dành tháng này: <b>${money(P.saved)}</b> / ${money(P.saveTarget)}</p><div class="planBar"><i style="width:${P.saveTarget>0?Math.min(100,P.saved/P.saveTarget*100):0}%"></i></div></div></details></section>`;
+ let rem='';try{rem=remindHtml()}catch(e){}
+ return rem+hero+today17+quickEntryHtml()+quick+todo+potsHtml()+spendBlockHtml(realMonth())+assist+recent+plan}
+simpleCardHtml=function(){return v17HomeHtml()};
+const _applySimple17=applySimple;applySimple=function(){let i=$('qeIn'),val=i?i.value:'',foc=i&&document.activeElement===i;_applySimple17();document.body.classList.toggle('v17',isSimple());qeWire();let j=$('qeIn');if(j&&val){j.value=val;j.dispatchEvent(new Event('input'));if(foc)j.focus()}};
+/* Trang Thu chi: thêm khối chi theo nhóm của tháng đang xem */
+const _renderTx17=renderTx;renderTx=function(){_renderTx17();let pg=$('transactions');if(!pg||pg.classList.contains('hide'))return;let b=$('txCats17');if(!b){let s=pg.querySelector('.summary3');if(s)s.insertAdjacentHTML('afterend','<div id="txCats17"></div>');b=$('txCats17')}if(b)b.innerHTML=txFilter==='income'?'':spendBlockHtml(ym(),'Chi theo nhóm – tháng '+k2(ym())).replace(/<button type="button" class="lnk17" onclick="showPage\('transactions'\)">Chi tiết ›<\/button>/,'')};
+/* Thiết lập: cho vợ mỗi tháng */
+const _ops17=openPlanSettings;openPlanSettings=function(){_ops17();let f=$('planSetForm');if(!f||!f.elements.wifeMin)return;let L=lifeCfg(),au=wifeMonthlyAuto();
+ let lb=[...f.querySelectorAll('label.chk')].find(x=>x.textContent.includes('vợ'));if(lb)lb.lastChild.textContent=' Nhắc cho vợ vào ngày thu tốt';
+ let g=f.elements.wifeMin.closest('.splitGrid');if(g)g.insertAdjacentHTML('afterend',`<label>Cho vợ mỗi tháng – tính chung chuyển khoản, tiền mặt, mua đồ (để trống = tự tính${au?': '+money(r10k(au)):''})</label><input name="wifeMonthly" type="number" inputmode="numeric" min="0" value="${L.wifeMonthly==null?'':L.wifeMonthly}">`);
+ let h=f.onsubmit;f.onsubmit=function(e){let v=f.elements.wifeMonthly.value;lifeCfg().wifeMonthly=v===''?null:Math.max(0,+v||0);return h.call(this,e)}};
+/* Nút ＋ giữa: ghi nhanh + cho vợ */
+const _qa17=openQuickAdd;openQuickAdd=function(){_qa17();let s=$('sheet');if(!s)return;let q=s.querySelector('.quick');if(q)q.insertAdjacentHTML('beforebegin',`<div class="qa17" style="margin-top:10px"><button type="button" onclick="closeModal();openWifeGive()"><i style="--c:#ff5fa2">♥</i><span>Cho vợ</span></button><button type="button" onclick="closeModal();openFamilyGive()"><i style="--c:#f78c6b">👪</i><span>Gia đình</span></button><button type="button" onclick="closeModal();openCashMove('out')"><i style="--c:#4cc9f0">💵</i><span>Rút tiền mặt</span></button><button type="button" onclick="closeModal();showPage('home');setTimeout(()=>{let i=document.getElementById('qeIn');if(i)i.focus()},50)"><i style="--c:#ffbd59">✎</i><span>Ghi nhanh</span></button></div>`)};
+try{memoReset();render()}catch(e){console.error('v17',e)}
+
 </script>
 <script>
 if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
@@ -3018,8 +3276,8 @@ if('serviceWorker' in navigator){
    navigator.serviceWorker.register('./sw.js?v=16000',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
  });
  navigator.serviceWorker.addEventListener('controllerchange',()=>{
-   if(!sessionStorage.getItem('v16000Reloaded')){sessionStorage.setItem('v16000Reloaded','1');location.reload()}
+   if(!sessionStorage.getItem('v17000Reloaded')){sessionStorage.setItem('v17000Reloaded','1');location.reload()}
  });
 }
 </script>
-<div id="buildBadge" style="position:fixed;right:5px;bottom:calc(64px + env(safe-area-inset-bottom));z-index:9999;font:700 8px system-ui;color:#6f8497;opacity:.65;pointer-events:none">V16.0.0</div></body></html>
+<div id="buildBadge" style="position:fixed;right:5px;bottom:calc(64px + env(safe-area-inset-bottom));z-index:9999;font:700 8px system-ui;color:#6f8497;opacity:.65;pointer-events:none">V17.0.0</div></body></html>

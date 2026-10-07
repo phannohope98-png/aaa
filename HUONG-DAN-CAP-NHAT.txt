@@ -1,6 +1,7 @@
-V16.0.0 - CHE DO TU DONG
-Upload de 5 file len GitHub Pages. KHONG xoa PWA cu, KHONG xoa du lieu Safari. Du lieu van dung localStorage key kmFinancePro1.
+V17.0.0 - CHO VO GOP MOT MOI, TIEN MAT RIENG, GHI NHANH BANG CAU
+Du lieu van dung localStorage key kmFinancePro1 (khong mat du lieu cu).
 
-MOI NGAY CHI CAN: toi bam "Check-in cuoi ngay" - nhap tien vao hom nay + tong tien dang co. Xong.
-Co viec "Chuyen vao tai khoan de danh" thi chuyen that roi bam dau tick.
-Muon xem day du: bam "Day du" tren the chinh.
+- Cho vo: chi 1 nut "Cho vo" (chuyen khoan, tien mat, mua do deu tinh chung nhom Vo). App de rieng "Hu Vo" trong moi khoan tien vao, cho vo khong an vao tien tieu hang ngay.
+- Tien mat: moi lan cho vo / gia dinh / tien vao deu chon Tien mat hoac Chuyen khoan. Check-in nhap rieng so du ngan hang va tien mat trong vi. Co nut "Rut tien mat".
+- Ghi nhanh: go 1 cau o trang chu, vi du "cho vo 300k tien mat", "an trua 45k", "vao 2tr2", "rut 1tr".
+- Trang chu chia khoi: tai san, hom nay duoc tieu, viec can lam, cac hu tien, chi theo nhom, tro ly, gan day.
