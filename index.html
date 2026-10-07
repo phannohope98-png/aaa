@@ -666,6 +666,64 @@ body.v20 #home>.heroCard{display:none!important}
 body.ui20 .remBar{background:linear-gradient(90deg,rgba(180,107,255,.18),rgba(0,229,255,.1))!important;border:1px solid rgba(180,107,255,.35)!important;border-radius:14px!important}
 @media (prefers-reduced-motion:reduce){.scan20,.task20{animation:none!important}}
 </style>
+<style id="app-style-v201">/* V20.1: HUD cho toàn bộ app */
+body.ui201{--c1:#00e5ff;--c2:#b46bff;--c3:#3effc3;--hudbg:linear-gradient(#00e5ff,#00e5ff) left 10px top 10px/16px 2px no-repeat,linear-gradient(#00e5ff,#00e5ff) left 10px top 10px/2px 16px no-repeat,linear-gradient(#b46bff,#b46bff) right 10px bottom 10px/16px 2px no-repeat,linear-gradient(#b46bff,#b46bff) right 10px bottom 10px/2px 16px no-repeat,linear-gradient(160deg,rgba(0,229,255,.08),rgba(180,107,255,.07) 55%,rgba(8,12,32,.6))}
+/* khung HUD chung */
+body.ui201 .panel,body.ui201 #strategy .blk:not(.card172),body.ui201 #txCats17 .blk,body.ui201 .summary3,body.ui201 #simpleCardPlan .arr18,body.ui201 .mis20,body.ui201 .bal201,body.ui201 #simpleCard .qeBlk{background:var(--hudbg)!important;border:1px solid rgba(0,229,255,.18)!important;border-radius:22px!important;box-shadow:inset 0 0 0 1px rgba(180,107,255,.06),0 16px 40px rgba(0,0,0,.42),0 0 30px rgba(0,229,255,.06)!important;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+body.ui201 .panel{padding:16px!important;margin:12px 0!important}
+/* chữ & số */
+body.ui201 .panel b,body.ui201 .blk b,body.ui201 .sheet h2,body.ui201 .heroValue,body.ui201 .iosTitle,body.ui201 .summary3 b,body.ui201 .task20 b,body.ui201 .bal201 b{font-family:"Space Grotesk","Be Vietnam Pro",system-ui,sans-serif!important}
+body.ui201 .panelHead>div>b:first-child,body.ui201 .panelHead>b:first-child,body.ui201 .panel>b:first-child,body.ui201 #strategy .blkHead>div>b,body.ui201 #txCats17 .blkHead>div>b,body.ui201 .arr18 .blkHead>div>b{font-size:12.5px!important;letter-spacing:.09em;text-transform:uppercase;color:#9fe8ff!important;text-shadow:0 0 12px rgba(0,229,255,.35)}
+body.ui201 .pos{color:#3effc3!important;text-shadow:0 0 14px rgba(62,255,195,.3)}body.ui201 .neg{color:#ff6b8f!important;text-shadow:0 0 14px rgba(255,90,140,.28)}
+body.ui201 .muted{color:#8798b8}
+/* header + điều hướng */
+body.ui201 .iosHeader{position:sticky}body.ui201 .iosHeader::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:linear-gradient(90deg,transparent,#00e5ff,#b46bff,transparent);background-size:200% 100%;animation:shim 4s linear infinite;opacity:.8}
+@keyframes shim{from{background-position:200% 0}to{background-position:-200% 0}}
+body.ui201 .bottomNav{border:1px solid rgba(0,229,255,.22)!important;box-shadow:0 18px 40px rgba(0,0,0,.5),0 0 24px rgba(0,229,255,.1),inset 0 1px 0 rgba(255,255,255,.06)!important}
+body.ui201 .bottomNav button.active i{color:#00e5ff!important;filter:drop-shadow(0 0 8px rgba(0,229,255,.9))!important}
+body.ui201 .bottomNav .centerAdd{background:linear-gradient(135deg,#00c6ff,#7b6bff 55%,#c46bff)!important;box-shadow:0 0 0 4px rgba(0,229,255,.12),0 10px 28px rgba(110,110,255,.6)!important}
+/* nút */
+body.ui201 button.primary,body.ui201 .sheet .primary,body.ui201 .scCheck,body.ui201 .addText,body.ui201 #investmentAddBtn,body.ui201 .debtPayBtn{background:linear-gradient(135deg,#00c6ff,#7b6bff 60%,#c46bff)!important;border:0!important;color:#fff!important;box-shadow:0 0 0 1px rgba(255,255,255,.08) inset,0 8px 22px rgba(91,120,255,.4)!important}
+body.ui201 #transactions button:not(.active):not(.editMini),body.ui201 #assets button:not(.activeTab):not(.addText):not(.primary),body.ui201 #debts button:not(.activeTab):not(.addText):not(.debtPayBtn):not(.primary),body.ui201 #investments button:not(.activeTab):not(#investmentAddBtn):not(.primary),body.ui201 #reports button,body.ui201 #plan button:not(.active):not(.primary){background:rgba(0,229,255,.05)!important;border:1px solid rgba(0,229,255,.18)!important;color:#d6ecff!important}
+body.ui201 #investments .panel button:not(#investmentAddBtn){min-height:34px!important;padding:6px 10px!important;font-size:12px!important;border-radius:11px!important}
+body.ui201 .segmented button.active,body.ui201 .assetTabs button.activeTab,body.ui201 .chartModeSwitch button.active,body.ui201 #reports .reportControls button.active{background:linear-gradient(135deg,#00c6ff,#7b6bff)!important;color:#fff!important;box-shadow:0 0 16px rgba(0,229,255,.35)!important}
+/* thẻ tiêu đề trang */
+body.ui201 .heroCard{background:linear-gradient(150deg,#0b2a5c 0%,#2a1e6a 55%,#0f1230 100%) padding-box,conic-gradient(from var(--ang),#00e5ff,#b46bff,#3effc3,#00e5ff) border-box!important}
+body.ui201 .heroCard .heroIcon{background:linear-gradient(135deg,#00c6ff,#7b6bff 60%,#c46bff)!important}
+/* Thu chi */
+body.ui201 .summary3{padding:4px!important;display:grid;grid-template-columns:repeat(3,1fr);gap:4px}body.ui201 .summary3>div{background:rgba(0,0,0,.2);border-radius:16px;padding:10px!important}body.ui201 .summary3 small{letter-spacing:.06em;text-transform:uppercase;font-size:9.5px!important;color:#9fb3d6}
+body.ui201 .txDay{color:#9fe8ff!important;font-size:12px;letter-spacing:.04em;border-bottom:1px solid rgba(0,229,255,.12)}
+body.ui201 .search{border-color:rgba(0,229,255,.2)!important}
+body.ui201 .monthNav b{font-family:"Space Grotesk",sans-serif;letter-spacing:.04em}
+/* Phân tích: bảng thành ô */
+body.ui201 #report{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+body.ui201 #report .row.line{display:flex!important;flex-direction:column;align-items:flex-start!important;gap:4px;padding:10px 11px!important;border:1px solid rgba(0,229,255,.12)!important;border-radius:14px;background:rgba(0,0,0,.22)}
+body.ui201 #report .row.line span{font-size:11px;color:#9fb3d6;line-height:1.3}body.ui201 #report .row.line b{font-size:15px}
+body.ui201 #report .alert{grid-column:1/-1}
+body.ui201 #cashChart i:first-child{background:linear-gradient(#3effc3,#00a985)!important;box-shadow:0 0 10px rgba(62,255,195,.5)}body.ui201 #cashChart i:last-child{background:linear-gradient(#ff8fb0,#e84a74)!important;box-shadow:0 0 10px rgba(255,90,140,.45)}
+body.ui201 #cashChart{background:repeating-linear-gradient(0deg,rgba(0,229,255,.06) 0 1px,transparent 1px 25%)!important}
+/* Nợ, tài sản, đầu tư */
+body.ui201 .debtScheduleItem,body.ui201 #debtList>div{border-color:rgba(0,229,255,.1)!important}
+body.ui201 #debtList .progress,body.ui201 #debtList .planBar{height:8px!important}
+body.ui201 .tx,body.ui201 .assetrow{border-color:rgba(0,229,255,.08)!important}
+body.ui201 .donutWrap{filter:drop-shadow(0 0 14px rgba(123,107,255,.35))}
+/* bảng nhập (sheet) */
+body.ui201 .sheet{background:var(--hudbg),linear-gradient(180deg,rgba(16,24,52,.96),rgba(6,10,26,.98))!important;border:1px solid rgba(0,229,255,.22)!important;box-shadow:0 -20px 60px rgba(0,0,0,.6),0 0 40px rgba(0,229,255,.08)!important}
+body.ui201 .sheet::before{background:linear-gradient(90deg,#00e5ff,#b46bff)!important;box-shadow:0 0 10px rgba(0,229,255,.7)}
+body.ui201 .sheet label{color:#9fb3d6;font-size:11.5px;letter-spacing:.04em}
+body.ui201 .keypad button{border-color:rgba(0,229,255,.16)!important;font-family:"Space Grotesk",sans-serif!important}
+body.ui201 #amountDisplay,body.ui201 .sheet .amountDisplay{font-family:"Space Grotesk",sans-serif!important;text-shadow:0 0 22px rgba(0,229,255,.4)}
+/* Số dư trang chủ */
+.bal201{padding:16px!important;margin-bottom:14px}
+.balTop{display:flex;justify-content:space-between;align-items:flex-end;gap:10px}.balTop small{display:block;font-size:10.5px;letter-spacing:.09em;color:#9fe8ff;font-weight:700}.balTop>div>b{display:block;font-size:28px;font-weight:700;margin-top:3px;text-shadow:0 0 22px rgba(0,229,255,.35)}
+.balSide{display:flex;flex-direction:column;align-items:flex-end;gap:3px;font-size:11.5px;color:#9fb3d6}.balSide b{font-size:13px;color:#fff;margin-left:4px}
+.balBar{display:flex;height:6px;gap:2px;border-radius:6px;overflow:hidden;background:rgba(255,255,255,.06);margin:12px 0}.balBar i{display:block;height:100%;box-shadow:0 0 8px currentColor}
+.balGrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.balGrid button{display:grid!important;grid-template-columns:30px 1fr;grid-template-rows:auto auto;column-gap:9px;align-items:center;text-align:left;padding:10px!important;border-radius:15px!important;background:rgba(0,0,0,.25)!important;border:1px solid color-mix(in srgb,var(--c) 30%,transparent)!important;color:#fff!important;width:auto!important;margin:0!important;min-height:0!important}
+.balGrid .bIc{grid-row:1/3;width:30px;height:30px;border-radius:10px;display:grid;place-items:center;background:color-mix(in srgb,var(--c) 22%,transparent);color:var(--c);box-shadow:0 0 12px color-mix(in srgb,var(--c) 35%,transparent)}
+.balGrid small{font-size:10.5px;color:#9fb3d6}.balGrid b{font-size:13.5px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.amountsHidden .bal201 .amt17{filter:blur(8px)}
+</style>
 </head><body><div class="app iphoneApp">
 <header class="iosHeader"><div class="iosTitle" id="pageTitle">Tổng quan</div><button class="iconBtn" onclick="openTools()">⚙</button></header>
 <main class="screenWrap">
@@ -708,7 +766,7 @@ body.ui20 .remBar{background:linear-gradient(90deg,rgba(180,107,255,.18),rgba(0,
 <nav class="bottomNav"><button class="active" data-page="home" onclick="showPage('home')"><i>⌂</i><span>Tổng quan</span></button><button data-page="transactions" onclick="showPage('transactions')"><i>☷</i><span>Thu chi</span></button><button class="centerAdd" onclick="openQuickAdd()">＋</button><button data-page="assets" onclick="showPage('assets')"><i>▣</i><span>Tài sản</span></button><button id="moreNavBtn" onclick="openMoreMenu()"><i>•••</i><span>Thêm</span></button></nav>
 </div><div class="modal" id="modal"><div class="sheet" id="sheet"></div></div>
 <script>
-const APP_VERSION='V20.0.0';
+const APP_VERSION='V20.1.0';
 const KEY='kmFinancePro1', $=x=>document.getElementById(x), money=(f=>n=>f.format(Number(n)||0))(new Intl.NumberFormat('vi-VN',{style:'currency',currency:'VND',maximumFractionDigits:0}));let current=new Date();current.setDate(1);const expenseCats=['Ăn Uống','Giao Lưu / Giải Trí','Đi Lại','Vợ','Con','Nhà Cửa','Ba Mẹ','Quà','Điện Thoại','Y Tế','Thể Thao - Giáo Dục','Cho Mượn','Chi Khác'],incomeCats=['Lương','Web','Khác','Rút từ đầu tư về'],investTypes=['Chứng khoán','Chứng chỉ quỹ','Vàng','Tiết kiệm'];const META_KEY=KEY+'_meta';
 function defaultDB(){return {accounts:[{id:1,name:'Tiền Mặt',kind:'liquid',opening:0},{id:2,name:'Tài khoản ngân hàng',kind:'liquid',opening:0},{id:3,name:'Dự phòng & dự trù',kind:'reserve',opening:0}],tx:[],investments:[],debts:[],budgets:[],goals:{'Trả nợ':25,'Dự phòng':20,'Mua vàng':15,'Gửi tiết kiệm':15,'Chứng chỉ quỹ':10,'Chứng khoán':15},recurring:[],fundGoals:[]}}
 function normalizeDB(x){x=x&&typeof x==='object'?x:defaultDB();x.accounts=Array.isArray(x.accounts)?x.accounts:defaultDB().accounts;x.tx=Array.isArray(x.tx)?x.tx:[];x.investments=Array.isArray(x.investments)?x.investments:[];x.debts=Array.isArray(x.debts)?x.debts:[];x.budgets=Array.isArray(x.budgets)?x.budgets:[];x.recurring=Array.isArray(x.recurring)?x.recurring:[];x.fundGoals=Array.isArray(x.fundGoals)?x.fundGoals:[];x.goals=x.goals&&typeof x.goals==='object'?x.goals:defaultDB().goals;x.prices=x.prices&&typeof x.prices==='object'&&!Array.isArray(x.prices)?x.prices:{};return x}
@@ -860,7 +918,7 @@ function openMoreMenu(){openModal(`<h2>Thêm chức năng</h2><div class='moreGr
 <button onclick="closeModal();openInitialSetup()"><b>⚙</b><span>Tài chính ban đầu</span></button>
 <button onclick="closeModal();openTools()"><b>☁</b><span>Sao lưu & dữ liệu</span></button>
 </div><div class='divider'></div><div class='moreLinks'><button onclick="closeModal();showPage('debts')">Nợ phải trả</button><button onclick="closeModal();showPage('investments')">Đầu tư</button></div>`)}
-function showPage(p){['home','transactions','investments','debts','assets','reports','plan'].forEach(x=>$(x).classList.toggle('hide',x!==p));document.querySelectorAll('.bottomNav button[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===p));let titles={home:'Tổng quan',transactions:'Thu chi',assets:'Tài sản',debts:'Nợ phải trả',investments:'Đầu tư',reports:'Phân tích',plan:'Kế hoạch phân bổ'};if($('pageTitle'))$('pageTitle').textContent=titles[p]||'App Thu Chi';render();if(p==='reports')updateReportControls()}function openTools(){openModal(`<h2>Công cụ & dữ liệu</h2><div class='muted' style='margin-bottom:10px'>Phiên bản đang chạy: <b>V20.0.0</b></div><label>Chọn tháng đang xem</label><input id='mp' type='month' value='${ym()}'><button class='primary' style='width:100%;margin-top:10px' onclick='changeMonth()'>Đổi tháng</button><div class='divider'></div><button style='width:100%' class='primary' onclick='openInitialSetup()'>Thiết lập tài chính ban đầu</button><button style='width:100%;margin-top:8px' onclick='verifyStorage(true)'>Kiểm tra dữ liệu đã lưu</button><button style='width:100%;margin-top:8px' onclick='backup()'>Xuất bản sao lưu JSON</button><button style='width:100%;margin-top:8px' onclick='pickRestore()'>Khôi phục từ file JSON</button><input id='restoreFile' type='file' accept='.json,application/json' style='display:none' onchange='restoreBackup(event)'><button class='dangerBtn' style='width:100%;margin-top:8px' onclick="if(confirm('Xóa toàn bộ dữ liệu?')){localStorage.removeItem(KEY);localStorage.removeItem(META_KEY);location.reload()}">Xóa dữ liệu</button>`)}function changeMonth(){let v=$('mp').value;if(v){current=new Date(v+'-01T00:00');closeModal();render()}}function backup(){let raw=JSON.stringify(db),pack={app:'App Thu Chi',version:APP_VERSION+'-PWA',exportedAt:new Date().toISOString(),checksum:checksum(raw),counts:dataCounts(),data:db},text=JSON.stringify(pack,null,2),b=new Blob([text],{type:'application/json;charset=utf-8'}),url=URL.createObjectURL(b),a=document.createElement('a');a.href=url;a.download='app-thu-chi-backup-'+new Date().toISOString().slice(0,10)+'.json';a.style.display='none';document.body.appendChild(a);a.click();setTimeout(()=>{a.remove();URL.revokeObjectURL(url)},5000)}
+function showPage(p){['home','transactions','investments','debts','assets','reports','plan'].forEach(x=>$(x).classList.toggle('hide',x!==p));document.querySelectorAll('.bottomNav button[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===p));let titles={home:'Tổng quan',transactions:'Thu chi',assets:'Tài sản',debts:'Nợ phải trả',investments:'Đầu tư',reports:'Phân tích',plan:'Kế hoạch phân bổ'};if($('pageTitle'))$('pageTitle').textContent=titles[p]||'App Thu Chi';render();if(p==='reports')updateReportControls()}function openTools(){openModal(`<h2>Công cụ & dữ liệu</h2><div class='muted' style='margin-bottom:10px'>Phiên bản đang chạy: <b>V20.1.0</b></div><label>Chọn tháng đang xem</label><input id='mp' type='month' value='${ym()}'><button class='primary' style='width:100%;margin-top:10px' onclick='changeMonth()'>Đổi tháng</button><div class='divider'></div><button style='width:100%' class='primary' onclick='openInitialSetup()'>Thiết lập tài chính ban đầu</button><button style='width:100%;margin-top:8px' onclick='verifyStorage(true)'>Kiểm tra dữ liệu đã lưu</button><button style='width:100%;margin-top:8px' onclick='backup()'>Xuất bản sao lưu JSON</button><button style='width:100%;margin-top:8px' onclick='pickRestore()'>Khôi phục từ file JSON</button><input id='restoreFile' type='file' accept='.json,application/json' style='display:none' onchange='restoreBackup(event)'><button class='dangerBtn' style='width:100%;margin-top:8px' onclick="if(confirm('Xóa toàn bộ dữ liệu?')){localStorage.removeItem(KEY);localStorage.removeItem(META_KEY);location.reload()}">Xóa dữ liệu</button>`)}function changeMonth(){let v=$('mp').value;if(v){current=new Date(v+'-01T00:00');closeModal();render()}}function backup(){let raw=JSON.stringify(db),pack={app:'App Thu Chi',version:APP_VERSION+'-PWA',exportedAt:new Date().toISOString(),checksum:checksum(raw),counts:dataCounts(),data:db},text=JSON.stringify(pack,null,2),b=new Blob([text],{type:'application/json;charset=utf-8'}),url=URL.createObjectURL(b),a=document.createElement('a');a.href=url;a.download='app-thu-chi-backup-'+new Date().toISOString().slice(0,10)+'.json';a.style.display='none';document.body.appendChild(a);a.click();setTimeout(()=>{a.remove();URL.revokeObjectURL(url)},5000)}
 function pickRestore(){let f=$('restoreFile');if(f)f.click()}
 function restoreBackup(e){let file=e.target.files&&e.target.files[0];if(!file)return;let r=new FileReader();r.onload=()=>{try{let pack=JSON.parse(r.result),x=pack&&pack.data?pack.data:pack;if(pack&&pack.data&&pack.checksum&&checksum(JSON.stringify(pack.data))!==pack.checksum)throw new Error('Checksum file backup không khớp');if(!x||!Array.isArray(x.accounts)||!Array.isArray(x.tx))throw new Error('Sai cấu trúc');x=normalizeDB(x);if(!confirm('Khôi phục sẽ thay thế dữ liệu hiện tại. Tiếp tục?')){e.target.value='';return}db=x;if(!save())throw new Error('Không thể ghi dữ liệu khôi phục');closeModal();render();if(!verifyStorage(false))throw new Error('Dữ liệu sau khôi phục không vượt qua kiểm tra');alert('Đã khôi phục và kiểm tra dữ liệu thành công.')}catch(err){alert('Khôi phục thất bại: '+(err.message||err))}finally{e.target.value=''}};r.readAsText(file)}
 
@@ -3519,7 +3577,7 @@ function v17HomeHtml(){let r=mgrOrders(),m=r.m,L=lifeCfg(),t=today(),checked=L.l
 simpleCardHtml=function(){return v17HomeHtml()};
 const _applySimple17=applySimple;applySimple=function(){let i=$('qeIn'),val=i?i.value:'',foc=i&&document.activeElement===i;_applySimple17();document.body.classList.toggle('v17',isSimple());qeWire();let j=$('qeIn');if(j&&val){j.value=val;j.dispatchEvent(new Event('input'));if(foc)j.focus()}};
 /* Trang Thu chi: thêm khối chi theo nhóm của tháng đang xem */
-const _renderTx17=renderTx;renderTx=function(){_renderTx17();let pg=$('transactions');if(!pg||pg.classList.contains('hide'))return;let b=$('txCats17');if(!b){let s=pg.querySelector('.summary3');if(s)s.insertAdjacentHTML('afterend','<div id="txCats17"></div>');b=$('txCats17')}if(b)b.innerHTML=txFilter==='income'?'':spendBlockHtml(ym(),'Chi theo nhóm – tháng '+k2(ym())).replace(/<button type="button" class="lnk17" onclick="showPage\('transactions'\)">Chi tiết ›<\/button>/,'')};
+const _renderTx17=renderTx;renderTx=function(){_renderTx17();let pg=$('transactions');if(!pg||pg.classList.contains('hide'))return;let b=$('txCats17');if(!b){let s=$('search');if(s)s.insertAdjacentHTML('beforebegin','<div id="txCats17"></div>');b=$('txCats17')}if(b)b.innerHTML=txFilter==='income'?'':spendBlockHtml(ym(),'Chi theo nhóm – tháng '+k2(ym())).replace(/<button type="button" class="lnk17" onclick="showPage\('transactions'\)">Chi tiết ›<\/button>/,'')};
 /* Thiết lập: cho vợ mỗi tháng */
 const _ops17=openPlanSettings;openPlanSettings=function(){_ops17();let f=$('planSetForm');if(!f||!f.elements.wifeMin)return;let L=lifeCfg(),au=wifeMonthlyAuto();
  let lb=[...f.querySelectorAll('label.chk')].find(x=>x.textContent.includes('vợ'));if(lb)lb.lastChild.textContent=' Nhắc cho vợ vào ngày thu tốt';
@@ -3995,6 +4053,17 @@ const _plan20=renderPlan;renderPlan=function(){_plan20();let el=$('planBody');if
 document.body.classList.add('ui20');
 try{memoReset();render()}catch(e){console.error('v20',e)}
 
+
+/* ===== V20.1.0: Số dư trở lại trang chủ · Giao diện HUD cho mọi trang ===================================== */
+function bal201(){let acc=db.accounts,sum=k=>acc.filter(k).reduce((q,a)=>q+actual(a),0),bank=bankTotal(),cash=cashTotal(),res=sum(a=>a.kind==='reserve'),fund=sum(a=>a.kind==='debtfund'),sav=sum(a=>a.kind==='saving'),inv=invValue(),tot=bank+cash+res+fund+sav,debt=debtsTotal();
+ let tiles=[['bank','#4da3ff','Ngân hàng',bank,"showPage('assets')"],['cash','#3effc3','Tiền mặt',cash,"openCashMove('out')"],['shield','#b46bff','Dự phòng',res,"showPage('assets')"],['lock','#ffc857','Quỹ trả nợ',fund,"showPage('assets')"]];if(sav>0)tiles.push(['flag','#7fd6ff','Tiết kiệm',sav,"showPage('assets')"]);
+ return `<section class="bal201"><div class="balTop"><div><small>TỔNG TIỀN ĐANG CÓ</small><b class="cnt amt17" data-v="${Math.round(tot)}">${money(tot)}</b></div><div class="balSide"><span>Đầu tư <b class="amt17">${cmpMoney(inv)}</b></span><span>Nợ <b class="neg amt17">${cmpMoney(debt)}</b></span></div></div>
+ <div class="balBar">${tiles.map(t=>`<i style="width:${Math.max(0,t[3])/Math.max(1,tot)*100}%;background:${t[1]}"></i>`).join('')}</div>
+ <div class="balGrid">${tiles.map(t=>`<button type="button" style="--c:${t[1]}" onclick="${t[4]}"><span class="bIc">${ic(t[0],16)}</span><small>${t[2]}</small><b class="amt17 ${t[3]<0?'neg':''}">${money(t[3])}</b></button>`).join('')}</div></section>`}
+const _v20h=v20Home;v20Home=function(){let h=_v20h();return h.replace('<section class="hud20">',bal201()+'<section class="hud20">')};
+document.body.classList.add('ui201');
+try{memoReset();render()}catch(e){console.error('v201',e)}
+
 </script>
 <script>
 if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
@@ -4024,8 +4093,8 @@ if('serviceWorker' in navigator){
    navigator.serviceWorker.register('./sw.js?v=16000',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});
  });
  navigator.serviceWorker.addEventListener('controllerchange',()=>{
-   if(!sessionStorage.getItem('v20000Reloaded')){sessionStorage.setItem('v20000Reloaded','1');location.reload()}
+   if(!sessionStorage.getItem('v20100Reloaded')){sessionStorage.setItem('v20100Reloaded','1');location.reload()}
  });
 }
 </script>
-<div id="buildBadge" style="position:fixed;right:5px;bottom:calc(64px + env(safe-area-inset-bottom));z-index:9999;font:700 8px system-ui;color:#6f8497;opacity:.65;pointer-events:none">V20.0.0</div></body></html>
+<div id="buildBadge" style="position:fixed;right:5px;bottom:calc(64px + env(safe-area-inset-bottom));z-index:9999;font:700 8px system-ui;color:#6f8497;opacity:.65;pointer-events:none">V20.1.0</div></body></html>
